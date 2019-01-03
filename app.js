@@ -4,6 +4,7 @@ const db = require('./config/keys').mongoURI;
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 mongoose
 .connect(db, { useNewUrlParser: true })
@@ -13,7 +14,12 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//FIX ME! - comment out later
 app.get("/", (req, res) => res.send("Welcome to u&i!"));
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
+
 
 app.use("/api/users", users);
 
