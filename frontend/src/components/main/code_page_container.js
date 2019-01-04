@@ -13,4 +13,4 @@ const mSTP = (state) => {
 //   };
 // };
 
-export default connect(mSTP, mDTP)(CodePage);
+export default connect(mSTP, null)(CodePage);
