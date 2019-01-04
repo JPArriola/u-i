@@ -113,6 +113,8 @@ router.post('/login', (req, res) => {
     })
 })
 
+// COMMENT 
+
 
 //FIX ME! 
 // You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
@@ -123,6 +125,19 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     email: req.user.email
   });
 })
+
+router.patch("/:id", (req, res) =>
+  res.json({ 
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email,
+    connectionCode: req.user.connectionCode,
+    connected: req.user.connected,
+    nickname: req.user.nickname,
+    birthday: req.user.birthday,
+    zipCode: req.user.zipCode
+  })
+);
 
 
 module.exports = router;
