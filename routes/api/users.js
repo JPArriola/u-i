@@ -24,7 +24,6 @@ function generateRandomCode() {
 }
 
 router.post('/signup', (req, res) => {
- 
   const { errors, isValid } = validateSignupInput(req.body);
 
   if (!isValid) {
@@ -85,8 +84,13 @@ router.post('/login', (req, res) => {
             const payload = {
               id: user.id,
               name: user.name,
+              email: user.email,
+              partnerId: user.partnerId,
               connectionCode: user.connectionCode,
-              connected: user.connected
+              connected: user.connected,
+              nickname: user.nickname,
+              birthday: user.birthday,
+              zipCode: user.zipCode
             };
 
             jwt.sign(
@@ -109,36 +113,65 @@ router.post('/login', (req, res) => {
               password: 'Incorrect password'
             });
           }
-        })
+        });
+    });
+});
+
+router.patch('/:user_id/connect', (req, res) => {
+  User.find({ connectionCode: req.body.connectionCode })
+    .then(partner => {
+      User.update(partner, {
+        partnerId: req.params.user_id,
+        connected: true
+      });
+      return partner;
     })
-})
+    .then( (partner) => { 
+      const currUser = { id: req.params.user_id };
+      //update might not return a promise 
+      User.update(currUser, {
+        partnerId: partner.id,
+        connectionCode: partner.connectionCode,
+        connected: true,
+      });
+      return currUser;
+    })
+    //double check this 
+    .then( (currUser) => {
+      res.json(currUser);  
+    })
+    .catch(err =>
+      res.status(404).json({ nouserfound: 'No user found with that connection code' })
+    );
+});
 
-// COMMENT 
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch (err =>
+      res.status(404).json({ nouserfound: 'No User found with that ID' })
+    );
+});
 
-
-//FIX ME! 
-// You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email
-  });
-})
-
-router.patch("/:id", (req, res) =>
-  res.json({ 
+//
+router.patch("/:id", (req, res) => {
+  const user = { id: req.params.id };
+  User.update(user, {
     id: req.user.id,
     name: req.user.name,
     email: req.user.email,
+    partnerId: req.user.partnerId,
     connectionCode: req.user.connectionCode,
     connected: req.user.connected,
     nickname: req.user.nickname,
     birthday: req.user.birthday,
     zipCode: req.user.zipCode
-  })
-);
-
+  }, function(err, affected, resp) {
+    User.findOne({ id: req.params.id }, function(err, user) {
+      res.send(user);
+    });
+  });
+});
 
 module.exports = router;
 
