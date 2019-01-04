@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+// import '../navbar/navbar_container';
 import '../stylesheets/home/home.scss';
 
 class Home extends React.Component {
@@ -17,41 +18,41 @@ class Home extends React.Component {
 
   render() {
   return (
-    <div class="content-master">
-      <div class="home-relationship-profiles">
-        <div class="profiles-container">
-          <div class="profiles-user">
-            <div class="profile-picture">
+    <div className="content-master">
+      <div className="home-relationship-profiles">
+        <div className="profiles-container">
+          <div className="profiles-user">
+            <div className="profile-picture">
 
             </div>
-            <div class="profile-content">
+            <div className="profile-content">
 
             </div>
           </div>
-          <div class="profiles-daycount">
-            <div class="daycount">
+          <div className="profiles-daycount">
+            <div className="daycount">
             </div>
-            <img src="../images/heart.png" class="profiles-heart"/>          
+            <img src="../images/heart.png" className="profiles-heart"/>          
           </div>
-          <div class="profiles-user">
-            <div class="profile-picture">
+          <div className="profiles-user">
+            <div className="profile-picture">
 
             </div>
-            <div class="profile-content">
+            <div className="profile-content">
 
             </div>
           </div>
 
         </div>
-        <div class="profiles-event-container">
-          <div class="event-header">
+        <div className="profiles-event-container">
+          <div className="event-header">
             Coming Soon
           </div>
-          <div class="event-information-container">
-            <div class="event-information">
+          <div className="event-information-container">
+            <div className="event-information">
               Event
             </div>
-            <div class="event-date">
+            <div className="event-date">
               Date
             </div>
           </div>

@@ -1,0 +1,156 @@
+html,
+body,
+header,
+nav,
+h1,
+a,
+ul,
+li,
+strong,
+main,
+button,
+i,
+section,
+img,
+div,
+h2,
+p,
+form,
+fieldset,
+label,
+input,
+textarea,
+span,
+article,
+footer,
+time,
+small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-family: 'Noto Serif TC', serif;
+  // color: inherit;
+  // text-align: inherit;
+  // text-decoration: inherit;
+  // vertical-align: inherit;
+  // box-sizing: border-box;
+  // background: transparent;
+  // -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.navbar-master {
+  height: 75px;
+  min-width: 960px;
+}
+
+.navbar-workingspace {
+  background-color: lightcoral;
+  display: flex;
+  justify-content: space-around;
+  height: inherit;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  align-items: center;
+  /* text-shadow: 1px 1px gray; */
+}
+
+.navbar-logo {
+  cursor: pointer;
+  // background-image: url("../images/Logo-white.png");
+  height: 60px;
+  width: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.navbar-dates {
+  cursor: pointer;
+  margin-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-dates:hover {
+  border-bottom: 3px solid white;
+  text-shadow: 1px 1px gray;
+}
+
+.navbar-stickys {
+  cursor: pointer;
+  margin-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-stickys:hover {
+  border-bottom: 3px solid white;
+  text-shadow: 1px 1px gray;
+}
+
+.navbar-albums {
+  cursor: pointer;
+  margin-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-albums:hover {
+  border-bottom: 3px solid white;
+  text-shadow: 1px 1px gray;
+}
+
+.navbar-logout {
+  border: 1px solid white;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
+
+.navbar-logout:hover {
+  background-color: white;
+  color: lightcoral;
+}
+
+.content {
+  height: 500px;
+}
