@@ -2,10 +2,7 @@ import React from 'react';
 import '../stylesheets/codepage/code_page.scss';
 
 class CodePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   backToHome() {
     return (e) => {
       e.preventDefault();

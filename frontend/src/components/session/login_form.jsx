@@ -60,8 +60,8 @@ class LoginForm extends React.Component {
     return (
       <div className="splash-main">
         <div className="splash">
-          <div className="logo">
-            <div className="ui-logo" onClick={ this.backToHome }></div>
+          <div className="big-logo">
+            <div className="big-ui-logo" onClick={ this.backToHome }></div>
           </div>
           <div className="splash-popup">
             <div className="text">
