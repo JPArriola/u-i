@@ -13,7 +13,9 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
-        user: action.currentUser
+        user: action.currentUser,
+        connectionCode: action.currentUser.connectionCode,
+        connected: action.currentUser.connected
       };
     case RECEIVE_USER_LOGOUT:
       return {

@@ -14,7 +14,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(
-  mSTP,
-  mDTP
-)(LoginForm);
+export default connect(mSTP, mDTP)(LoginForm);

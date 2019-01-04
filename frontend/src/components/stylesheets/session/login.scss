@@ -85,6 +85,10 @@ input:focus {
   margin: 0 auto;
 }
 
+.ui-logo:hover {
+  cursor: pointer;
+}
+
 .text {
   font-size: 70px;
   margin-top: 10px;
@@ -135,7 +139,7 @@ input:focus {
   margin: 0 auto;
 }
 
-.loginbutton-on-login {
+.submit-button {
   height: 50px;
   width: 250px;
   border-radius: 5px;
@@ -146,7 +150,7 @@ input:focus {
   color: lightcoral;
 }
 
-.loginbutton-on-login:hover {
+.submit-button:hover {
   cursor: pointer;
   background-color: lightcoral;
   color: white;

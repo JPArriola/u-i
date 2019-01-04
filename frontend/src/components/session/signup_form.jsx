@@ -12,6 +12,7 @@ class SignupForm extends React.Component {
     };
 
     this.handleSignup = this.handleSignup.bind(this);
+    this.backToHome = this.backToHome.bind(this);
     this.clearedErrors = false;
   }
 
@@ -40,6 +41,11 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history);
   }
 
+  backToHome(e) {
+    e.preventDefault();
+    this.props.history.push("/");
+  }
+
   renderErrors() {
     return (
       <div className="login-errors">
@@ -57,7 +63,7 @@ class SignupForm extends React.Component {
       <div className="splash-main">
         <div className="splash">
           <div className="logo">
-            <div className="ui-logo"></div>
+            <div className="ui-logo" onClick={ this.backToHome }></div>
           </div>
           <div className="splash-popup">
             <div className="text">
@@ -85,7 +91,7 @@ class SignupForm extends React.Component {
               { this.renderErrors() }
             </div>
             <div className="buttons">
-              <button className="signupbutton" onClick={ this.handleSignup }>Sign Up</button>
+              <button className="submit-button" onClick={ this.handleSignup }>Sign Up</button>
             </div>
           </div>
         </div>
