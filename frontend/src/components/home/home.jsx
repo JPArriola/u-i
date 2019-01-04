@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import '../navbar/navbar_container';
+import Navbar from '../navbar/navbar_container';
 import '../stylesheets/home/home.scss';
 
 class Home extends React.Component {
@@ -17,49 +17,34 @@ class Home extends React.Component {
   }
 
   render() {
-  return (
-    <div className="content-master">
-      <div className="home-relationship-profiles">
-        <div className="profiles-container">
-          <div className="profiles-user">
-            <div className="profile-picture">
-
+  return <div>
+      <Navbar />
+      <div className="content-master">
+        <div className="home-relationship-profiles">
+          <div className="profiles-container">
+            <div className="profiles-user">
+              <div className="profile-picture" />
+              <div className="profile-content" />
             </div>
-            <div className="profile-content">
-
+            <div className="profiles-daycount">
+              <div className="daycount" />
+              <img src="../images/heart.png" className="profiles-heart" />
             </div>
-          </div>
-          <div className="profiles-daycount">
-            <div className="daycount">
-            </div>
-            <img src="../images/heart.png" className="profiles-heart"/>          
-          </div>
-          <div className="profiles-user">
-            <div className="profile-picture">
-
-            </div>
-            <div className="profile-content">
-
+            <div className="profiles-user">
+              <div className="profile-picture" />
+              <div className="profile-content" />
             </div>
           </div>
-
-        </div>
-        <div className="profiles-event-container">
-          <div className="event-header">
-            Coming Soon
-          </div>
-          <div className="event-information-container">
-            <div className="event-information">
-              Event
-            </div>
-            <div className="event-date">
-              Date
+          <div className="profiles-event-container">
+            <div className="event-header">Coming Soon</div>
+            <div className="event-information-container">
+              <div className="event-information">Event</div>
+              <div className="event-date">Date</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    );
+    </div>;
   }
 }
 

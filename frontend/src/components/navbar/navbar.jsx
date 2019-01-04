@@ -6,10 +6,10 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleSubmit(e) {
+  handleLogout(e) {
     e.preventDefault();
     this.props.logout();
     this.props.history.push("/login");
@@ -17,23 +17,21 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div class="navbar-master">
-        <div class="navbar-workingspace">
-          <div class="navbar-logo">
+      <div className="navbar-master">
+        <div className="navbar-workingspace">
+          <div className="navbar-logo">
           </div>
-          <div class="navbar-dates">
+          <div className="navbar-dates">
             dates
           </div>
-          <div class="navbar-stickys">
+          <div className="navbar-stickys">
             stickys
           </div>
-          <div class="navbar-albums">
+          <div className="navbar-albums">
             albums
           </div>
-          <div class="navbar-logout">
-            <form onSubmit={this.handleSubmit} id="logout" className="business-nav-session">
-              <input type="submit" value="Logout" className="business-nav-signup" />
-            </form>
+          <div>
+            <button className="navbar-logout" onClick={ this.handleLogout }>Log Out</button>
           </div>
         </div>
       </div>
