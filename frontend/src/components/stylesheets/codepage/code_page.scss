@@ -1,0 +1,151 @@
+html, body, section, article,
+h1, h2, p, strong, em, a, input,
+button {
+  margin: 0;
+  /* border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent; */
+  font-family: 'Noto Serif TC', serif;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+div:focus {
+  display: none;
+}
+
+select:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  color: lightcoral;
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(255, 246, 246);
+}
+
+.body img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 1024px;
+  width: 100%;
+  height: inherit;
+  opacity: 0.3;
+}
+
+.body div {
+  position: relative;
+  z-index: 2;
+}
+
+.splash {
+  height: 100%;
+  min-height: 800px;
+  min-width: 1000px;
+}
+
+.splash-popup {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  min-width: 1024px;
+  margin-top: 15px;
+}
+
+.logo {
+  width: 100%;
+  height: 135px;
+  margin: 0 auto;
+  margin-top: 60px;
+  min-width: 1024px;
+}
+
+.ui-logo {
+  background-image: url('../images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: inherit;
+  margin: 0 auto;
+}
+
+.code-page-input-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-page-input-fields input {
+  width: 228px;
+  height: 46px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  /* margin: 5px 0; */
+  padding-left: 20px;
+  color: rgb(61, 61, 61);
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.code-page-input-fields input::placeholder {
+  color: lightgray;
+}
+
+.code-page-input-fields input:focus {
+  border: 1px solid lightcoral;
+}
+
+.random-code {
+  font-weight: bold;
+  font-size: 40px;
+  text-shadow: 2px 2px white;
+}
+
+.connection-code {
+  font-size: 20px;
+  color: rgb(61, 61, 61);
+  margin: 15px 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+.connectbutton {
+  height: 50px;
+  width: 250px;
+  border-radius: 5px;
+  margin: 35px 0;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid lightcoral;
+  color: lightcoral;
+}
+
+.connectbutton:hover {
+  cursor: pointer;
+  background-color: lightcoral;
+  color: white;
+}
