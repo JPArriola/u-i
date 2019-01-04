@@ -9,10 +9,10 @@ import CodePageContainer from './main/code_page_container';
 
 const App = () => (
     <Switch>
-        <Route exact path="/" component={ MainPage } />
-        <Route exact path="/login" component={ LoginFormContainer } />
-        <Route exact path="/signup" component={ SignupFormContainer } />
-        <Route exact path="/codepage" component={ CodePageContainer } />
+        <AuthRoute exact path="/" component={ MainPage } />
+        <AuthRoute exact path="/login" component={ LoginFormContainer } />
+        <AuthRoute exact path="/signup" component={ SignupFormContainer } />
+        <ProtectedRoute exact path="/codepage" component={ CodePageContainer } />
     </Switch>
 );
 

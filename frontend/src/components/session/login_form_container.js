@@ -4,7 +4,8 @@ import LoginForm from './login_form.jsx';
 
 const mSTP = (state) => {
   return {
-    errors: state.errors.session
+    errors: state.errors.session,
+    user: state.session.user
   };
 };
 
