@@ -30,8 +30,8 @@ class Navbar extends React.Component {
           <div className="navbar-albums">
             albums
           </div>
-          <div>
-            <button className="navbar-logout" onClick={ this.handleLogout }>Log Out</button>
+          <div className="navbar-logout" onClick={ this.handleLogout }>
+          Log Out
           </div>
         </div>
       </div>
