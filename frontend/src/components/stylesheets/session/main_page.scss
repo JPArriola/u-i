@@ -2,8 +2,6 @@ html, body, section, article,
 h1, h2, p, strong, em, a, input,
 button {
   margin: 0;
-  height: 100%;
-  width: 100%;
   /* border: 0;
   padding: 0;
   outline: 0;
@@ -16,7 +14,7 @@ button {
   font-family: 'Noto Serif TC', serif;
 }
 
-#root {
+html {
   width: 100%;
   height: 100%;
 }
@@ -33,14 +31,7 @@ button:focus {
   outline: none;
 }
 
-input:focus {
-  outline: none;
-}
-
-.splash-main {
-  background-image: url("../images/splash2.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+.body {
   display: flex;
   flex-direction: column;
   color: lightcoral;
@@ -48,16 +39,30 @@ input:focus {
   font-size: 100px;
   font-weight: bold;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(255, 246, 246);
 }
 
-.splash {
+.body img {
   position: absolute;
   left: 0;
   top: 0;
-  height: 100%;
-  width: 100%;
-  min-height: 800px;
   min-width: 1024px;
+  width: 100%;
+  height: inherit;
+  opacity: 0.3;
+}
+
+.body div {
+  position: relative;
+  z-index: 2;
+}
+
+.splash {
+  height: 100%;
+  min-height: 800px;
+  min-width: 1000px;
 }
 
 .splash-popup {
@@ -73,7 +78,6 @@ input:focus {
   margin: 0 auto;
   margin-top: 60px;
   min-width: 1024px;
-  opacity: 1;
 }
 
 .ui-logo {
@@ -85,10 +89,6 @@ input:focus {
   margin: 0 auto;
 }
 
-.ui-logo:hover {
-  cursor: pointer;
-}
-
 .text {
   font-size: 70px;
   margin-top: 10px;
@@ -96,51 +96,20 @@ input:focus {
   text-shadow: 2px 2px white;
 }
 
-.input-fields {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-  margin: 20px auto;
-  margin-bottom: 5px;
-}
-
-.input-fields input {
-  width: 228px;
-  height: 46px;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  margin: 5px 0;
-  padding-left: 20px;
-  color: rgb(61, 61, 61);
-  font-size: 15px;
-}
-
-.input-fields input::placeholder {
-  color: lightgray;
-}
-
-.input-fields input:focus {
-  border: 1px solid lightcoral;
-}
-
-.splash-errors {
-  font-size: 15px;
-  color: red;
-  text-shadow: 1px 1px white;
-}
-
-.login-errors {
-  text-decoration: none;
-}
-
-.buttons {
+.main-page-buttons {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
-.submit-button {
-  height: 50px;
+.main-page-buttons a {
+  background-color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.loginbutton {
   width: 250px;
   border-radius: 5px;
   margin: 15px 0;
@@ -150,7 +119,23 @@ input:focus {
   color: lightcoral;
 }
 
-.submit-button:hover {
+.loginbutton:hover {
+  cursor: pointer;
+  background-color: lightcoral;
+  color: white;
+}
+
+.signupbutton {
+  width: 250px;
+  border-radius: 5px;
+  margin: 30px 0;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid lightcoral;
+  color: lightcoral;
+}
+
+.signupbutton:hover {
   cursor: pointer;
   background-color: lightcoral;
   color: white;
