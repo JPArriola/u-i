@@ -24,7 +24,6 @@ function generateRandomCode() {
 }
 
 router.post('/signup', (req, res) => {
- 
   const { errors, isValid } = validateSignupInput(req.body);
 
   if (!isValid) {
@@ -85,8 +84,13 @@ router.post('/login', (req, res) => {
             const payload = {
               id: user.id,
               name: user.name,
+              email: user.email,
+              partnerId: user.partnerId,
               connectionCode: user.connectionCode,
-              connected: user.connected
+              connected: user.connected,
+              nickname: user.nickname,
+              birthday: user.birthday,
+              zipCode: user.zipCode
             };
 
             jwt.sign(
@@ -109,54 +113,72 @@ router.post('/login', (req, res) => {
               password: 'Incorrect password'
             });
           }
-        })
+        });
+    });
+});
+
+// [promise1, promise2] => [data1, data2]
+// Promise.all(array)
+  // .then(datainArray)
+  // .catch()
+
+router.patch('/:user_id/connect', (req, res) => {
+  let partnery;
+  User.find({ connectionCode: req.body.connectionCode })
+    .then(partner => {
+      console.log("this is partnery", partnery)
+      partnery = partner;
+      User.update(partner, {
+        partnerId: req.params.user_id,
+        connected: true
+      })
+      // return partner;
     })
-})
+    .then( (partner) => { 
+      const currUser = { id: req.params.user_id };
+      //update might not return a promise 
+      User.update(currUser, {
+        partnerId: partner.id,
+        connectionCode: partner.connectionCode,
+        connected: true,
+      });
+      return currUser;
+    })
+    //double check this 
+    .then( (currUser) => {
+      res.json(currUser);  
+    })
+    .catch(err =>
+      res.status(404).json({ nouserfound: 'No user found with that connection code' })
+    );
+});
 
-// COMMENT 
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch (err =>
+      res.status(404).json({ nouserfound: 'No User found with that ID' })
+    );
+});
 
+//update single user
+router.patch("/:id", (req, res) => {
+  const user = { _id: req.params.id };
 
-//FIX ME! 
-// You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email
+  User.updateOne(user, {
+    name: req.body.name,
+    email: req.body.email,
+    partnerId: req.body.partnerId,
+    connectionCode: req.body.connectionCode,
+    connected: req.body.connected,
+    nickname: req.body.nickname,
+    birthday: req.body.birthday,
+    zipCode: req.body.zipCode
+  }, function(err) {
+    User.findOne({ _id: req.params.id }, function(err, user) {
+      res.send(user);
+    });
   });
-})
-
-router.patch("/:id", (req, res) =>
-  res.json({ 
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email,
-    connectionCode: req.user.connectionCode,
-    connected: req.user.connected,
-    nickname: req.user.nickname,
-    birthday: req.user.birthday,
-    zipCode: req.user.zipCode
-  })
-);
-
+});
 
 module.exports = router;
-
-
-//**************************************************** */
-
-// FRONT END LOGIC => will have a front end /connect page 
-
-// if (!user.connected && connectionCode) {
-
-//   let partner = User.findOne({
-//     connectionCode
-//   });
-//   partner.connected = true;
-
-//   user.connectionCode = connectionCode;
-//   user.connected = true;
-
-//   user.partnerId = partner.id;
-//   partner.partnerId = user.id;
-// }
