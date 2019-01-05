@@ -182,22 +182,3 @@ router.patch("/:id", (req, res) => {
 });
 
 module.exports = router;
-
-
-//**************************************************** */
-
-// FRONT END LOGIC => will have a front end /connect page 
-
-// if (!user.connected && connectionCode) {
-
-//   let partner = User.findOne({
-//     connectionCode
-//   });
-//   partner.connected = true;
-
-//   user.connectionCode = connectionCode;
-//   user.connected = true;
-
-//   user.partnerId = partner.id;
-//   partner.partnerId = user.id;
-// }
