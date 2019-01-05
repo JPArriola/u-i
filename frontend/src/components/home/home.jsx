@@ -17,6 +17,7 @@ class Home extends React.Component {
   }
 
   render() {
+    console.warn(this.props)
   return <div>
       <Navbar />
       <div className="content-master">

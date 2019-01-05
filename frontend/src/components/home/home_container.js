@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions'
 import Home from './home';
 
 const mSTP = (state) => {
+  console.warn("Container", state)
   return {
     
   };
@@ -16,4 +17,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(null, mDTP)(Home);
+export default connect(mSTP, mDTP)(Home);
