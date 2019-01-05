@@ -161,7 +161,7 @@ router.get('/:id', (req, res) => {
     );
 });
 
-//
+//update single user
 router.patch("/:id", (req, res) => {
   const user = { _id: req.params.id };
 
