@@ -117,14 +117,22 @@ router.post('/login', (req, res) => {
     });
 });
 
+// [promise1, promise2] => [data1, data2]
+// Promise.all(array)
+  // .then(datainArray)
+  // .catch()
+
 router.patch('/:user_id/connect', (req, res) => {
+  let partnery;
   User.find({ connectionCode: req.body.connectionCode })
     .then(partner => {
+      console.log("this is partnery", partnery)
+      partnery = partner;
       User.update(partner, {
         partnerId: req.params.user_id,
         connected: true
-      });
-      return partner;
+      })
+      // return partner;
     })
     .then( (partner) => { 
       const currUser = { id: req.params.user_id };
@@ -155,19 +163,19 @@ router.get('/:id', (req, res) => {
 
 //
 router.patch("/:id", (req, res) => {
-  const user = { id: req.params.id };
-  User.update(user, {
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email,
-    partnerId: req.user.partnerId,
-    connectionCode: req.user.connectionCode,
-    connected: req.user.connected,
-    nickname: req.user.nickname,
-    birthday: req.user.birthday,
-    zipCode: req.user.zipCode
-  }, function(err, affected, resp) {
-    User.findOne({ id: req.params.id }, function(err, user) {
+  const user = { _id: req.params.id };
+
+  User.updateOne(user, {
+    name: req.body.name,
+    email: req.body.email,
+    partnerId: req.body.partnerId,
+    connectionCode: req.body.connectionCode,
+    connected: req.body.connected,
+    nickname: req.body.nickname,
+    birthday: req.body.birthday,
+    zipCode: req.body.zipCode
+  }, function(err) {
+    User.findOne({ _id: req.params.id }, function(err, user) {
       res.send(user);
     });
   });
