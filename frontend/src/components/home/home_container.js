@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/profile_actions';
+import { fetchPartner } from '../../actions/profile_actions';
 import Home from './home';
 
 const mSTP = (state) => {
   console.warn("Container", state)
+  let partnerId = state.session.user.partnerId;
   return {
     user: state.session.user,
-    partner: Object.keys(state.users),
+    partner: state.users,
+    partnerId,
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    fetchUser: userId => dispatch(fetchUser(userId)),
+    fetchPartner: userId => dispatch(fetchPartner(userId)),
   };
 };
 
