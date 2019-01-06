@@ -162,7 +162,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     })
     .catch(err =>
       res.status(404).json({ nouserfound: 'No user found with that connection code' })
-    );
+    )
 });
 
 router.get('/:id', (req, res) => {

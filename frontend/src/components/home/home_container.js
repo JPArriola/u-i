@@ -6,7 +6,7 @@ const mSTP = (state) => {
   console.warn("Container", state)
   return {
     user: state.session.user,
-    partner: Object.keys(state.users)
+    partner: Object.keys(state.users),
   };
 };
 
