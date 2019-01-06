@@ -1,0 +1,239 @@
+html, body, section, article,
+h1, h2, p, strong, em, a, input,
+button {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  /* border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent; */
+  font-family: 'Noto Serif TC', serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+div:focus {
+  display: none;
+}
+
+select:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.navbar-master {
+  height: 75px;
+  min-width: 960px;
+}
+
+.navbar-workingspace {
+  background-color: lightcoral;
+  display: flex;
+  justify-content: space-around;
+  height: inherit;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  align-items: center;
+  /* text-shadow: 1px 1px gray; */
+}
+
+.navbar-logo {
+  cursor: pointer;
+  // background-image: url("../images/Logo-white.png");
+  height: 60px;
+  width: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.navbar-dates {
+  cursor: pointer;
+  margin-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-dates:hover {
+  border-bottom: 3px solid white;
+  text-shadow: 1px 1px gray;
+}
+
+.navbar-dates:active {
+  border-bottom: 3px solid #af5a5a;
+  text-shadow: 1px 1px transparent;
+  color: #af5a5a;
+}
+
+.navbar-stickys {
+  cursor: pointer;
+  margin-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-stickys:hover {
+  border-bottom: 3px solid white;
+  text-shadow: 1px 1px gray;
+}
+
+.navbar-stickys:active {
+  border-bottom: 3px solid #af5a5a;
+  text-shadow: 1px 1px transparent;
+  color: #af5a5a;
+}
+
+.navbar-albums {
+  cursor: pointer;
+  margin-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-albums:hover {
+  border-bottom: 3px solid white;
+  text-shadow: 1px 1px gray;
+}
+
+.navbar-albums:active {
+  border-bottom: 3px solid #af5a5a;
+  text-shadow: 1px 1px transparent;
+  color: #af5a5a;
+}
+
+.navbar-logout {
+  border: 1px solid white;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 5px;
+}
+
+.navbar-logout:hover {
+  background-color: white;
+  color: lightcoral;
+}
+
+.navbar-logout:active {
+  background-color: white;
+  color: #af5a5a;
+  border: 1px solid #af5a5a;
+}
+
+.content {
+  height: 500px;
+}
+
+/* to have background color */
+
+.body {
+  background-color: #e6fff2
+}
+
+/* THIS IS THE ACTUAL HOMEPAGE CONTENT ABOVE IS JUST FOR VIEWING THE NAVBAR */
+
+.content-master {
+  min-width: 960px;
+  background-color: blue;
+}
+
+.home-relationship-profiles {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-evenly;
+  height: inherit;
+}
+
+.profiles-container {
+  height: 500px;
+  min-width: 960px;
+  max-width: 1020px;
+  background-color: green;
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profiles-event-container {
+  height: 200px;
+  min-width: 500px;
+  max-width: 550px;
+  background-color: orange;
+  margin: 20px 0px;
+}
+
+.profiles-user {
+  background-color: pink;
+  height: inherit;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-picture {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: gold;
+}
+
+.profile-content {
+  background-color: white;
+  height: 300px;
+  width: 275px;
+}
+
+.profiles-daycount {
+  background-color: purple;
+  height: 60%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.daycount {
+  background-color: grey;
+  height: 75px;
+  width: 250px;
+}
+
+.profiles-heart {
+  height: 50px;
+  width: 50px;
+}
+
+.event-header {
+  display: flex;
+  justify-content: center;
+}
+
+.event-information-container {
+  height: 80%;
+  width: inherit;
+  background-color: pink;
+  display: flex;
+  justify-content: space-around;
+}

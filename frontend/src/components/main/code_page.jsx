@@ -1,14 +1,8 @@
 import React from 'react';
 import '../stylesheets/codepage/code_page.scss';
+// import { Link } from 'react-router-dom';
 
 class CodePage extends React.Component {
-  
-  backToHome() {
-    return (e) => {
-      e.preventDefault();
-      this.props.history.push("/");
-    };
-  }
 
   render() {
     let { connectionCode } = this.props.user;
@@ -17,7 +11,7 @@ class CodePage extends React.Component {
       <div className="splash-main">
         <div className="splash">
           <div className="logo">
-            <div className="ui-logo" onClick={ this.backToHome() }></div>
+            <div className="ui-logo"></div>
           </div>
           <div className="splash-popup">
             <div className="code-page-input-fields">

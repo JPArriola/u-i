@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -10,42 +10,23 @@ class SignupForm extends React.Component {
       password: '',
       errors: {}
     };
-
-    this.handleSignup = this.handleSignup.bind(this);
-    this.backToHome = this.backToHome.bind(this);
-    this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
-
-    this.setState({ errors: nextProps.errors });
-  }
-
+  
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
-
-  handleSignup(e) {
-    e.preventDefault();
-    let user = {
-      email: this.state.email,
-      name: this.state.name,
-      password: this.state.password
-    };
-
-    this.props.signup(user, this.props.history);
+  
+  handleSignup() {
+    let { email, name, password } = this.state;
+    return (e) => {
+      e.preventDefault();
+      this.props.signup({ email, name, password });
+    }
   }
-
-  backToHome(e) {
-    e.preventDefault();
-    this.props.history.push("/");
-  }
-
+    
   renderErrors() {
     return (
       <div className="login-errors">
@@ -57,13 +38,13 @@ class SignupForm extends React.Component {
       </div>
     );
   }
-
+  
   render() {
     return (
       <div className="splash-main">
         <div className="splash">
           <div className="big-logo">
-            <div className="big-ui-logo" onClick={ this.backToHome }></div>
+            <div className="big-ui-logo"></div>
           </div>
           <div className="splash-popup">
             <div className="text">
@@ -74,18 +55,18 @@ class SignupForm extends React.Component {
                 value={ this.state.email }
                 onChange={ this.update('email') }
                 placeholder="email"
-              />
+                />
               <input type="text"
                 value={ this.state.name }
                 onChange={ this.update('name') }
                 placeholder="name"
-              />
+                />
               <input type="password"
                 value={ this.state.password }
                 onChange={ this.update('password') }
                 placeholder="password"
                 maxLength="12"
-              />
+                />
             </div>
             <div className="splash-errors">
               { this.renderErrors() }
@@ -101,3 +82,12 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
+
+
+  // componentWillReceiveProps(nextProps) {
+  //   // if (nextProps.signedIn === true) {
+  //   //   this.props.history.push('/login');
+  //   // }
+  
+  //   this.setState({ errors: nextProps.errors });
+  // }

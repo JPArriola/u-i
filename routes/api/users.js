@@ -53,11 +53,11 @@ router.post('/signup', (req, res) => {
             newUser.save()
               .then(user => res.json(user))
               .catch(err => console.log(err));
-          })
-        })
+          });
+        });
       }
-    })
-})
+    });
+});
 
 
 router.post('/login', (req, res) => {
@@ -109,9 +109,9 @@ router.post('/login', (req, res) => {
               password: 'Incorrect password'
             });
           }
-        })
-    })
-})
+        });
+    });
+});
 
 // COMMENT 
 

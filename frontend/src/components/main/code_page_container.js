@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
 import CodePage from './code_page';
 
 const mSTP = (state) => {
@@ -9,7 +10,7 @@ const mSTP = (state) => {
 
 // const mDTP = (dispatch) => {
 //   return {
-//     signup: user => dispatch(signup(user))
+//     logout: () => dispatch(logout())
 //   };
 // };
 

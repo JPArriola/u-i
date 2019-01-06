@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../stylesheets/session/login.scss';
 
 class LoginForm extends React.Component {
@@ -12,15 +12,9 @@ class LoginForm extends React.Component {
       errors: {}
     };
 
-    this.handleLogin = this.handleLogin.bind(this);
-    this.backToHome = this.backToHome.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser) this.props.history.push('/');
-    this.setState({ errors: nextProps.errors });
-  }
 
   update(field) {
     return e => this.setState({
@@ -28,28 +22,22 @@ class LoginForm extends React.Component {
     });
   }
 
-  handleLogin(e) {
-    e.preventDefault();
+  handleLogin() {
+    let { email, password } = this.state;
 
-    let user = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.login(user);
-  }
-
-  backToHome(e) {
-    e.preventDefault();
-    this.props.history.push("/");
+    return (e) => {
+      e.preventDefault();
+      this.props.login({ email, password });
+    }
   }
 
   renderErrors() {
+    let { errors } = this.state;
     return(
       <div className="login-errors">
-        { Object.keys(this.state.errors).map((error, i) => (
+        { Object.keys(errors).map((error, i) => (
           <div key={`error-${i}`}>
-            { this.state.errors[error] }
+            { errors[error] }
           </div>
         ))}
       </div>
@@ -61,7 +49,7 @@ class LoginForm extends React.Component {
       <div className="splash-main">
         <div className="splash">
           <div className="big-logo">
-            <div className="big-ui-logo" onClick={ this.backToHome }></div>
+            <div className="big-ui-logo"></div>
           </div>
           <div className="splash-popup">
             <div className="text">
@@ -84,7 +72,7 @@ class LoginForm extends React.Component {
               { this.renderErrors() }
             </div>
             <div className="buttons">
-              <button className="submit-button" onClick={ this.handleLogin }>Log In</button>
+              <button className="submit-button" onClick={ this.handleLogin() }>Log In</button>
             </div>
           </div>
         </div>
@@ -94,3 +82,8 @@ class LoginForm extends React.Component {
 }
 
 export default withRouter(LoginForm);
+
+  // componentWillReceiveProps(nextProps) {
+  //   // if (nextProps.currentUser) this.props.history.push('/');
+  //   this.setState({ errors: nextProps.errors });
+  // }
