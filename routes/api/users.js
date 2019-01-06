@@ -126,8 +126,8 @@ router.patch('/:user_id/connect', (req, res) => {
             user.connectionCode = partner.connectionCode;
 
             user.save()
-            .then(user => res.json(user))
-          })
+            .then(user => res.json(user));
+          });
         });
     })
 
