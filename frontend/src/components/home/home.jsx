@@ -13,14 +13,19 @@ class Home extends React.Component {
     let {user, partner} = this.props;
 
     if (!this.props.partnerId) return null;
+<<<<<<< HEAD
     if (!partner.name) return null;
     return <div>
+=======
+    return (
+      <div>
+>>>>>>> b251accd6d5f32a51d8477953b9585db7513f6e4
         <Navbar />
         <div className="content-master">
           <div className="home-relationship-profiles">
             <div className="profiles-container">
               <div className="profiles-user">
-                <div className="profile-picture" />
+                <div className="left-profile-picture" />
                 <div className="profile-content">
                   <div>
                     Name:{user.name[0].toUpperCase() + user.name.slice(1)}
@@ -48,7 +53,7 @@ class Home extends React.Component {
                 </div>
               </div>
               <div className="profiles-user">
-                <div className="profile-picture" />
+                <div className="right-profile-picture" />
                 <div className="profile-content">
                   <div>
                     Name: {partner.name[0].toUpperCase() + partner.name.slice(1)}
@@ -59,7 +64,8 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    )
   }
 }
 

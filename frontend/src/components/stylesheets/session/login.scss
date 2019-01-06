@@ -41,6 +41,7 @@ input:focus {
   background-image: url("../images/splash2.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
   color: lightcoral;
@@ -48,23 +49,8 @@ input:focus {
   font-size: 100px;
   font-weight: bold;
   height: 100%;
-}
-
-.splash {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  min-height: 800px;
-  min-width: 1024px;
-}
-
-.splash-popup {
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  min-width: 1024px;
+  min-width: 760px;
+  min-height: 760px;
 }
 
 .big-logo {
@@ -72,7 +58,6 @@ input:focus {
   height: 200px;
   margin: 0 auto;
   margin-top: 60px;
-  min-width: 1024px;
   opacity: 1;
 }
 
