@@ -7,14 +7,13 @@ class Home extends React.Component {
 
   componentDidMount(){
     console.log("HomeFormUserProps", this.props.user);
-    this.props.fetchUser(this.props.user.id)
-      .then((data) => console.error(data))
-      .catch(error => console.error(error));
+    this.props.fetchPartner(this.props.partnerId);
+    console.log('props', this.props);
+      // .then((data) => console.error(data))
+      // .catch(error => console.error(error));
   }
 
   render() {
-    // if (this.props.partner.length) {
-      console.warn(this.props)
       return <div>
           <Navbar />
           <div className="content-master">
@@ -32,7 +31,9 @@ class Home extends React.Component {
                 </div>
                 <div className="profiles-user">
                   <div className="profile-picture" />
-                  <div className="profile-content" />
+                  <div className="profile-content">
+                  {/* Name: {this.props.partner.name} */}
+                  </div>
                 </div>
               </div>
               <div className="profiles-event-container">
@@ -45,7 +46,6 @@ class Home extends React.Component {
             </div>
           </div>
         </div>;
-    // }
   }
 }
 

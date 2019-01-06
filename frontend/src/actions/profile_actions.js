@@ -1,17 +1,17 @@
 import * as APIUtil from '../util/profile_api_util';
 import jwt_decode from 'jwt-decode';
 
-export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_PARTNER = "RECEIVE_PARTNER";
 
-export const receiveUser = user => ({
-  type: RECEIVE_USER,
-  user
+export const receivePartner = partner => ({
+  type: RECEIVE_PARTNER,
+  partner
 });
 
 // any API returns you a promise.
 // Promise is required because they are async
 
-export const fetchUser = id => dispatch => (
-  APIUtil.fetchUser(id)
-    .then(user => ( dispatch(receiveUser(user)) ))
+export const fetchPartner = id => dispatch => (
+  APIUtil.fetchPartner(id)
+    .then(partner => ( dispatch(receivePartner(partner)) ))
 );
