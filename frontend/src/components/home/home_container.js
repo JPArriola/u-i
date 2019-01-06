@@ -7,7 +7,7 @@ const mSTP = (state) => {
   let partnerId = state.session.user.partnerId;
   return {
     user: state.session.user,
-    partner: state.users,
+    partner: state.partner,
     partnerId,
   };
 };
