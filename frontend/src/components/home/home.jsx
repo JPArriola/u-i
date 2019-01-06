@@ -10,7 +10,10 @@ class Home extends React.Component {
   }
   
   render() {
+    let {user, partner} = this.props;
+
     if (!this.props.partnerId) return null;
+    if (!partner.name) return null;
     return <div>
         <Navbar />
         <div className="content-master">
@@ -19,8 +22,13 @@ class Home extends React.Component {
               <div className="profiles-user">
                 <div className="profile-picture" />
                 <div className="profile-content">
-                  <div>Name: {this.props.user.name}</div>
-                  <div>Email: {this.props.user.email}</div>
+                  <div>
+                    Name:{user.name[0].toUpperCase() + user.name.slice(1)}
+                  </div>
+                  <div>Email: {user.email}</div>
+                </div>
+                <div onClick={() => this.props.openModal("editUser")} className="profile-edit">
+                  Edit Profile
                 </div>
               </div>
               <div className="profiles-center">
@@ -42,8 +50,10 @@ class Home extends React.Component {
               <div className="profiles-user">
                 <div className="profile-picture" />
                 <div className="profile-content">
-                  <div>Name: {this.props.partner.name}</div>
-                  <div>Email: {this.props.partner.email}</div>
+                  <div>
+                    Name: {partner.name[0].toUpperCase() + partner.name.slice(1)}
+                  </div>
+                  <div>Email: {partner.email}</div>
                 </div>
               </div>
             </div>

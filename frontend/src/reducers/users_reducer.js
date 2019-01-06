@@ -5,7 +5,7 @@ export default function (state = {}, action) {
     case RECEIVE_PARTNER:
       return Object.assign({}, state, action.partner.data);
     default:
-      return {};
+      return state;
   }
 };
 
