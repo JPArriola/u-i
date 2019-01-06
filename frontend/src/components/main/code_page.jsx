@@ -19,8 +19,7 @@ class CodePage extends React.Component {
 	handleConnect() {
     return (e) => {
       e.preventDefault();
-      this.props.connectUser(this.props.user.id, this.state.connectionCode);
-      this.props.history.push('/home');
+      this.props.connectUser(this.props.user.id, this.state.connectionCode)
     };
   }
 
