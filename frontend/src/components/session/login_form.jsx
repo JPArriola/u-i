@@ -52,7 +52,9 @@ class LoginForm extends React.Component {
       <div className="splash-main">
         <div className="splash">
           <div className="big-logo">
-            <div className="big-ui-logo"></div>
+            <Link to='/'>
+              <div className="big-ui-logo"></div>
+            </Link>
           </div>
           <div className="splash-popup">
             <div className="text">

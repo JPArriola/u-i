@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
     return (e) => {
       e.preventDefault();
       this.props.signup({ email, name, password });
-    }
+    };
   }
     
   renderErrors() {
@@ -43,7 +43,6 @@ class SignupForm extends React.Component {
   }
   
   render() {
-    console.warn(this.state)
     return (
       <div className="splash-main">
         <div className="splash">

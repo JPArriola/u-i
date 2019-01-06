@@ -5,20 +5,30 @@ import '../stylesheets/home/home.scss';
 
 class Home extends React.Component {
 
+  componentDidMount(){
+    this.props.fetchUser(this.props.user.id);
+  }
+
   render() {
-    return (
-      <div>
-        <Navbar />
-        <div className="content-master">
-          <div className="home-relationship-profiles">
-            <div className="profiles-container">
-              <div className="profiles-user">
-                <div className="profile-picture" />
-                <div className="profile-content" />
-              </div>
-              <div className="profiles-daycount">
-                <div className="daycount" />
-                <img src="../images/heart.png" className="profiles-heart" />
+      return <div>
+          <Navbar />
+          <div className="content-master">
+            <div className="home-relationship-profiles">
+              <div className="profiles-container">
+                <div className="profiles-user">
+                  <div className="profile-picture" />
+                  <div className="profile-content">
+                    Name: {this.props.user.name}
+                  </div>
+                </div>
+                <div className="profiles-daycount">
+                  <div className="daycount" />
+                  <img src="../images/heart.png" className="profiles-heart" />
+                </div>
+                <div className="profiles-user">
+                  <div className="profile-picture" />
+                  <div className="profile-content" />
+                </div>
               </div>
               <div className="profiles-user">
                 <div className="profile-picture" />
@@ -33,9 +43,7 @@ class Home extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    )
+        </div>;
   }
 }
 

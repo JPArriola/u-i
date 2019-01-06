@@ -1,11 +1,17 @@
 import { connect } from 'react-redux';
+import { connectUser } from '../../actions/session_actions';
 import CodePage from './code_page';
 
 const mSTP = (state) => {
-  console.warn(state.session.user)
   return {
     user: state.session.user
   };
 };
 
-export default connect(mSTP, null)(CodePage);
+const mDTP = (dispatch) => {
+  return {
+    connectUser: userId => dispatch(connectUser(userId))
+  };
+};
+
+export default connect(mSTP, mDTP)(CodePage);
