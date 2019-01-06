@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
+const validText = require('../../validation/valid-text');
 
 router.get("/test", (req, res) => 
   res.json({ msg: "This is the users route" })
@@ -24,21 +25,17 @@ function generateRandomCode() {
 }
 
 router.post('/signup', (req, res) => {
- 
   const { errors, isValid } = validateSignupInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  // Check to make sure nobody has already registered with a duplicate email
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
-        // Throw a 400 error if the email address already exists
         return res.status(400).json({ email: "A user has already registered with this address" })
       } else {
-        // Otherwise create a new user
         const newUser = new User({
           email: req.body.email,
           password: req.body.password,
@@ -58,7 +55,6 @@ router.post('/signup', (req, res) => {
       }
     });
 });
-
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -85,8 +81,13 @@ router.post('/login', (req, res) => {
             const payload = {
               id: user.id,
               name: user.name,
+              email: user.email,
+              partnerId: user.partnerId,
               connectionCode: user.connectionCode,
-              connected: user.connected
+              connected: user.connected,
+              nickname: user.nickname,
+              birthday: user.birthday,
+              zipCode: user.zipCode
             };
 
             jwt.sign(
@@ -113,52 +114,57 @@ router.post('/login', (req, res) => {
     });
 });
 
-// COMMENT 
+router.patch('/:user_id/connect', (req, res) => {
+  User.findOne({ connectionCode: req.body.connectionCode })
+    .then(partner => {
+      partner.partnerId = req.params.user_id;
+      partner.connected = true;
+      partner.save()
+        .then(partner => {
+          User.findById(req.params.user_id)
+          .then(user => {
+            user.partnerId = partner.id;
+            user.connected = true;
+            user.connectionCode = partner.connectionCode;
 
+            user.save()
+            .then(user => res.json(user))
+          })
+        });
+    })
 
-//FIX ME! 
-// You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email,
-    connectionCode: user.connectionCode,
-    connected: user.connected
-  });
-})
+  .catch(err =>
+    res.status(404).json({ nouserfound: 'No user found with that connection code' })
+    );
+});
 
-router.patch("/:id", (req, res) =>
-  res.json({ 
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email,
-    connectionCode: req.user.connectionCode,
-    connected: req.user.connected,
-    nickname: req.user.nickname,
-    birthday: req.user.birthday,
-    zipCode: req.user.zipCode
-  })
-);
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch (err =>
+      res.status(404).json({ nouserfound: 'No User found with that ID' })
+    );
+});
 
+//update single user
+router.patch("/:id", (req, res) => {
+
+  User.findById(req.params.id)
+    .then(user => {
+      
+      user.name = validText(req.body.name) ? req.body.name : user.name; 
+      user.email = validText(req.body.email) ? req.body.email : user.email;
+      user.partnerId = validText(req.body.partnerId) ? req.body.partnerId : user.partnerId;
+      user.connectionCode = validText(req.body.connectionCode) ? req.body.connectionCode : user.connectionCode;
+      user.connected = (req.body.connected === undefined) ? user.connected : req.body.connected;
+      user.nickname = validText(req.body.nickname) ? req.body.nickname : user.nickname;
+      user.birthday = req.body.birthday ? req.body.birthday : user.birthday;
+      user.zipCode = req.body.zipCode ? req.body.zipCode : user.zipCode;
+
+      user.save().then(user =>
+        res.json(user)
+      )
+    })
+});
 
 module.exports = router;
-
-
-//**************************************************** */
-
-// FRONT END LOGIC => will have a front end /connect page 
-
-// if (!user.connected && connectionCode) {
-
-//   let partner = User.findOne({
-//     connectionCode
-//   });
-//   partner.connected = true;
-
-//   user.connectionCode = connectionCode;
-//   user.connected = true;
-
-//   user.partnerId = partner.id;
-//   partner.partnerId = user.id;
-// }

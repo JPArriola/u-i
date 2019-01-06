@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../stylesheets/codepage/code_page.scss';
-// import { Link } from 'react-router-dom';
 
 class CodePage extends React.Component {
 
@@ -11,7 +11,9 @@ class CodePage extends React.Component {
       <div className="splash-main">
         <div className="splash">
           <div className="logo">
-            <div className="ui-logo"></div>
+            <Link to='/'>
+              <div className="ui-logo"></div>
+            </Link>
           </div>
           <div className="splash-popup">
             <div className="code-page-input-fields">

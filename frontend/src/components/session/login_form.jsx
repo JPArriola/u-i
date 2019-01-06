@@ -14,7 +14,10 @@ class LoginForm extends React.Component {
 
     this.renderErrors = this.renderErrors.bind(this);
   }
-
+  
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
+  }
 
   update(field) {
     return e => this.setState({
@@ -28,7 +31,7 @@ class LoginForm extends React.Component {
     return (e) => {
       e.preventDefault();
       this.props.login({ email, password });
-    }
+    };
   }
 
   renderErrors() {
@@ -82,8 +85,3 @@ class LoginForm extends React.Component {
 }
 
 export default withRouter(LoginForm);
-
-  // componentWillReceiveProps(nextProps) {
-  //   // if (nextProps.currentUser) this.props.history.push('/');
-  //   this.setState({ errors: nextProps.errors });
-  // }

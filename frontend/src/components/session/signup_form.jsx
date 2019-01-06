@@ -12,7 +12,10 @@ class SignupForm extends React.Component {
     };
   }
 
-  
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -40,11 +43,14 @@ class SignupForm extends React.Component {
   }
   
   render() {
+    console.warn(this.state)
     return (
       <div className="splash-main">
         <div className="splash">
           <div className="big-logo">
-            <div className="big-ui-logo"></div>
+            <Link to='/'>
+              <div className="big-ui-logo"></div>
+            </Link>
           </div>
           <div className="splash-popup">
             <div className="text">
@@ -72,7 +78,7 @@ class SignupForm extends React.Component {
               { this.renderErrors() }
             </div>
             <div className="buttons">
-              <button className="submit-button" onClick={ this.handleSignup }>Sign Up</button>
+              <button className="submit-button" onClick={ this.handleSignup() }>Sign Up</button>
             </div>
           </div>
         </div>
@@ -82,12 +88,3 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
-
-
-  // componentWillReceiveProps(nextProps) {
-  //   // if (nextProps.signedIn === true) {
-  //   //   this.props.history.push('/login');
-  //   // }
-  
-  //   this.setState({ errors: nextProps.errors });
-  // }

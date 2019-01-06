@@ -1,17 +1,11 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import CodePage from './code_page';
 
 const mSTP = (state) => {
+  console.warn(state.session.user)
   return {
     user: state.session.user
   };
 };
-
-// const mDTP = (dispatch) => {
-//   return {
-//     logout: () => dispatch(logout())
-//   };
-// };
 
 export default connect(mSTP, null)(CodePage);
