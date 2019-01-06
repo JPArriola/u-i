@@ -11,7 +11,7 @@ const EventSchema = new Schema({
     required: true
   },
   authorId: {
-    type: Number,
+    type: String,
     required: true
   },
   connectionCode: {
