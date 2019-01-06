@@ -6,14 +6,15 @@ import '../stylesheets/home/home.scss';
 class Home extends React.Component {
 
   componentDidMount(){
-    console.log("MARK", this.props.user);
-    this.props.fetchUser(this.props.user.partner_id)
+    console.log("HomeFormUserProps", this.props.user);
+    this.props.fetchUser(this.props.user.id)
       .then((data) => console.error(data))
       .catch(error => console.error(error));
   }
 
   render() {
-    if (this.props.partner.length) {
+    // if (this.props.partner.length) {
+      console.warn(this.props)
       return <div>
           <Navbar />
           <div className="content-master">
@@ -44,9 +45,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>;
-    }
-    console.warn(this.props)
-    return null;
+    // }
   }
 }
 
