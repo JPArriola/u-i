@@ -50,3 +50,8 @@ export const logout = () => dispatch => {
     APIUtil.setAuthToken(false);
     dispatch(logoutUser());
 };
+
+export const connectUser = id => dispatch => (
+  APIUtil.connectUser(id)
+  .then(user => (dispatch(receiveCurrentUser(user))))
+);

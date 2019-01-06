@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/profile_api_util';
-import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_PARTNER = "RECEIVE_PARTNER";
 
