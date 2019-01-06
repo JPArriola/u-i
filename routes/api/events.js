@@ -5,27 +5,15 @@ const passport = require('passport');
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
 
-router.get('/', (req, res) => {
-  Event.find()
-    .sort({ date: -1 })
-    .filter({ })
-    .then(events => res.json(events))
-    .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
-
-
-  // filter by connectionCode
-});
-
-router.get('/user/:user_id', (req, res) => {
-  let currUser = User.findById(req.params.user_id);
-  let currConnectionCode = currUser.connectionCode;
-
-  Event.find({ connectionCode: currConnectionCode })
-    .then(events => res.json(events))
-    .catch(err =>
-      res.status(404).json({ noeventsfound: 'No events found' }
-      )
-    );
+router.get('/:user_id', (req, res) => {
+  User.findById(req.params.user_id)
+    .then(user => {
+      const currConnectionCode = user.connectionCode;
+      Event.find({ connectionCode: currConnectionCode })
+        .sort({ date: -1 })
+        .then(events => res.json(events))
+        .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
+    });
 });
 
 router.get('/:id', (req, res) => {
