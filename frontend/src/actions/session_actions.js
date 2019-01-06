@@ -59,7 +59,7 @@ export const logout = () => dispatch => {
 
 export const connectUser = (userId, connectionCode) => dispatch => (
   APIUtil.connectUser(userId, connectionCode)
-  .then(user => (dispatch(receiveCurrentUser(user))))
+  .then(user => (dispatch(receiveCurrentUser(user.data))))
   .catch(err => {
     dispatch(receiveConnectionErrors(err.response.data));
   })

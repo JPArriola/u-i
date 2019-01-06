@@ -13,13 +13,17 @@ class CodePage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.connected === true) {
+      this.props.history.push('/home');
+    }
+
     this.setState({ errors: nextProps.errors });
   }
   
 	handleConnect() {
     return (e) => {
       e.preventDefault();
-      this.props.connectUser(this.props.user.id, this.state.connectionCode)
+      this.props.connectUser(this.props.user.id, this.state.connectionCode);
     };
   }
 

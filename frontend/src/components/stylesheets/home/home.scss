@@ -150,7 +150,7 @@ input:focus {
 
 .content-master {
   min-width: 960px;
-  background-color: blue;
+  background-color: #e6fff2;
 }
 
 .home-relationship-profiles {
@@ -167,24 +167,23 @@ input:focus {
   height: 500px;
   min-width: 960px;
   max-width: 1020px;
-  background-color: green;
-  margin: 20px 0px;
+  // background-color: green;
+  margin: 50px 0px 20px 0px;
   display: flex;
   justify-content: space-between;
 }
 
 .profiles-event-container {
-  height: 200px;
-  min-width: 500px;
-  max-width: 550px;
-  background-color: orange;
-  margin: 20px 0px;
+  height: 60%;
+  width: 100%;
+  // background-color: orange;
+  // margin: 20px 0px;
 }
 
 .profiles-user {
-  background-color: pink;
+  // background-color: pink;
   height: inherit;
-  width: 33%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,19 +194,28 @@ input:focus {
   height: 150px;
   width: 150px;
   border-radius: 100px;
-  background-color: gold;
+  background-size: contain;
+  background-image: url("https://i.pinimg.com/originals/78/54/84/7854843699c1893928012a442386a129.jpg")
 }
 
 .profile-content {
-  background-color: white;
+  // background-color: white;
+  text-align: center;
+  color: #28536b;
   height: 300px;
   width: 275px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profiles-center{
+  width: 40%;
 }
 
 .profiles-daycount {
-  background-color: purple;
-  height: 60%;
-  width: 33%;
+  // background-color: purple;
+  height: 40%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -215,14 +223,20 @@ input:focus {
 }
 
 .daycount {
-  background-color: grey;
+  // background-color: grey;
   height: 75px;
   width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .profiles-heart {
   height: 50px;
   width: 50px;
+  background-image: url("../images/heart.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .event-header {
@@ -233,7 +247,7 @@ input:focus {
 .event-information-container {
   height: 80%;
   width: inherit;
-  background-color: pink;
+  // background-color: pink;
   display: flex;
   justify-content: space-around;
 }
