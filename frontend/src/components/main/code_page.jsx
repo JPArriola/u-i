@@ -2,15 +2,11 @@ import React from 'react';
 import '../stylesheets/codepage/code_page.scss';
 
 class CodePage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.backToHome = this.backToHome.bind(this);
-  }
-
-  backToHome(e) {
-    e.preventDefault();
-    this.props.history.push("/");
+  backToHome() {
+    return(e) => {
+      e.preventDefault();
+      this.props.history.push("/");
+    };
   }
 
   render() {
@@ -20,7 +16,7 @@ class CodePage extends React.Component {
       <div className="splash-main">
         <div className="splash">
           <div className="logo">
-            <div className="ui-logo" onClick={ this.backToHome }></div>
+            <div className="ui-logo" onClick={ this.backToHome() }></div>
           </div>
           <div className="splash-popup">
             <div className="code-page-input-fields">

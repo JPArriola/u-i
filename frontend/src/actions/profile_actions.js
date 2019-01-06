@@ -5,10 +5,13 @@ export const RECEIVE_USER = "RECEIVE_USER";
 
 export const receiveUser = user => ({
   type: RECEIVE_USER,
-  user
+  user // JSON file
 });
 
+// any API returns you a promise.
+// Promise is required because they are async
 
 export const fetchUser = userId => dispatch => (
   APIUtil.fetchUser(userId)
-)
+    .then(user => ( dispatch(receiveUser(user)) ))
+);

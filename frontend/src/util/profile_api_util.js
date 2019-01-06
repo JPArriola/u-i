@@ -9,5 +9,5 @@ export const setAuthToken = token => {
 };
 
 export const fetchUser = (userData) => {
-  return axios.get('/api/users/id', userData);
+  return axios.get('/api/users/current', userData);
 };

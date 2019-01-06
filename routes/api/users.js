@@ -134,6 +134,18 @@ router.patch('/:user_id/connect', (req, res) => {
       })
       // return partner;
     })
+})
+
+// COMMENT 
+
+
+//FIX ME! 
+// You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email
     .then( (partner) => { 
       const currUser = { id: req.params.user_id };
       //update might not return a promise 
