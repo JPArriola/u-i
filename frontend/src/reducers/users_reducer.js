@@ -5,7 +5,7 @@ export default function (state = {}, action) {
     case RECEIVE_USER:
       return Object.assign({}, state, {[action.user.id]: action.user});
     default:
-      return state;
+      return {};
   }
 };
 

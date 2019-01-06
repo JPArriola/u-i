@@ -120,9 +120,10 @@ router.post('/login', (req, res) => {
 // You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email
+    // id: req.user.id,
+    // name: req.user.name,
+    // email: req.user.email
+    JOSH: "josh is cool"
   });
 })
 

@@ -1,18 +1,17 @@
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/profile_actions';
-import { logout } from '../../actions/session_actions'
 import Home from './home';
 
 const mSTP = (state) => {
   console.warn("Container", state)
   return {
-    
+    user: state.session.user,
+    partner: Object.keys(state.users)
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    logout: () => dispatch(logout()),
     fetchUser: userId => dispatch(fetchUser(userId)),
   };
 };
