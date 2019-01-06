@@ -32,7 +32,7 @@ const UserSchema = new Schema({
     required: false
   },
   partnerId: {
-    type: Number,
+    type: String,
     required: false
   },
   zipCode: {
