@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
+const validText = require('../../validation/valid-text');
 
 router.get("/test", (req, res) => 
   res.json({ msg: "This is the users route" })
@@ -163,22 +164,44 @@ router.get('/:id', (req, res) => {
 
 //update single user
 router.patch("/:id", (req, res) => {
-  const user = { _id: req.params.id };
+  // const user = { _id: req.params.id };
+  // console.log("This is the user", user)
+  // console.log("this is the request body", req.body)
 
-  User.updateOne(user, {
-    name: req.body.name,
-    email: req.body.email,
-    partnerId: req.body.partnerId,
-    connectionCode: req.body.connectionCode,
-    connected: req.body.connected,
-    nickname: req.body.nickname,
-    birthday: req.body.birthday,
-    zipCode: req.body.zipCode
-  }, function(err) {
-    User.findOne({ _id: req.params.id }, function(err, user) {
-      res.send(user);
-    });
-  });
+
+  // User.updateOne(user, {
+    
+  //   name: req.body.name,
+  //   email: req.body.email,
+  //   partnerId: req.body.partnerId,
+  //   connectionCode: req.body.connectionCode,
+  //   connected: req.body.connected,
+  //   nickname: req.body.nickname,
+  //   birthday: req.body.birthday,
+  //   zipCode: req.body.zipCode
+  // }, function(err) {
+  //   User.findOne({ _id: req.params.id }, function(err, user) {
+  //     res.send(user);
+  //   });
+  // });
+
+
+  User.findById(req.params.id)
+    .then(user => {
+      
+      user.name = validText(req.body.name) ? req.body.name : user.name; 
+      user.email = validText(req.body.email) ? req.body.email : user.email;
+      user.partnerId = validText(req.body.partnerId) ? req.body.partnerId : user.partnerId;
+      user.connectionCode = validText(req.body.connectionCode) ? req.body.connectionCode : user.connectionCode;
+      user.connected = (req.body.connected === undefined) ? user.connected : req.body.connected;
+      user.nickname = validText(req.body.nickname) ? req.body.nickname : user.nickname;
+      user.birthday = req.body.birthday ? req.body.birthday : user.birthday;
+      user.zipCode = req.body.zipCode ? req.body.zipCode : user.zipCode;
+
+      user.save().then(user =>
+        res.json(user)
+      )
+    })
 });
 
 module.exports = router;
