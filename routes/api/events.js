@@ -5,7 +5,7 @@ const passport = require('passport');
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
 
-router.get('/:user_id', (req, res) => {
+router.get('/user/:user_id', (req, res) => {
   User.findById(req.params.user_id)
     .then(user => {
       const currConnectionCode = user.connectionCode;
