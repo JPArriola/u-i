@@ -6,7 +6,11 @@ import '../stylesheets/home/home.scss';
 class Home extends React.Component {
 
   componentDidMount(){
-    this.props.fetchUser(this.props.user.id);
+    console.log("HomeFormUserProps", this.props.user);
+    this.props.fetchPartner(this.props.partnerId);
+    console.log('props', this.props);
+      // .then((data) => console.error(data))
+      // .catch(error => console.error(error));
   }
 
   render() {
@@ -27,7 +31,9 @@ class Home extends React.Component {
                 </div>
                 <div className="profiles-user">
                   <div className="profile-picture" />
-                  <div className="profile-content" />
+                  <div className="profile-content">
+                  {/* Name: {this.props.partner.name} */}
+                  </div>
                 </div>
               </div>
               <div className="profiles-user">

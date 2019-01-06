@@ -1,9 +1,9 @@
-import { RECEIVE_USER } from '../actions/profile_actions';
+import { RECEIVE_PARTNER } from '../actions/profile_actions';
 
 export default function (state = {}, action) {
   switch (action.type) {
-    case RECEIVE_USER:
-      return Object.assign({}, state, {[action.user.id]: action.user});
+    case RECEIVE_PARTNER:
+      return Object.assign({}, state, action.partner.data);
     default:
       return {};
   }

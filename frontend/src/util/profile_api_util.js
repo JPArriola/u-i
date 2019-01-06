@@ -10,6 +10,6 @@ export const setAuthToken = token => {
 
 // api/users/:id will have information for a specific user id
 
-export const fetchUser = (id) => {
+export const fetchPartner = (id) => {
   return axios.get(`/api/users/${id}`);
 };

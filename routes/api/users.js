@@ -138,7 +138,19 @@ router.patch('/:user_id/connect', (req, res) => {
 
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
-    .then(user => res.json(user))
+    .then(user => {
+      res.json({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        partnerId: user.partnerId,
+        connectionCode: user.connectionCode,
+        connected: user.connected,
+        nickname: user.nickname,
+        birthday: user.birthday,
+        zipCode: user.zipCode
+      });
+    })
     .catch (err =>
       res.status(404).json({ nouserfound: 'No User found with that ID' })
     );
