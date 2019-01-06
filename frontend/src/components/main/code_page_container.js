@@ -4,13 +4,15 @@ import CodePage from './code_page';
 
 const mSTP = (state) => {
   return {
-    user: state.session.user
+    user: state.session.user,
+    errors: state.errors.connection,
+    connected: state.session.user.connected
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    connectUser: userId => dispatch(connectUser(userId)),
+    connectUser: (userId, connectionCode) => dispatch(connectUser(userId, connectionCode)),
     logout: () => dispatch(logout())
   };
 };

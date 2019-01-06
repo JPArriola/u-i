@@ -34,7 +34,7 @@ router.post('/signup', (req, res) => {
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
-        return res.status(400).json({ email: "A user has already registered with this address" })
+        return res.status(400).json({ email: "A user has already registered with this address" });
       } else {
         const newUser = new User({
           email: req.body.email,
@@ -98,7 +98,7 @@ router.post('/login', (req, res) => {
               (err, token) => {
                 res.json({
                   success: true,
-                  token: 'Bearer ' + token
+                  token: 'Bearer ' + token,
                 });
               });
 
@@ -130,9 +130,8 @@ router.patch('/:user_id/connect', (req, res) => {
           });
         });
     })
-
-  .catch(err =>
-    res.status(404).json({ nouserfound: 'No user found with that connection code' })
+    .catch(err =>
+      res.status(404).json({ nouserfound: 'No user found with that connection code' })
     );
 });
 
@@ -173,8 +172,8 @@ router.patch("/:id", (req, res) => {
 
       user.save().then(user =>
         res.json(user)
-      )
-    })
+      );
+    });
 });
 
 module.exports = router;

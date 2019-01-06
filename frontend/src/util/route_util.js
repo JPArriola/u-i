@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact, connected }) => (
     if (!loggedIn) {
       return <Component { ...props } />;
     } else {
-      return connected ? <Redirect to="/home" /> : <Redirect to='/codepage' />;
+      return connected ? <Redirect to='/home' /> : <Redirect to='/codepage' />;
     }
   }} />
 );

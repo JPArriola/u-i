@@ -6,12 +6,10 @@ import '../stylesheets/home/home.scss';
 class Home extends React.Component {
 
   componentDidMount(){
-    console.error("didmount", this.props)
     this.props.fetchPartner(this.props.partnerId);
   }
   
   render() {
-    console.log("render", this.props);
     if (!this.props.partnerId) return null;
     return <div>
         <Navbar />

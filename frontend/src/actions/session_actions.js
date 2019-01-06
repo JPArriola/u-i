@@ -3,6 +3,7 @@ import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const RECEIVE_CONNECTION_ERRORS = "RECEIVE_CONNECTION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 
@@ -18,6 +19,11 @@ export const receiveUserSignIn = () => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
+});
+
+export const receiveConnectionErrors = connectionErrors => ({
+  type: RECEIVE_CONNECTION_ERRORS,
+  connectionErrors
 });
 
 export const logoutUser = () => ({
@@ -51,7 +57,10 @@ export const logout = () => dispatch => {
     dispatch(logoutUser());
 };
 
-export const connectUser = id => dispatch => (
-  APIUtil.connectUser(id)
-  .then(user => (dispatch(receiveCurrentUser(user))))
+export const connectUser = (userId, connectionCode) => dispatch => (
+  APIUtil.connectUser(userId, connectionCode)
+  .then(user => (dispatch(receiveCurrentUser(user.data))))
+  .catch(err => {
+    dispatch(receiveConnectionErrors(err.response.data));
+  })
 );
