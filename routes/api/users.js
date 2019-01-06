@@ -117,8 +117,6 @@ router.post('/login', (req, res) => {
 router.patch('/:user_id/connect', (req, res) => {
   User.findOne({ connectionCode: req.body.connectionCode })
     .then(partner => {
-      console.log("this is the partner", partner)
-
       partner.partnerId = req.params.user_id;
       partner.connected = true;
       partner.save()
