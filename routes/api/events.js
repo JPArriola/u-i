@@ -40,7 +40,6 @@ router.get('/:id', (req, res) => {
 
 //FIX ME!
 router.post('/',
-  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateEventInput(req.title);
 
@@ -50,7 +49,7 @@ router.post('/',
 
     const newEvent = new Event({
       title: req.body.title,
-      user: req.user.id
+      authorId: req.body.authorId
     });
 
     newEvent.save().then(event => res.json(event));

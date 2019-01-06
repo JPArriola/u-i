@@ -36,12 +36,8 @@ router.post('/signup', (req, res) => {
       if (user) {
         return res.status(400).json({ email: "A user has already registered with this address" })
       } else {
-        const newUser = new User({
-          email: req.body.email,
-          password: req.body.password,
-          name: req.body.name,
-          connectionCode: generateRandomCode()
-        })
+        let { email, password, name } = req.body;
+        const newUser = new User({email, password, name, connectionCode: generateRandomCode()})
 
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -58,37 +54,21 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
+  const { email, password } = req.body;
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  if (!isValid) return res.status(400).json(errors);
   
-  const email = req.body.email;
-  const password = req.body.password;
-
   User.findOne({
       email
     })
     .then(user => {
-      if (!user) {
-        return res.status(404).json({
-          email: 'This user does not exist'
-        });
-      }
+      if (!user) return res.status(404).json({ email: 'This user does not exist' });
+
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            const payload = {
-              id: user.id,
-              name: user.name,
-              email: user.email,
-              partnerId: user.partnerId,
-              connectionCode: user.connectionCode,
-              connected: user.connected,
-              nickname: user.nickname,
-              birthday: user.birthday,
-              zipCode: user.zipCode
-            };
+            let { id, name, email, partnerId, connectionCode, connected, nickname, birthday, zipCode } = user
+            const payload = { id, name, email, partnerId, connectionCode, connected, nickname, birthday, zipCode };
 
             jwt.sign(
               payload,
@@ -117,8 +97,6 @@ router.post('/login', (req, res) => {
 router.patch('/:user_id/connect', (req, res) => {
   User.findOne({ connectionCode: req.body.connectionCode })
     .then(partner => {
-      console.log("this is the partner", partner)
-
       partner.partnerId = req.params.user_id;
       partner.connected = true;
       partner.save()
