@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -16,7 +17,6 @@ router.get('/', (req, res) => {
 
   // filter by connectionCode
 });
-
 
 router.get('/user/:user_id', (req, res) => {
   let currUser = User.findById(req.params.user_id);
@@ -41,6 +41,7 @@ router.get('/:id', (req, res) => {
 //FIX ME!
 router.post('/',
   passport.authenticate('jwt', { session: false }),
+
   (req, res) => {
     const { errors, isValid } = validateEventInput(req.title);
 
@@ -51,6 +52,8 @@ router.post('/',
     const newEvent = new Event({
       title: req.body.title,
       user: req.user.id
+      authorId: req.body.authorId
+
     });
 
     newEvent.save().then(event => res.json(event));
