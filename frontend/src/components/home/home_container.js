@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/profile_actions';
-import { logout } from '../../actions/session_actions'
+import { fetchPartner } from '../../actions/profile_actions';
 import Home from './home';
 
 const mSTP = (state) => {
+  let partnerId = state.session.user.partnerId;
   return {
-    
+    user: state.session.user,
+    partner: state.partner,
+    partnerId,
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    logout: () => dispatch(logout()),
-    fetchUser: userId => dispatch(fetchUser(userId)),
+    fetchPartner: userId => dispatch(fetchPartner(userId)),
   };
 };
 
-export default connect(null, mDTP)(Home);
+export default connect(mSTP, mDTP)(Home);

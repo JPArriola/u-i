@@ -8,6 +8,8 @@ export const setAuthToken = token => {
   }
 };
 
-export const fetchUser = (userData) => {
-  return axios.get('/api/users/id', userData);
+// api/users/:id will have information for a specific user id
+
+export const fetchPartner = (id) => {
+  return axios.get(`/api/users/${id}`);
 };

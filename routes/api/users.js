@@ -34,7 +34,7 @@ router.post('/signup', (req, res) => {
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
-        return res.status(400).json({ email: "A user has already registered with this address" })
+        return res.status(400).json({ email: "A user has already registered with this address" });
       } else {
         let { email, password, name } = req.body;
         const newUser = new User({email, password, name, connectionCode: generateRandomCode()})
@@ -46,11 +46,11 @@ router.post('/signup', (req, res) => {
             newUser.save()
               .then(user => res.json(user))
               .catch(err => console.log(err));
-          })
-        })
+          });
+        });
       }
-    })
-})
+    });
+});
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -74,13 +74,11 @@ router.post('/login', (req, res) => {
               payload,
               keys.secretOrKey,
               // Tell the key to expire in one hour
-              {
-                expiresIn: 3600
-              },
+              { expiresIn: 3600 },
               (err, token) => {
                 res.json({
                   success: true,
-                  token: 'Bearer ' + token
+                  token: 'Bearer ' + token,
                 });
               });
 
@@ -108,19 +106,30 @@ router.patch('/:user_id/connect', (req, res) => {
             user.connectionCode = partner.connectionCode;
 
             user.save()
-            .then(user => res.json(user))
-          })
+            .then(user => res.json(user));
+          });
         });
     })
-
-  .catch(err =>
-    res.status(404).json({ nouserfound: 'No user found with that connection code' })
+    .catch(err =>
+      res.status(404).json({ nouserfound: 'No user found with that connection code' })
     );
 });
 
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
-    .then(user => res.json(user))
+    .then(user => {
+      res.json({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        partnerId: user.partnerId,
+        connectionCode: user.connectionCode,
+        connected: user.connected,
+        nickname: user.nickname,
+        birthday: user.birthday,
+        zipCode: user.zipCode
+      });
+    })
     .catch (err =>
       res.status(404).json({ nouserfound: 'No User found with that ID' })
     );
@@ -143,8 +152,8 @@ router.patch("/:id", (req, res) => {
 
       user.save().then(user =>
         res.json(user)
-      )
-    })
+      );
+    });
 });
 
 module.exports = router;
