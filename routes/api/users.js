@@ -31,14 +31,11 @@ router.post('/signup', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  // Check to make sure nobody has already registered with a duplicate email
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
-        // Throw a 400 error if the email address already exists
         return res.status(400).json({ email: "A user has already registered with this address" })
       } else {
-        // Otherwise create a new user
         const newUser = new User({
           email: req.body.email,
           password: req.body.password,
@@ -58,7 +55,6 @@ router.post('/signup', (req, res) => {
       }
     })
 })
-
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -118,39 +114,29 @@ router.post('/login', (req, res) => {
     });
 });
 
-// [promise1, promise2] => [data1, data2]
-// Promise.all(array)
-  // .then(datainArray)
-  // .catch()
-
 router.patch('/:user_id/connect', (req, res) => {
-  let partnery;
-  User.find({ connectionCode: req.body.connectionCode })
+  User.findOne({ connectionCode: req.body.connectionCode })
     .then(partner => {
-      console.log("this is partnery", partnery)
-      partnery = partner;
-      User.update(partner, {
-        partnerId: req.params.user_id,
-        connected: true
-      })
-      // return partner;
+      console.log("this is the partner", partner)
+
+      partner.partnerId = req.params.user_id;
+      partner.connected = true;
+      partner.save()
+        .then(partner => {
+          User.findById(req.params.user_id)
+          .then(user => {
+            user.partnerId = partner.id;
+            user.connected = true;
+            user.connectionCode = partner.connectionCode;
+
+            user.save()
+            .then(user => res.json(user))
+          })
+        });
     })
-    .then( (partner) => { 
-      const currUser = { id: req.params.user_id };
-      //update might not return a promise 
-      User.update(currUser, {
-        partnerId: partner.id,
-        connectionCode: partner.connectionCode,
-        connected: true,
-      });
-      return currUser;
-    })
-    //double check this 
-    .then( (currUser) => {
-      res.json(currUser);  
-    })
-    .catch(err =>
-      res.status(404).json({ nouserfound: 'No user found with that connection code' })
+
+  .catch(err =>
+    res.status(404).json({ nouserfound: 'No user found with that connection code' })
     );
 });
 
@@ -164,27 +150,6 @@ router.get('/:id', (req, res) => {
 
 //update single user
 router.patch("/:id", (req, res) => {
-  // const user = { _id: req.params.id };
-  // console.log("This is the user", user)
-  // console.log("this is the request body", req.body)
-
-
-  // User.updateOne(user, {
-    
-  //   name: req.body.name,
-  //   email: req.body.email,
-  //   partnerId: req.body.partnerId,
-  //   connectionCode: req.body.connectionCode,
-  //   connected: req.body.connected,
-  //   nickname: req.body.nickname,
-  //   birthday: req.body.birthday,
-  //   zipCode: req.body.zipCode
-  // }, function(err) {
-  //   User.findOne({ _id: req.params.id }, function(err, user) {
-  //     res.send(user);
-  //   });
-  // });
-
 
   User.findById(req.params.id)
     .then(user => {
