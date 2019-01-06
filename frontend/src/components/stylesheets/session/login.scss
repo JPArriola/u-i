@@ -67,7 +67,7 @@ input:focus {
   min-width: 1024px;
 }
 
-.logo {
+.big-logo {
   width: 100%;
   height: 200px;
   margin: 0 auto;
@@ -76,7 +76,7 @@ input:focus {
   opacity: 1;
 }
 
-.ui-logo {
+.big-ui-logo {
   background-image: url('../images/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -85,7 +85,7 @@ input:focus {
   margin: 0 auto;
 }
 
-.ui-logo:hover {
+.big-ui-logo:hover {
   cursor: pointer;
 }
 

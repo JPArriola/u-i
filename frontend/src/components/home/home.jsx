@@ -33,12 +33,16 @@ class Home extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="profiles-event-container">
-                <div className="event-header">Coming Soon</div>
-                <div className="event-information-container">
-                  <div className="event-information">Event</div>
-                  <div className="event-date">Date</div>
-                </div>
+              <div className="profiles-user">
+                <div className="profile-picture" />
+                <div className="profile-content" />
+              </div>
+            </div>
+            <div className="profiles-event-container">
+              <div className="event-header">Coming Soon</div>
+              <div className="event-information-container">
+                <div className="event-information">Event</div>
+                <div className="event-date">Date</div>
               </div>
             </div>
           </div>

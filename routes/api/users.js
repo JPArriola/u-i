@@ -50,11 +50,11 @@ router.post('/signup', (req, res) => {
             newUser.save()
               .then(user => res.json(user))
               .catch(err => console.log(err));
-          })
-        })
+          });
+        });
       }
-    })
-})
+    });
+});
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -94,9 +94,7 @@ router.post('/login', (req, res) => {
               payload,
               keys.secretOrKey,
               // Tell the key to expire in one hour
-              {
-                expiresIn: 3600
-              },
+              { expiresIn: 3600 },
               (err, token) => {
                 res.json({
                   success: true,
@@ -128,8 +126,8 @@ router.patch('/:user_id/connect', (req, res) => {
             user.connectionCode = partner.connectionCode;
 
             user.save()
-            .then(user => res.json(user))
-          })
+            .then(user => res.json(user));
+          });
         });
     })
 

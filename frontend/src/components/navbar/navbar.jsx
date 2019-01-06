@@ -3,16 +3,12 @@ import { withRouter } from "react-router-dom";
 import "../stylesheets/navbar/navbar.scss";
 
 class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleLogout = this.handleLogout.bind(this);
-  }
 
   handleLogout(e) {
-    e.preventDefault();
-    this.props.logout();
-    this.props.history.push("/login");
+    return(e) => {
+      e.preventDefault();
+      this.props.logout();
+    };
   }
 
   render() {
@@ -30,8 +26,8 @@ class Navbar extends React.Component {
           <div className="navbar-albums">
             albums
           </div>
-          <div className="navbar-logout" onClick={ this.handleLogout }>
-          Log Out
+          <div className="navbar-logout" onClick={ this.handleLogout() }>
+            Log Out
           </div>
         </div>
       </div>
