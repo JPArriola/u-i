@@ -11,13 +11,14 @@ class Home extends React.Component {
   
   render() {
     if (!this.props.partnerId) return null;
-    return <div>
+    return (
+      <div>
         <Navbar />
         <div className="content-master">
           <div className="home-relationship-profiles">
             <div className="profiles-container">
               <div className="profiles-user">
-                <div className="profile-picture" />
+                <div className="left-profile-picture" />
                 <div className="profile-content">
                   <div>Name: {this.props.user.name}</div>
                   <div>Email: {this.props.user.email}</div>
@@ -40,7 +41,7 @@ class Home extends React.Component {
                 </div>
               </div>
               <div className="profiles-user">
-                <div className="profile-picture" />
+                <div className="right-profile-picture" />
                 <div className="profile-content">
                   <div>Name: {this.props.partner.name}</div>
                   <div>Email: {this.props.partner.email}</div>
@@ -49,7 +50,8 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    )
   }
 }
 

@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -5,6 +6,7 @@ const passport = require('passport');
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
 const validText = require('../../validation/valid-text');
+
 
 router.get('/user/:user_id', (req, res) => {
   User.findById(req.params.user_id)
@@ -32,7 +34,6 @@ router.post('/', (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
   User.findById(authorId)
     .then(user => { 
       const connectionCode = user.connectionCode;
@@ -63,3 +64,4 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+

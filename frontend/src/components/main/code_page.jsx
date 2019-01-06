@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../stylesheets/codepage/code_page.scss';
 
 class CodePage extends React.Component {
@@ -43,7 +42,7 @@ class CodePage extends React.Component {
   renderErrors() {
     let { errors } = this.state;
     return (
-      <div className="login-errors">
+      <div className="code-errors">
         {Object.keys(errors).map((error, i) => (
           <div key={`error-${i}`}>
             { errors[error] }
@@ -60,9 +59,7 @@ class CodePage extends React.Component {
 			<div className="splash-main">
 				<div className="splash">
 					<div className="logo">
-						<Link to="/">
-							<div className="ui-logo" />
-						</Link>
+						<div className="ui-logo" />
 					</div>
 					<div className="splash-popup">
 						<div className="code-page-input-fields">
@@ -70,7 +67,7 @@ class CodePage extends React.Component {
 								Give your code to your partner
 							</div>
 							<div className="random-code">{ connectionCode }</div>
-							<div className="connection-code">OR</div>
+							<div id="code-page-or" className="connection-code">OR</div>
 							<div className="connection-code">
 								Please enter your partner's connection code
 							</div>
@@ -84,11 +81,11 @@ class CodePage extends React.Component {
             <div className="splash-errors">
               { this.renderErrors() }
             </div>
-						<div className="buttons">
+						<div className="codepage-buttons">
 							<button className="connectbutton" onClick={ this.handleConnect() }>
 								Connect
 							</button>
-              <button className="connectbutton" onClick={ this.handleLogout() } >
+              <button id="logout-button-codepage" className="connectbutton" onClick={ this.handleLogout() } >
                 Log Out
               </button>
 						</div>
