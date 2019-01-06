@@ -11,6 +11,13 @@ class CodePage extends React.Component {
     };
   }
 
+  handleLogout() {
+    return (e) => {
+      e.preventDefault();
+      this.props.logout();
+    };
+  }
+
 	render() {
 		let { connectionCode } = this.props.user;
 
@@ -42,6 +49,9 @@ class CodePage extends React.Component {
 							<button className="connectbutton" onClick={ this.handleConnect() }>
 								Connect
 							</button>
+              <button className="connectbutton" onClick={this.handleLogout()} >
+                Log Out
+              </button>
 						</div>
 					</div>
 				</div>
