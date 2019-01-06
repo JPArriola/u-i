@@ -3,7 +3,6 @@ import { fetchPartner } from '../../actions/profile_actions';
 import Home from './home';
 
 const mSTP = (state) => {
-  console.warn("Container", state)
   let partnerId = state.session.user.partnerId;
   return {
     user: state.session.user,

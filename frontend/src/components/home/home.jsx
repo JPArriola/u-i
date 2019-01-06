@@ -6,11 +6,7 @@ import '../stylesheets/home/home.scss';
 class Home extends React.Component {
 
   componentDidMount(){
-    console.log("HomeFormUserProps", this.props.user);
     this.props.fetchPartner(this.props.partnerId);
-    console.log('props', this.props);
-      // .then((data) => console.error(data))
-      // .catch(error => console.error(error));
   }
 
   render() {

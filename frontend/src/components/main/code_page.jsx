@@ -3,11 +3,24 @@ import { Link } from 'react-router-dom';
 import '../stylesheets/codepage/code_page.scss';
 
 class CodePage extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      connectionCode: "",
+      errors: {}
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
+  }
+  
 	handleConnect() {
     return (e) => {
       e.preventDefault();
-      this.props.connectUser(this.props.user.id);
+      this.props.connectUser(this.props.user.id, this.state.connectionCode);
+      this.props.history.push('/home');
     };
   }
 
@@ -16,6 +29,25 @@ class CodePage extends React.Component {
       e.preventDefault();
       this.props.logout();
     };
+  }
+
+  update() {
+    return(e) => {
+      this.setState({ connectionCode: e.target.value });
+    };
+  }
+
+  renderErrors() {
+    let { errors } = this.state;
+    return (
+      <div className="login-errors">
+        {Object.keys(errors).map((error, i) => (
+          <div key={`error-${i}`}>
+            { errors[error] }
+          </div>
+        ))}
+      </div>
+    );
   }
 
 	render() {
@@ -42,14 +74,18 @@ class CodePage extends React.Component {
 							<input
 								type="password"
 								placeholder="Connection Code"
-								maxLength="12"
+                maxLength="12"
+                onChange={ this.update() }
 							/>
 						</div>
+            <div className="splash-errors">
+              { this.renderErrors() }
+            </div>
 						<div className="buttons">
 							<button className="connectbutton" onClick={ this.handleConnect() }>
 								Connect
 							</button>
-              <button className="connectbutton" onClick={this.handleLogout()} >
+              <button className="connectbutton" onClick={ this.handleLogout() } >
                 Log Out
               </button>
 						</div>
