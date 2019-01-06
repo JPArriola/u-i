@@ -3,31 +3,20 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
+const validText = require('../../validation/valid-text');
 
-router.get('/', (req, res) => {
-  Event.find()
-    .sort({ date: -1 })
-    .filter({ })
-    .then(events => res.json(events))
-    .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
-
-
-  // filter by connectionCode
-});
 
 router.get('/user/:user_id', (req, res) => {
-  let currUser = User.findById(req.params.user_id);
-  let currConnectionCode = currUser.connectionCode;
-
-  Event.find({ connectionCode: currConnectionCode })
-    .then(events => res.json(events))
-    .catch(err =>
-      res.status(404).json({ noeventsfound: 'No events found' }
-      )
-    );
+  User.findById(req.params.user_id)
+    .then(user => {
+      const currConnectionCode = user.connectionCode;
+      Event.find({ connectionCode: currConnectionCode })
+        .sort({ date: -1 })
+        .then(events => res.json(events))
+        .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
+    });
 });
 
 router.get('/:id', (req, res) => {
@@ -38,76 +27,41 @@ router.get('/:id', (req, res) => {
     );
 });
 
-//FIX ME!
-router.post('/',
-  passport.authenticate('jwt', { session: false }),
+router.post('/', (req, res) => {
+  const { title, authorId, date } = req.body;
+  const { errors, isValid } = validateEventInput(req.body);
 
-  (req, res) => {
-    const { errors, isValid } = validateEventInput(req.title);
-
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    const newEvent = new Event({
-      title: req.body.title,
-      user: req.user.id
-      authorId: req.body.authorId
-
-    });
-
-    newEvent.save().then(event => res.json(event));
+  if (!isValid) {
+    return res.status(400).json(errors);
   }
-);
-
-//FIX ME! - want some authentication in order for specific user/author to update an event
-router.patch('/:id', (req, res) => {
-  passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateEventInput(req.title);
-
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-
-      const newEvent = new Event({
-        title: req.body.title,
-        user: req.user.id
-      });
-
+  User.findById(authorId)
+    .then(user => { 
+      const connectionCode = user.connectionCode;
+      const newEvent = new Event({ title, authorId, date, connectionCode });
       newEvent.save().then(event => res.json(event));
-    }
-
-  Event.findById(req.params.id)
-    .then(event => res.json(event))
-    .catch(err =>
-      res.status(404).json({ noeventfound: 'No event found with that ID' })
-    );
+    });
 });
 
-//FIX ME! - want some authentication in order for specific user/author to delete an event
-router.delete('/:id', (req, res) => {
-  passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateEventInput(req.title);
-
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-
-      const newEvent = new Event({
-        title: req.body.title,
-        user: req.user.id
-      });
-
-      newEvent.save().then(event => res.json(event));
-    }
-  
+router.patch('/:id', (req, res) => {
   Event.findById(req.params.id)
-    .then(event => res.json(event))
+    .then(event => {
+      event.title = validText(req.body.title) ? req.body.title : event.title;
+      event.date = (req.body.date === undefined) ? event.date : req.body.date;
+      event.authorId = validText(req.body.authorId) ? req.body.authorId : event.authorId;
+      
+      event.save().then(event => res.json(event));
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  Event.findById(req.params.id)
+    .then(event => {
+      event.remove().then(event => res.json(event));
+    })
     .catch(err =>
       res.status(404).json({ noeventfound: 'No event found with that ID' })
     );
 });
 
 module.exports = router;
+
