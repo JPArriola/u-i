@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
+const validText = require('../../validation/valid-text');
 
 router.get('/user/:user_id', (req, res) => {
   User.findById(req.params.user_id)
@@ -40,54 +41,26 @@ router.post('/', (req, res) => {
     });
 });
 
-//FIX ME! - want some authentication in order for specific user/author to update an event
 router.patch('/:id', (req, res) => {
-  passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateEventInput(req.title);
-
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-
-      const newEvent = new Event({
-        title: req.body.title,
-        user: req.user.id
-      });
-
-      newEvent.save().then(event => res.json(event));
-    }
-
   Event.findById(req.params.id)
-    .then(event => res.json(event))
-    .catch(err =>
-      res.status(404).json({ noeventfound: 'No event found with that ID' })
-    );
+    .then(event => {
+      event.title = validText(req.body.title) ? req.body.title : event.title;
+      event.date = (req.body.date === undefined) ? event.date : req.body.date;
+      event.authorId = validText(req.body.authorId) ? req.body.authorId : event.authorId;
+      
+      event.save().then(event => res.json(event));
+    });
 });
 
 //FIX ME! - want some authentication in order for specific user/author to delete an event
 router.delete('/:id', (req, res) => {
-  passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateEventInput(req.title);
-
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-
-      const newEvent = new Event({
-        title: req.body.title,
-        user: req.user.id
-      });
-
-      newEvent.save().then(event => res.json(event));
-    }
-  
-  // Event.findById(req.params.id)
-  //   .then(event => res.json(event))
-  //   .catch(err =>
-  //     res.status(404).json({ noeventfound: 'No event found with that ID' })
-  //   );
+  Event.findById(req.params.id)
+    .then(event => {
+      res.json(event)
+    })
+    .catch(err =>
+      res.status(404).json({ noeventfound: 'No event found with that ID' })
+    );
 });
 
 module.exports = router;
