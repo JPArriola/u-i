@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { connectUser } from '../../actions/session_actions';
+import { connectUser, logout } from '../../actions/session_actions';
 import CodePage from './code_page';
 
 const mSTP = (state) => {
@@ -10,7 +10,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    connectUser: userId => dispatch(connectUser(userId))
+    connectUser: userId => dispatch(connectUser(userId)),
+    logout: () => dispatch(logout())
   };
 };
 
