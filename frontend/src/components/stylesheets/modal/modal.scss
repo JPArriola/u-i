@@ -1,15 +1,35 @@
 .modal-background{
+  // position: fixed;
+  // height: 100vh;
+  // width: 100%;
+  // // margin: 30px;
+  // opacity: 0.5;
+  // background-color: black;
+  // // padding: 30px;
   position: fixed;
-  height: 100vh;
-  width: 100%;
-  margin: 30px;
-  opacity: 0.8;
-  background-color: black;
-  padding: 30px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(219, 205, 205, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 900;
 }
 
 .modal-child{
-  width: 50px;
-  position: absolute;
-  background-color: gold;
+  // width: 50px;
+  // // position: absolute;
+  // margin: 0 auto;
+  // background-color: gold;
+  // font-family: "Arimo",
+  // sans-serif;
+  letter-spacing: 0.5px;
+  background-color: white;
+  max-width: 470px;
+  flex: 1;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1000;
 }
