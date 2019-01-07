@@ -149,8 +149,22 @@ router.patch("/:id", (req, res) => {
       user.birthday = req.body.birthday ? req.body.birthday : user.birthday;
       user.zipCode = req.body.zipCode ? req.body.zipCode : user.zipCode;
 
-      user.save().then(user =>
-        res.json(user)
+      user.save().then(user => {
+        let { id, name, email, partnerId, connectionCode, connected, nickname, birthday, zipCode } = user
+        const payload = { id, name, email, partnerId, connectionCode, connected, nickname, birthday, zipCode };
+
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          // Tell the key to expire in one hour
+          { expiresIn: 3600 },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: 'Bearer ' + token,
+            });
+          });
+        }
       );
     });
 });
