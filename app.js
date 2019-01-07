@@ -4,6 +4,8 @@ const db = require('./config/keys').mongoURI;
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const events = require("./routes/api/events");
+const albums = require("./routes/api/albums");
+const stickys = require("./routes/api/stickys");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -24,6 +26,8 @@ require('./config/passport')(passport);
 
 app.use("/api/users", users);
 app.use("/api/events", events);
+app.use("/api/albums", albums);
+app.use("/api/stickys", stickys);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

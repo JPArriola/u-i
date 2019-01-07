@@ -29,7 +29,7 @@ class UpdateUser extends React.Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit()}>
+      <form onSubmit={this.handleSubmit()} className="profile-update-form" onClick={ e => e.stopPropagation() }>
         <div className="profile-update-title">
           Edit Profile
         </div>

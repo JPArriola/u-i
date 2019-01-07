@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EventSchema = new Schema({
-  title: {
+const StickySchema = new Schema({
+  body: {
     type: String,
     required: true
   },
@@ -14,10 +14,14 @@ const EventSchema = new Schema({
     type: String,
     required: true
   },
+  receiverId: {
+    type: String,
+    required: true
+  },
   connectionCode: {
     type: String,
     required: true
   }
 });
 
-module.exports = Event = mongoose.model('events', EventSchema);
+module.exports = Sticky = mongoose.model('stickys', StickySchema);
