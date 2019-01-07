@@ -1,6 +1,11 @@
 import { RECEIVE_CURRENT_USER, 
          RECEIVE_USER_LOGOUT, 
-         RECEIVE_USER_SIGN_IN } from '../actions/session_actions';
+         RECEIVE_USER_SIGN_IN }
+        from '../actions/session_actions';
+
+import {
+  RECEIVE_UPDATED_CURRENT_USER
+} from '../actions/profile_actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -24,7 +29,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isSignedIn: true
-      }
+      };
+    case RECEIVE_UPDATED_CURRENT_USER:
+      return {
+        ...state,
+        user: action.user
+      };
     default:
       return state;
   }

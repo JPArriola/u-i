@@ -137,7 +137,6 @@ router.get('/:id', (req, res) => {
 
 //update single user
 router.patch("/:id", (req, res) => {
-
   User.findById(req.params.id)
     .then(user => {
       
