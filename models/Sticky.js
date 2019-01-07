@@ -8,7 +8,7 @@ const StickySchema = new Schema({
   },
   date: {
     type: Date,
-    required: false
+    required: true
   },
   authorId: {
     type: String,
@@ -24,4 +24,4 @@ const StickySchema = new Schema({
   }
 });
 
-module.exports = Event = mongoose.model('sticky', StickySchema);
+module.exports = Sticky = mongoose.model('stickys', StickySchema);

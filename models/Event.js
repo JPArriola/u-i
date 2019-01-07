@@ -8,7 +8,7 @@ const EventSchema = new Schema({
   },
   date: {
     type: Date,
-    required: false
+    required: true
   },
   authorId: {
     type: String,
@@ -20,4 +20,4 @@ const EventSchema = new Schema({
   }
 });
 
-module.exports = Event = mongoose.model('event', EventSchema);
+module.exports = Event = mongoose.model('events', EventSchema);
