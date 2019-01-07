@@ -7,6 +7,9 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './home/home_container';
 import CodePageContainer from './main/code_page_container';
+import DatesContainer from './dates/dates_container';
+import StickysContainer from './stickys/stickys_container';
+import AlbumsContainer from './albums/albums_container';
 
 const App = () => (
 	<Switch>
@@ -14,10 +17,14 @@ const App = () => (
 
 		<AuthRoute exact path="/login" component={ LoginFormContainer } />
 		<AuthRoute exact path="/signup" component={ SignupFormContainer } />
-
-		<ProtectedRoute exact path="/home" component={ HomeContainer } />
+		
 		<ConnectedRoute exact path="/codepage" component={ CodePageContainer } />
 
+		<ProtectedRoute exact path="/home" component={ HomeContainer } />
+		<ProtectedRoute exact path="/dates" component={ DatesContainer } />
+		<ProtectedRoute exact path="/stickys" component={ StickysContainer } />
+		<ProtectedRoute exact path="/albums" component={ AlbumsContainer } />
+		
 	</Switch>
 );
 
