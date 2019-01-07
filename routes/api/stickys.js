@@ -36,5 +36,19 @@ router.get('/:id', (req, res) => {
     );
 });
 
+router.get('/user/:user_id', (req, res) => {
+  User.findById(req.params.user_id)
+    .then(user => {
+      const currConnectionCode = user.connectionCode;
+      Sticky.find({
+          connectionCode: currConnectionCode
+        })
+        .then(stickys => res.json(stickys))
+        .catch(err => res.status(404).json({
+          nostickysfound: 'No stickys found'
+        }));
+    });
+});
+
 
 module.exports = router;
