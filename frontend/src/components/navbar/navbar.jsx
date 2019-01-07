@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "../stylesheets/navbar/navbar.scss";
 
 class Navbar extends React.Component {
@@ -15,16 +15,21 @@ class Navbar extends React.Component {
     return (
       <div className="navbar-master">
         <div className="navbar-workingspace">
-          <div className="navbar-logo">
-          </div>
+          <Link to='/home' className="navbar-logo"></Link>
           <div className="navbar-dates">
-            dates
+            <Link to='/dates'>
+              dates
+            </Link>
           </div>
           <div className="navbar-stickys">
-            stickys
+            <Link to='/stickys'>
+              stickys
+            </Link>
           </div>
           <div className="navbar-albums">
-            albums
+            <Link to='/albums'>
+              albums
+            </Link>
           </div>
           <div className="navbar-logout" onClick={ this.handleLogout() }>
             Log Out
