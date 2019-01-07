@@ -9,6 +9,6 @@ export default function (state = {}, action) {
       let newState = Object.assign({}, state, action.sticky.data);
       return newState;
     default:
-      return {};
+      return state;
   }
 }
