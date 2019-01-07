@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CreateStickyForm from './create_sticky_form';
-import { createSticky } from '../../actions/sticky_actions';
+import { createSticky,getAllStickys } from '../../actions/sticky_actions';
 import { fetchPartner } from '../../actions/profile_actions';
 import { closeModal } from '../../actions/modal_actions';
 
@@ -15,6 +15,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     createSticky: (sticky) => dispatch(createSticky(sticky)),
+    getAllStickys: (userId) => dispatch(getAllStickys(userId)),
     fetchPartner: (partnerId) => dispatch(fetchPartner(partnerId)),
     closeModal: () => dispatch(closeModal())
   };

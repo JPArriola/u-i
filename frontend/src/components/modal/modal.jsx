@@ -9,6 +9,7 @@ function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
+
   let component;
   switch (modal) {
     case "editUser":
@@ -20,6 +21,7 @@ function Modal({ modal, closeModal }) {
     default:
       return null;
   }
+
   return (
     <div className="modal-background" onClick={ closeModal }>
       { component }
@@ -28,15 +30,15 @@ function Modal({ modal, closeModal }) {
 }
 
 const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal,
-  };
+  return ({
+    modal: state.ui.modal
+  });
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
+  return ({
     closeModal: () => dispatch(closeModal())
-  };
+  });
 };
 
 

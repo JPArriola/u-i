@@ -7,23 +7,29 @@ import {
   deleteSticky
 } from '../../actions/sticky_actions';
 import { openModal } from '../../actions/modal_actions';
+import { fetchPartner } from '../../actions/profile_actions';
 
 const mSTP = (state) => {
   let stickys = Object.values(state.stickys);
-  let userId = state.session.user.id;
+  let user = state.session.user;
+  let partnerId = state.session.user.partnerId;
+
   return {
     stickys,
-    userId
+    user,
+    partnerId,
+    partner: state.partner,
   };
 };
 
 const mDTP = (dispatch) => {
   return {
+    fetchPartner: userId => dispatch(fetchPartner(userId)),
     getAllStickys: (userId) => dispatch(getAllStickys(userId)),
     getSticky: (stickyId) => dispatch(getSticky(stickyId)),
     editSticky: (stickyId) => dispatch(editSticky(stickyId)),
     deleteSticky: (stickyId) => dispatch(deleteSticky(stickyId)),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 

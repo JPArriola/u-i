@@ -1,0 +1,72 @@
+.sticky-index-with-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  background-color: #fff6f6;
+}
+
+.create-sticky-button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: #6c6c6c;
+  border-radius: 100px;
+  color: white;
+  font-size: 17px;
+}
+
+.create-sticky-button:hover {
+  cursor: pointer;
+  background-color: #bdbdbd;
+}
+
+.sticky-index {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 100px;
+}
+
+.sticky-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 190px;
+  width: 380px;
+  // background-color: lightcoral;
+  background-image: url('../images/note.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 35px;
+  color: black;
+  margin: 15px;
+  font-size: 20px;
+
+  .to-love {
+    display: flex;
+    margin: 30px 0 0 40px;
+  }
+
+  .sticky-body {
+    margin: 0 auto;
+    font-size: 15px;
+    padding: 0px 50px;
+    overflow: scroll;
+  }
+
+  .from-love-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 40px 40px 0;
+
+    .from-love {
+      display: flex;
+    }
+  }
+}
+
+.to-from {
+  padding-right: 10px;
+  font-weight: bold;
+  color: rgb(247, 70, 70);
+}

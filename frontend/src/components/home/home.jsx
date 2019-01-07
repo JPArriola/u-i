@@ -30,6 +30,7 @@ class Home extends React.Component {
     return (
       <div>
         <Navbar />
+        <div className="empty-line"></div>
         <div className="content-master">
           <div className="home-relationship-profiles">
             <div className="profiles-container">

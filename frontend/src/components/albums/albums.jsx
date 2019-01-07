@@ -6,6 +6,7 @@ class Albums extends React.Component {
 		return (
 			<div>
 				<Navbar />
+				<div className="empty-line"></div>
 				ALBUMS
 			</div>
 		);
