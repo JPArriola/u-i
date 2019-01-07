@@ -20,7 +20,7 @@ export const createSticky = (sticky) => dispatch => (
 
 export const getAllStickys = (userId) => dispatch => (
   APIUtil.getAllStickys(userId)
-  .then(stickys => (dispatch(receiveAllStickys(stickys))))
+  .then(stickys => (dispatch(receiveAllStickys(stickys.data))))
 );
 
 export const getSticky = (stickyId) => dispatch => (
