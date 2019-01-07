@@ -26,6 +26,15 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  Sticky.findById(req.params.id)
+    .then(sticky => res.json(sticky))
+    .catch(err =>
+      res.status(404).json({
+        nostickyfound: 'No sticky found with that ID'
+      })
+    );
+});
 
 
 module.exports = router;
