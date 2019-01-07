@@ -22,6 +22,7 @@ class Dates extends React.Component {
     return(
       <div>
         <Navbar />
+        <div className="empty-line"></div>
         <button>Create Date</button>
         <Calendar
           // onChange={this.onChange}

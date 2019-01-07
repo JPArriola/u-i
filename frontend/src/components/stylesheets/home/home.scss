@@ -280,3 +280,10 @@ input:focus {
   display: flex;
   justify-content: space-around;
 }
+
+.empty-line {
+  width: 100%;
+  height: 3px;
+  background-color: #e6fff2;
+  border-bottom: 2px solid lightcoral;
+}
