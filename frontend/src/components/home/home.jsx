@@ -4,17 +4,31 @@ import Navbar from '../navbar/navbar_container';
 import '../stylesheets/home/home.scss';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
 
-  componentDidMount(){
+    this.state = {
+      nickname: this.props.user.nickname
+    };
+  }
+
+  componentDidMount() {
     this.props.fetchPartner(this.props.partnerId);
   }
-  
+
+  // componentDidUpdate(prevProps, prevState){
+  //   if (prevState !== this.state){
+  //     return this.props.fetchUpdatedCurrentUser(this.props.user.id);
+  //   }
+  // }
+
   render() {
-    let {user, partner} = this.props;
+    let { user, partner } = this.props;
 
     if (!this.props.partnerId) return null;
     if (!partner.name) return null;
-    return (<div>
+    return (
+      <div>
         <Navbar />
         <div className="content-master">
           <div className="home-relationship-profiles">
@@ -25,9 +39,14 @@ class Home extends React.Component {
                   <div>
                     Name:{user.name[0].toUpperCase() + user.name.slice(1)}
                   </div>
+                  <div>Nickname: {user.nickname}</div>
                   <div>Email: {user.email}</div>
+                  <div>Zipcode: {user.zipCode}</div>
                 </div>
-                <div onClick={() => this.props.openModal("editUser")} className="profile-edit">
+                <div
+                  onClick={() => this.props.openModal("editUser")}
+                  className="profile-edit"
+                >
                   Edit Profile
                 </div>
               </div>
@@ -51,16 +70,19 @@ class Home extends React.Component {
                 <div className="right-profile-picture" />
                 <div className="profile-content">
                   <div>
-                    Name: {partner.name[0].toUpperCase() + partner.name.slice(1)}
+                    Name:{" "}
+                    {partner.name[0].toUpperCase() + partner.name.slice(1)}
                   </div>
+                  <div>Nickname: {partner.nickname}</div>
                   <div>Email: {partner.email}</div>
+                  <div>Zipcode: {partner.zipCode}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
