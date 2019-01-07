@@ -1,5 +1,7 @@
 import * as APIUtil from '../util/profile_api_util';
 import {receiveCurrentUser} from './session_actions';
+import jwt_decode from 'jwt-decode';
+import {setAuthToken} from '../util/session_api_util';
 
 export const RECEIVE_PARTNER = "RECEIVE_PARTNER";
 export const RECEIVE_UPDATED_CURRENT_USER = "RECEIVE_UPDATED_CURRENT_USER";
@@ -29,5 +31,11 @@ export const fetchUpdatedCurrentUser = (id) => dispatch => (
 
 export const updateProfile = (id, userInfo) => dispatch => (
   APIUtil.updateProfile(id, userInfo)
-    .then(user => (dispatch(receiveUpdatedCurrentUser(user.data))))
+    .then(res => {
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
+      setAuthToken(token);
+      const decoded = jwt_decode(token);
+      dispatch(receiveCurrentUser(decoded));
+  })
 );
