@@ -7,18 +7,22 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './home/home_container';
 import CodePageContainer from './main/code_page_container';
+import Modal from './modal/modal';
 
 const App = () => (
-	<Switch>
-		<Route exact path="/" component={ MainPage } />
+	<div>
+		<Modal />
+		<Switch>
+			<Route exact path="/" component={ MainPage } />
 
-		<AuthRoute exact path="/login" component={ LoginFormContainer } />
-		<AuthRoute exact path="/signup" component={ SignupFormContainer } />
+			<AuthRoute exact path="/login" component={ LoginFormContainer } />
+			<AuthRoute exact path="/signup" component={ SignupFormContainer } />
 
-		<ProtectedRoute exact path="/home" component={ HomeContainer } />
-		<ConnectedRoute exact path="/codepage" component={ CodePageContainer } />
+			<ProtectedRoute exact path="/home" component={ HomeContainer } />
+			<ConnectedRoute exact path="/codepage" component={ CodePageContainer } />
 
-	</Switch>
+		</Switch>
+	</div>
 );
 
 export default App;
