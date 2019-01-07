@@ -11,7 +11,14 @@ router.get('/user/:user_id', (req, res) => {
       const currConnectionCode = user.connectionCode;
 
       Album.find({ connectionCode: currConnectionCode })
-        .then(albums => res.json(albums))
+        .then(albums => {
+          const albumsObject = {};
+
+          albums.forEach( album => {
+            albumsObject[album.id] = album;
+          });
+          res.json(albumsObject);
+        })
         .catch(err => res.status(404).json({ noalbumsfound: 'No albums found' }));
     });
 });
