@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchPartner } from '../../actions/profile_actions';
+import {openModal} from '../../actions/modal_actions';
 import Home from './home';
 
 const mSTP = (state) => {
@@ -14,6 +15,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     fetchPartner: userId => dispatch(fetchPartner(userId)),
+    openModal: modal => dispatch(openModal(modal)),
   };
 };
 
