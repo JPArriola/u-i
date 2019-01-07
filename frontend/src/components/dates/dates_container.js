@@ -9,7 +9,7 @@ import {
 import Dates from './dates';
 
 const mSTP = (state) => {
-  console.warn(state.dates);
+  // console.warn(state.dates);
   return {
   };
 };

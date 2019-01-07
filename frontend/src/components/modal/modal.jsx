@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import UpdateUserContainer from '../user/update_user_container';
+import CreateStickyFormContainer from '../stickys/create_sticky_form_container';
 import "../stylesheets/modal/modal.scss";
 
 function Modal({ modal, closeModal }) {
@@ -13,14 +14,15 @@ function Modal({ modal, closeModal }) {
     case "editUser":
       component = <UpdateUserContainer />;
       break;
+    case "createSticky":
+      component = <CreateStickyFormContainer />;
+      break;
     default:
       return null;
   }
   return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        {component}
-      </div>
+    <div className="modal-background" onClick={ closeModal }>
+      { component }
     </div>
   );
 }
