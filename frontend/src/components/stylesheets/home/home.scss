@@ -217,6 +217,26 @@ input:focus {
   flex-direction: column;
 }
 
+.profile-edit {
+  border: 1px solid lightcoral;
+  background-color: white;
+  padding: 10px 8px;
+  border-radius: 5px;
+  color:lightcoral;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-edit:active {
+  border: 1px solid lightcoral;
+  background-color: lightcoral;
+  padding: 10px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
 .profiles-center{
   width: 40%;
 }
