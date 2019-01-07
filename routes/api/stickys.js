@@ -50,5 +50,14 @@ router.get('/user/:user_id', (req, res) => {
     });
 });
 
+router.patch('/:id', (req, res) => {
+  Sticky.findById(req.params.id)
+    .then(sticky => {
+      sticky.body = validText(req.body.body) ? req.body.body : sticky.body;
+      sticky.date = (req.body.date === undefined) ? sticky.date : req.body.date;
+      sticky.save().then(sticky => res.json(sticky));
+    });
+});
+
 
 module.exports = router;
