@@ -1,0 +1,15 @@
+.modal-background{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  margin: 30px;
+  opacity: 0.8;
+  background-color: black;
+  padding: 30px;
+}
+
+.modal-child{
+  width: 50px;
+  position: absolute;
+  background-color: gold;
+}

@@ -10,22 +10,26 @@ import CodePageContainer from './main/code_page_container';
 import DatesContainer from './dates/dates_container';
 import StickysContainer from './stickys/stickys_container';
 import AlbumsContainer from './albums/albums_container';
+import Modal from './modal/modal';
 
 const App = () => (
-	<Switch>
-		<Route exact path="/" component={ MainPage } />
+	<div>
+		<Modal />
+		<Switch>
+			<Route exact path="/" component={ MainPage } />
 
-		<AuthRoute exact path="/login" component={ LoginFormContainer } />
-		<AuthRoute exact path="/signup" component={ SignupFormContainer } />
-		
-		<ConnectedRoute exact path="/codepage" component={ CodePageContainer } />
+			<AuthRoute exact path="/login" component={ LoginFormContainer } />
+			<AuthRoute exact path="/signup" component={ SignupFormContainer } />
+			
+			<ConnectedRoute exact path="/codepage" component={ CodePageContainer } />
 
-		<ProtectedRoute exact path="/home" component={ HomeContainer } />
-		<ProtectedRoute exact path="/dates" component={ DatesContainer } />
-		<ProtectedRoute exact path="/stickys" component={ StickysContainer } />
-		<ProtectedRoute exact path="/albums" component={ AlbumsContainer } />
+			<ProtectedRoute exact path="/home" component={ HomeContainer } />
+			<ProtectedRoute exact path="/dates" component={ DatesContainer } />
+			<ProtectedRoute exact path="/stickys" component={ StickysContainer } />
+			<ProtectedRoute exact path="/albums" component={ AlbumsContainer } />
 		
-	</Switch>
+		</Switch>
+	</div>
 );
 
 export default App;
