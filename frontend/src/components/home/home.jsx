@@ -13,13 +13,8 @@ class Home extends React.Component {
     let {user, partner} = this.props;
 
     if (!this.props.partnerId) return null;
-<<<<<<< HEAD
     if (!partner.name) return null;
-    return <div>
-=======
-    return (
-      <div>
->>>>>>> b251accd6d5f32a51d8477953b9585db7513f6e4
+    return (<div>
         <Navbar />
         <div className="content-master">
           <div className="home-relationship-profiles">
