@@ -4,7 +4,7 @@ import { RECEIVE_CURRENT_USER,
         from '../actions/session_actions';
 
 import {
-  RECEIVE_UPDATED_CURRENT_USER
+  RECEIVE_UPDATED_CURRENT_USER,
 } from '../actions/profile_actions';
 
 const initialState = {
