@@ -1,13 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EventSchema = new Schema({
-  title: {
+const AlbumSchema = new Schema({
+  name: {
     type: String,
-    required: true
-  },
-  date: {
-    type: Date,
     required: true
   },
   authorId: {
@@ -20,4 +16,4 @@ const EventSchema = new Schema({
   }
 });
 
-module.exports = Event = mongoose.model('events', EventSchema);
+module.exports = Album = mongoose.model('albums', AlbumSchema);
