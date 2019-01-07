@@ -59,5 +59,16 @@ router.patch('/:id', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  Sticky.findById(req.params.id)
+    .then(sticky => {
+      sticky.remove().then(sticky => res.json(sticky));
+    })
+    .catch(err =>
+      res.status(404).json({
+        nostickyfound: 'No sticky found with that ID'
+      })
+    );
+});
 
 module.exports = router;
