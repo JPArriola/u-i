@@ -3,6 +3,7 @@ import Navbar from '../navbar/navbar_container';
 import StickyItem from './sticky_item';
 
 class Stickys extends React.Component {
+
   componentDidMount() {
     this.props.getAllStickys(this.props.user.id);
     this.props.fetchPartner(this.props.partnerId);
@@ -13,9 +14,10 @@ class Stickys extends React.Component {
     let sticky = this.props.stickys.map((sticky, i) => {
       return (
         <StickyItem sticky={ sticky }
-            key={i}
-            author={ this.props.user }
-            receiver={ this.props.partner }
+          key={i}
+          user={ this.props.user }
+          partner={ this.props.partner }
+          deleteSticky={ this.props.deleteSticky }
         />
       );
     });

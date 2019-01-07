@@ -51,7 +51,6 @@
     margin: 0 auto;
     font-size: 15px;
     padding: 0px 50px;
-    overflow: scroll;
   }
 
   .from-love-reverse {
@@ -69,4 +68,12 @@
   padding-right: 10px;
   font-weight: bold;
   color: rgb(247, 70, 70);
+}
+
+.fa-trash-alt {
+  color: lightcoral;
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer;
 }

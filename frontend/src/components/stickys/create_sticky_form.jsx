@@ -27,7 +27,6 @@ class CreateStickyForm extends React.Component {
   handleSubmit() {
     return (e) => {
       e.preventDefault();
-      console.warn(this.state)
       let obj = this.state;
       obj.date = new Date();
       this.props.createSticky(obj);
@@ -39,7 +38,7 @@ class CreateStickyForm extends React.Component {
   render() {
     return (
       <form className="sticky-form" onClick={ e => e.stopPropagation() } onSubmit={ this.handleSubmit() }>
-        <input type="text" value={ this.state.body } onChange={ this.update("body") } placeholder="body"></input>
+        <input type="text" value={ this.state.body } onChange={ this.update("body") } placeholder="body" maxLength="100"></input>
         <button>Create Sticky</button>
       </form>
     )

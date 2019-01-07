@@ -43,7 +43,12 @@ router.get('/user/:user_id', (req, res) => {
       Sticky.find({
           connectionCode: currConnectionCode
         })
-        .then(stickys => res.json(stickys))
+        .sort({ date: -1 })
+        .then(stickys => {
+          let stickyObject = {};
+          stickys.forEach( (sticky) => stickyObject[sticky.id] = sticky);
+          res.json(stickyObject);
+        })
         .catch(err => res.status(404).json({
           nostickysfound: 'No stickys found'
         }));
