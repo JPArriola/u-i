@@ -12,10 +12,7 @@ class DateItem extends React.Component {
   showUserButton() {
     if (this.props.date.authorId === this.props.user.id) {
       return (
-        <div>
-          {/* <i className="fas fa-edit" onClick={this.handleEdit()}></i> */}
-          <i className="fas fa-trash-alt" onClick={ this.handleDeleteDate() }></i>
-        </div>
+        <i className="fas fa-trash-alt" onClick={ this.handleDeleteDate() }></i>
       )
     } else {
       return null;
@@ -38,10 +35,10 @@ class DateItem extends React.Component {
       // const month = monthNames[props.date.getMonth()];
     
     return (
-      <div className="event">
-        <div className="tile">
-          <div className="container right">
-            <div className="event-bubble">
+      <div className="tile">
+        <div className="container right">
+          <div className="event-bubble">
+            <div className="event">
               <div className="event-bubble-date">
                 { event_month + " " + event_day + " " + event_yr }
               </div>
@@ -49,9 +46,9 @@ class DateItem extends React.Component {
                 { title }
               </div>
             </div>
+            { this.showUserButton() }
           </div>
         </div>
-        { this.showUserButton() }
       </div>
       
     )
