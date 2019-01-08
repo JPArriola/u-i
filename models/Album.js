@@ -10,6 +10,9 @@ const AlbumSchema = new Schema({
     type: String,
     required: true
   },
+  date: {
+    type: String
+  },
   connectionCode: {
     type: String,
     required: true
