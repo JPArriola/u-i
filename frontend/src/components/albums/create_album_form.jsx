@@ -21,7 +21,6 @@ class CreateAlbumForm extends React.Component {
     return (e) => {
       e.preventDefault();
       let obj = this.state;
-      // obj.date = new Date();
       this.props.createAlbum(obj);
       this.props.closeModal();
       this.props.getAllAlbums(this.props.authorId);
@@ -31,8 +30,8 @@ class CreateAlbumForm extends React.Component {
   render() {
     return (
       <form className="album-form" onClick={e => e.stopPropagation()} onSubmit={this.handleSubmit()}>
-        <input type="text" value={this.state.name} onChange={this.update("name")} placeholder="name"></input>
-        <input type="text" value={this.state.date} onChange={this.update("date")} placeholder="date"></input>
+        <input type="text" value={this.state.name} onChange={this.update("name")} placeholder="Album Name"></input>
+        <input type="text" value={this.state.date} onChange={this.update("date")} placeholder="01/24/2018"></input>
         <button>Create Album</button>
       </form>
     )
