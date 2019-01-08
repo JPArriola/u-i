@@ -29,7 +29,14 @@ class Dates extends React.Component {
   render() {
     console.warn(this.state)
     let dates = this.props.dates.map(date => {
-      return <DateItem date={ date.date } title={ date.title } key={ date.title }/>
+      return (
+        <DateItem
+          date={ date }
+          key={ date.title }
+          deleteDate = { this.props.deleteDate }
+          user = {this.props.user}
+        />
+      );
     });
     
     if (!this.props.dates) return null;
