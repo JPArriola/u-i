@@ -8,10 +8,10 @@ class AlbumItem extends React.Component {
     return (
       <div className="album-item">
         <div className="album-cover">
-          <img src=""></img>
+          <img src="" alt=""></img>
           <div className="album-details">
             <h2>{album.name}</h2>  
-            <h3>{album.date}</h3>  
+            {/* <h3>{album.date}</h3>   */}
           </div>
         </div>
       </div>
