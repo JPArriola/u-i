@@ -24,8 +24,7 @@ class Dates extends React.Component {
       <div className="dates-page">
         <Navbar />
         <div className="empty-line"></div>
-        
-        <button className="create-date-button">Create Date</button>
+        <button className="create-date-button" onClick={ () => this.props.openModal("createDate") }>Create Date</button>
         <div className="main-cal-and-timeline">
         <Calendar
           // onChange={this.onChange}
