@@ -4,15 +4,16 @@ const Schema = mongoose.Schema;
 const mediaSchema = new Schema(
   { 
     albumId: { 
-      type: Number, 
+      type: String, 
       required: true
     },
     fileLink: { 
-      type: String 
-    },
-    s3_key: { 
-      type: String
+      type: String ,
+      required: true
     }
+    // s3_key: { 
+    //   type: String
+    // }
   },
   {
     timestamps: true

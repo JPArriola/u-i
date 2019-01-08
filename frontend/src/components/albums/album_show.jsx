@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/navbar_container";
 import { withRouter } from "react-router-dom";
+import MediaContainer from "../media/media_container";
 import "../stylesheets/albums/album_show.scss";
 
 class AlbumShow extends React.Component {
@@ -29,6 +30,7 @@ class AlbumShow extends React.Component {
             {album.date}
           </div>
           <div className="albumshow-media-section">
+            <MediaContainer />
           </div>
         </div>
       </div>
