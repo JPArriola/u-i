@@ -41,11 +41,11 @@ class DateItem extends React.Component {
               <div className="event-bubble-date">
                 { event_month + " " + event_day + " " + event_yr }
               </div>
-              <div className="event-bubble-title">
-                { title }
-              </div>
+              { this.showUserButton() }
             </div>
-            { this.showUserButton() }
+            <div className="event-bubble-title">
+              { title }
+            </div>
           </div>
         </div>
       </div>
