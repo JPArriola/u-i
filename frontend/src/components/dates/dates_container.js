@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import {
-  createDate,
   getAllDates,
   getDate,
   editDate,
@@ -21,7 +20,6 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    createDate: (date) => dispatch(createDate(date)),
     getAllDates: (userId) => dispatch(getAllDates(userId)),
     getDate: (dateId) => dispatch(getDate(dateId)),
     editDate: (dateId, date) => dispatch(editDate(dateId, date)),
