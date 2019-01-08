@@ -7,12 +7,16 @@ import '../stylesheets/albums/album-item.scss';
 const AlbumItem = props => {
   return (
     <div className="album-item">
-      <Link to={`/albums/${props.album._id}`} ></Link>
-      <div className="album-cover">
-        <img src="" alt=""></img>
-        <div className="album-details">
+      <Link to={`/albums/${props.album._id}`} >
+        <div className="album-item-content">
+          <div className="album-item-title">
+            {props.album.name}
+          </div>
+          <div className="album-item-coverart">
+            
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

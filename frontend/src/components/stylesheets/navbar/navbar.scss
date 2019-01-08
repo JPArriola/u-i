@@ -60,9 +60,12 @@ input:focus {
 
 .navbar-dates {
   cursor: pointer;
-  margin-top: 6px;
-  padding-bottom: 3px;
+  // margin-top: 6px;
+  // padding: 0px 10px 0px 10px;
   border-bottom: 3px solid transparent;
+  .fas {
+    margin-right: 10px;
+  }
 }
 
 .navbar-dates a{
@@ -89,9 +92,12 @@ input:focus {
 
 .navbar-stickys {
   cursor: pointer;
-  margin-top: 6px;
-  padding-bottom: 3px;
+  // margin-top: 6px;
+  // padding: 0px 10px 0px 10px;
   border-bottom: 3px solid transparent;
+  .fas{
+    margin-right: 10px;
+  }
 }
 
 .navbar-stickys a {
@@ -119,9 +125,12 @@ input:focus {
 
 .navbar-albums {
   cursor: pointer;
-  margin-top: 6px;
-  padding-bottom: 3px;
+  // margin-top: 6px;
+  // padding: 0px 10px 0px 10px;
   border-bottom: 3px solid transparent;
+  .fas {
+    margin-right: 10px;
+  }
 }
 
 .navbar-albums a {
