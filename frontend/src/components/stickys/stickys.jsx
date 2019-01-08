@@ -11,13 +11,16 @@ class Stickys extends React.Component {
 
   render() {
     if (!this.props.stickys) return null;
-    let sticky = this.props.stickys.map((sticky, i) => {
+    let { user, partner, deleteSticky, openModal, stickys, getStickyId } = this.props;
+    let sticky = stickys.map((sticky, i) => {
       return (
         <StickyItem sticky={ sticky }
           key={i}
-          user={ this.props.user }
-          partner={ this.props.partner }
-          deleteSticky={ this.props.deleteSticky }
+          user={ user }
+          partner={ partner }
+          deleteSticky={ deleteSticky }
+          openModal={ openModal }
+          getStickyId={ getStickyId }
         />
       );
     });

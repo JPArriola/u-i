@@ -10,6 +10,7 @@
   align-items: center;
   padding-top: 30px;
   background-color: #fff6f6;
+  // margin: 0 300px;
 }
 
 .create-sticky-button {
@@ -31,52 +32,81 @@
 .sticky-index {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 100px;
+  margin: 10px 75px;
 }
 
-.sticky-item {
+.author-bg {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 326px;
-  width: 543px;
-  // background-color: lightcoral;
-  background-image: url('../images/note7.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  // border-radius: 35px;
+  height: 215px;
+  width: 395px;
+  // background-image: url('../images/note7.png');
+  // background-size: contain;
+  // background-repeat: no-repeat;
   color: black;
   margin: 15px;
+  font-size: 15px;
+  border-radius: 30px;
+  border: 1px dashed lightcoral;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.to-love {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 25px 0 30px;
+}
+
+.sticky-body {
+  margin: 0 auto;
   font-size: 20px;
+  // padding: 0px 50px;
+  height: 200px;
+  width: 300px;
+  overflow: hidden;
+  // border: 1px solid red;
+  text-align: center;
+  display: flex;
+  color: lightcoral;
 
-  .to-love {
+  .sticky-body-div {
     display: flex;
-    justify-content: space-between;
-    margin: 65px 65px 0 65px;
-  }
-
-  .sticky-body {
+    flex-direction: column;
+    // text-align: center;
     margin: 0 auto;
-    margin-top: 10px;
-    font-size: 15px;
-    // padding: 0px 50px;
-    height: 200px;
-    width: 300px;
-    overflow: hidden;
-    // border: 1px solid red;
-    text-align: center;
-  }
-
-  .from-love-reverse {
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 0 65px 75px 0;
-
-    .from-love {
-      display: flex;
-    }
+    justify-content: space-evenly;
   }
 }
+
+.from-love-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 30px 30px 0;
+
+  .from-love {
+    display: flex;
+  }
+}
+
+.receiver-bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 225px;
+  width: 395px;
+  background-image: url('../images/note.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: black;
+  margin: 15px;
+  font-size: 15px;
+
+  .from-love-reverse {
+    margin: 0 65px 40px 0;
+  }
+}
+
 .to-from-div {
   display: flex;
 
@@ -87,10 +117,20 @@
   font-weight: bold;
   color: rgb(247, 70, 70);
 }
+
 .fa-trash-alt {
-  color: lightcoral;
+  color: #6c6c6c;
 }
 
 .fa-trash-alt:hover {
+  cursor: pointer;
+}
+
+.fa-edit {
+  margin-right: 10px;
+  color: lightcoral;
+}
+
+.fa-edit:hover {
   cursor: pointer;
 }

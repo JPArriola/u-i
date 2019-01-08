@@ -1,14 +1,15 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-class CreateStickyForm extends React.Component {
+class EditStickyForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      body: '',
+      body: props.stickyInfo,
       authorId: props.authorId,
       receiverId: props.receiverId,
-      connectionCode: props.connectionCode
+      connectionCode: props.connectionCode,
     };
   }
 
@@ -29,7 +30,8 @@ class CreateStickyForm extends React.Component {
       e.preventDefault();
       let obj = this.state;
       obj.date = new Date();
-      this.props.createSticky(obj);
+      console.warn(obj);
+      this.props.editSticky(this.props.stickyId, obj);
       this.props.closeModal();
       this.props.getAllStickys(this.props.authorId);
     };
@@ -38,10 +40,10 @@ class CreateStickyForm extends React.Component {
   render() {
     return (
       <form className="sticky-form" onClick={ e => e.stopPropagation() } onSubmit={ this.handleSubmit() }>
-        <div className="create-sticky-header">Create Sticky</div>
+        <div className="create-sticky-header">Edit Sticky</div>
         <textarea value={ this.state.body } onChange={ this.update("body") } placeholder="ex: I love you" maxLength="100"></textarea>
         <div className="send-sticky-button">
-          <button>SEND<i className="fab fa-telegram-plane"></i></button>
+          <button>EDIT<i className="fab fa-telegram-plane"></i></button>
         </div>
       </form>
     )
@@ -49,4 +51,4 @@ class CreateStickyForm extends React.Component {
 }
 
 
-export default withRouter(CreateStickyForm);
+export default withRouter(EditStickyForm);

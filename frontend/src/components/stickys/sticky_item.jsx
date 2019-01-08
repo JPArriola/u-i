@@ -21,20 +21,40 @@ class StickyItem extends React.Component {
     };
   }
 
-  // stickyNoteBg() {
-  //   if (sticky.authorId === user.id) {
-      
-  //   } else {
-  //     return 
-  //   }
-  // }
+  stickyNoteBg() {
+    if (this.props.sticky.authorId === this.props.user.id) {
+      return "author-bg";
+    } else {
+      return "receiver-bg";
+    }
+  }
+
+  handleEdit() {
+    return(e) => {
+      this.props.getStickyId(this.props.sticky._id);
+      this.props.openModal("editSticky");
+    }
+  }
+
+  showUserButton() {
+    if (this.props.sticky.authorId === this.props.user.id) {
+      return (
+        <div>
+          <i className="fas fa-edit" onClick={ this.handleEdit() }></i>
+          <i className="fas fa-trash-alt" onClick={ this.handleDeleteSticky() }></i>
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
 
   render() {
 
     let { sticky } = this.props;
 
     return(
-      <div className="sticky-item">
+      <div className={ this.stickyNoteBg() }>
         <div className="to-love">
         <div className="to-from-div">
           <div className="to-from">
@@ -44,10 +64,12 @@ class StickyItem extends React.Component {
             { this.receiveName("receiverId") }
           </div>
         </div>
-        <i className="fas fa-trash-alt" onClick={ this.handleDeleteSticky() }></i>
+        { this.showUserButton() }
         </div>
         <div className="sticky-body">
-          { sticky.body }
+          <div className="sticky-body-div">
+            { sticky.body }
+          </div>
         </div>
         <div className="from-love-reverse">
           <div className="from-love">

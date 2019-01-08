@@ -5,10 +5,11 @@ import { fetchPartner } from '../../actions/profile_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
+  let { id, partnerId, connectionCode } = state.session.user;
   return {
-    authorId: state.session.user.id,
-    receiverId: state.session.user.partnerId,
-    connectionCode: state.session.user.connectionCode
+    authorId: id,
+    receiverId: partnerId,
+    connectionCode
   };
 };
 

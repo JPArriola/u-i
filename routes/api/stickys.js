@@ -61,7 +61,8 @@ router.patch('/:id', (req, res) => {
       sticky.body = validText(req.body.body) ? req.body.body : sticky.body;
       sticky.date = (req.body.date === undefined) ? sticky.date : req.body.date;
       sticky.save().then(sticky => res.json(sticky));
-    });
+    }
+  );
 });
 
 router.delete('/:id', (req, res) => {

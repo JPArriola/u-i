@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import UpdateUserContainer from '../user/update_user_container';
 import CreateStickyFormContainer from '../stickys/create_sticky_form_container';
+import EditStickyFormContainer from '../stickys/edit_sticky_form_container';
 import CreateAlbumFormContainer from '../albums/create_album_form_container';
 import "../stylesheets/modal/modal.scss";
 
@@ -18,6 +19,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "createSticky":
       component = <CreateStickyFormContainer />;
+      break;
+    case "editSticky":
+      component = <EditStickyFormContainer />;
       break;
     case "createAlbum":
       component = <CreateAlbumFormContainer />;
@@ -35,7 +39,8 @@ function Modal({ modal, closeModal }) {
 
 const mapStateToProps = state => {
   return ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    id: state.ui.editStickyId,
   });
 };
 
