@@ -13,8 +13,6 @@ class AlbumShow extends React.Component {
   render() {
     let album = this.props.album;
     if(!album) return null;
-    // if (!this.props.album) return null;
-    console.error("AlbumShowProps", this.props);
     return (
       <div>
         <Navbar />
