@@ -45,10 +45,12 @@
 
 /* The actual timeline (the vertical ruler) */
 .timeline-wrapper {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  height: 500px;
+  overflow: scroll;
 }
 .timeline {
   position: relative;
@@ -90,6 +92,7 @@
   border-radius: 50%;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 18px;
 }
 
 /* Place the container to the left */
@@ -124,7 +127,7 @@
   top: 22px;
   width: 0;
   z-index: 1;
-  left: 30px;
+  left: 38px;
   border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
@@ -143,6 +146,7 @@
   border-radius: 6px;
   display: flex;
   flex-direction: column;
+  left: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
