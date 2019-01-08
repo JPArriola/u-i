@@ -9,9 +9,6 @@ class Albums extends React.Component {
 	render() {
 		if (!this.props.albums) return null;
 		let album = this.props.albums.map((album, i) => {
-
-			console.log("albums props", this.props.albums)
-
 			return (
 				<AlbumItem album={album}
 					key={i}
