@@ -11,7 +11,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    createDate:  (sticky) => dispatch(createDate( sticky)),
+    createDate:  (date) => dispatch(createDate(date)),
     getAllDates: (userId) => dispatch(getAllDates(userId)),
   };
 };
