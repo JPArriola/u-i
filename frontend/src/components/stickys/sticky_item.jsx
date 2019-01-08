@@ -21,6 +21,14 @@ class StickyItem extends React.Component {
     };
   }
 
+  // stickyNoteBg() {
+  //   if (sticky.authorId === user.id) {
+      
+  //   } else {
+  //     return 
+  //   }
+  // }
+
   render() {
 
     let { sticky } = this.props;

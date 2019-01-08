@@ -27,10 +27,9 @@ class Home extends React.Component {
 
     if (!this.props.partnerId) return null;
     if (!partner.name) return null;
-    return (
-      <div>
+    return <div>
         <Navbar />
-        <div className="empty-line"></div>
+        <div className="empty-line" />
         <div className="content-master">
           <div className="home-relationship-profiles">
             <div className="profiles-container">
@@ -42,12 +41,10 @@ class Home extends React.Component {
                   </div>
                   <div>Nickname: {user.nickname}</div>
                   <div>Email: {user.email}</div>
+                  <div>Birthday: {user.birthday}</div>
                   <div>Zipcode: {user.zipCode}</div>
                 </div>
-                <div
-                  onClick={() => this.props.openModal("editUser")}
-                  className="profile-edit"
-                >
+                <div onClick={() => this.props.openModal("editUser")} className="profile-edit">
                   Edit Profile
                 </div>
               </div>
@@ -76,14 +73,14 @@ class Home extends React.Component {
                   </div>
                   <div>Nickname: {partner.nickname}</div>
                   <div>Email: {partner.email}</div>
+                  <div>Birthday: {partner.birthday}</div>
                   <div>Zipcode: {partner.zipCode}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

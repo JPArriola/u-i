@@ -38,8 +38,11 @@ class CreateStickyForm extends React.Component {
   render() {
     return (
       <form className="sticky-form" onClick={ e => e.stopPropagation() } onSubmit={ this.handleSubmit() }>
-        <input type="text" value={ this.state.body } onChange={ this.update("body") } placeholder="body" maxLength="100"></input>
-        <button>Create Sticky</button>
+        <div className="create-sticky-header">Create Sticky</div>
+        <textarea value={ this.state.body } onChange={ this.update("body") } placeholder="ex: I love you" maxLength="100"></textarea>
+        <div className="send-sticky-button">
+          <button>SEND<i class="fab fa-telegram-plane"></i></button>
+        </div>
       </form>
     )
   }
