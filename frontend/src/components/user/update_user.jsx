@@ -38,15 +38,15 @@ class UpdateUser extends React.Component {
         <div className="profile-update-title">Edit Profile</div>
         <div className="profile-update-content">
           <div className="profile-update-child">
-            <div>Nickname</div>
+            <div className="profile-update-subsection-title">Nickname</div>
             <input className="profile-update-nickname" type="text" value={this.state.nickname} onChange={this.update("nickname")} placeholder="nickname" />
           </div>
           <div className="profile-update-child">
-            <div>Birthday</div>
+            <div className="profile-update-subsection-title">Birthday</div>
             <input className="profile-update-birthday" type="text" value={this.state.birthday} maxLength="10" onChange={this.update("birthday")} placeholder="MM/DD/YYYY" />
           </div>
           <div className="profile-update-child">
-            <div>ZipCode</div>
+            <div className="profile-update-subsection-title">ZipCode</div>
             <input className="profile-update-zipcode" type="text" value={this.state.zipCode} maxLength="5" onChange={this.update("zipCode")} placeholder="#####" />
           </div>
         </div>
