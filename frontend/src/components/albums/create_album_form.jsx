@@ -31,7 +31,7 @@ class CreateAlbumForm extends React.Component {
     return (
       <form className="album-form" onClick={e => e.stopPropagation()} onSubmit={this.handleSubmit()}>
         <input type="text" value={this.state.name} onChange={this.update("name")} placeholder="Album Name"></input>
-        <input type="text" value={this.state.date} onChange={this.update("date")} placeholder="01/24/2018"></input>
+        <input type="text" value={this.state.date} onChange={this.update("date")} placeholder="MM/DD/YYYY"></input>
         <button>Create Album</button>
       </form>
     )
