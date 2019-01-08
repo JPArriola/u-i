@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import UpdateUserContainer from '../user/update_user_container';
 import CreateStickyFormContainer from '../stickys/create_sticky_form_container';
+// import CreateAlbumFormContainer from '../albums/create_album_form_container';
 import "../stylesheets/modal/modal.scss";
 
 function Modal({ modal, closeModal }) {
@@ -18,6 +19,9 @@ function Modal({ modal, closeModal }) {
     case "createSticky":
       component = <CreateStickyFormContainer />;
       break;
+    // case "createAlbum":
+      // component = <CreateAlbumFormContainer />;
+      // break;
     default:
       return null;
   }
