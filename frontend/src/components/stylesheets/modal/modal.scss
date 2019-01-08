@@ -46,19 +46,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
+}
+
+.profile-update-child{
+  margin: 0 auto;
 }
 
 .profile-update-nickname{
-  width: 200px;
+  // width: 100px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .profile-update-birthday{
-  width: 200px;
+  // width: 100px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .profile-update-zipcode{
-  width: 50px;
+  // width: 30px;
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -67,13 +76,31 @@
 .profile-update-submit{
   display: flex;
   justify-content: center;
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
 
 .profile-update-button{
-  width: 100px;
+  width: 150px;
+  height: 30px;
+  // padding: 10px 0px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color:lightcoral;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
 }
 
+.profile-update-button:hover{
+  background-color: white;
+  color: lightcoral;
+}
+
+.profile-update-button:active{
+  background-color: white;
+  color: #af5a5a;
+  border: 1px solid #af5a5a;
+}
 
 
 .sticky-form {

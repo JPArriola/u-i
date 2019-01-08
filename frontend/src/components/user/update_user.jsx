@@ -37,21 +37,21 @@ class UpdateUser extends React.Component {
     return <form onSubmit={this.handleSubmit()} className="profile-update-form" onClick={e => e.stopPropagation()}>
         <div className="profile-update-title">Edit Profile</div>
         <div className="profile-update-content">
-          <div>
-            <div>Nickname: </div>
+          <div className="profile-update-child">
+            <div>Nickname</div>
             <input className="profile-update-nickname" type="text" value={this.state.nickname} onChange={this.update("nickname")} placeholder="nickname" />
           </div>
-          <div>
-            <div>Birthday: </div>
-            <input className="profile-update-birthday" type="text" value={this.state.birthday} onChange={this.update("birthday")} placeholder="MM/DD/YYYY" />
+          <div className="profile-update-child">
+            <div>Birthday</div>
+            <input className="profile-update-birthday" type="text" value={this.state.birthday} maxLength="10" onChange={this.update("birthday")} placeholder="MM/DD/YYYY" />
           </div>
-          <div>
-            <div>ZipCode: </div>
+          <div className="profile-update-child">
+            <div>ZipCode</div>
             <input className="profile-update-zipcode" type="text" value={this.state.zipCode} maxLength="5" onChange={this.update("zipCode")} placeholder="#####" />
           </div>
         </div>
         <div className="profile-update-submit">
-          <input type="submit" value="Update Profile" className="profile-update-button" />
+          <button type="submit" className="profile-update-button" >Update Profile</button>
         </div>
       </form>;
   }
