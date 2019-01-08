@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
   }
 })
 
-router.post('/upload', (req, res) => {
+router.post('/:album_id/upload', (req, res) => {
   const upload = multer({ storage }).single('file');
   upload(req, res, function (err) {
     if (err) {
@@ -25,7 +25,7 @@ router.post('/upload', (req, res) => {
     console.log('this file has been uploaded to server')
     console.log("FILE:", req.file)
 
-    // SEND FILE TO CLOUDINARY
+//TEST TO UPLOAD AND CREATE NEW MEDIA FILE 
     const cloudinary = require('cloudinary').v2
     cloudinary.config({
       cloud_name: process.env.CLOUD_NAME,
@@ -33,26 +33,34 @@ router.post('/upload', (req, res) => {
       api_secret: process.env.API_SECRET
     });
 
-    const path = req.file.path
-    const uniqueFilename = new Date().toISOString()
+    const path = req.file.path;
+    const uniqueFilename = new Date().toISOString();
 
     cloudinary.uploader.upload(path,
       { public_id: `u-i-media/${uniqueFilename}` },
       function (err, mediaResult) {
         if (err) return res.send(err);
         console.log('file uploaded to Cloudinary');
+        
         // remove file from server
-        const fs = require('fs')
-        fs.unlinkSync(path)
-        // return image details
-        res.json(mediaResult)
-      }
-    );
+        const fs = require('fs');
+        fs.unlinkSync(path);
+        //save file info to media model db
+        const newMediaFile = new Media({ 
+          albumId: req.params.album_id,
+          fileLink: mediaResult.url
+        });
+        
+        console.log("this is the new media file", newMediaFile);
+        newMediaFile.save()
+          .then( media => { res.json(media) })
+          .catch(err => res.status(404).json({ noalbumfound: 'Could not save media file' }));
+      });
   });
 });
 
 //get all media tied to specific album
-router.get('/:album_id', (req, res) => {
+router.get('/album/:album_id', (req, res) => {
   Media.find({ albumId: req.params.album_id })
     .then(media => {
       const mediaObject = {};
@@ -65,13 +73,45 @@ router.get('/:album_id', (req, res) => {
     .catch(err => res.status(404).json({ nomediafound: 'No media found' }));
 });
 
+//get specific media file
+router.get('/:id', (req, res) => {
+  Media.findById(req.params.id)
+    .then(media => res.json(media))
+    .catch(err => res.status(404).json({ nomediafound: 'No media found with that ID' }));
+});
+
+
 module.exports = router;
 
 
+//THIS WORKS TO UPLOAD A FILE 
+//     // SEND FILE TO CLOUDINARY
+//     const cloudinary = require('cloudinary').v2
+//     cloudinary.config({
+//       cloud_name: process.env.CLOUD_NAME,
+//       api_key: process.env.API_KEY,
+//       api_secret: process.env.API_SECRET
+//     });
 
+//     const path = req.file.path
+//     const uniqueFilename = new Date().toISOString()
 
+//     cloudinary.uploader.upload(path,
+//       { public_id: `u-i-media/${uniqueFilename}` },
+//       function (err, mediaResult) {
+//         if (err) return res.send(err);
+//         console.log('file uploaded to Cloudinary');
 
-
+//         // remove file from server
+//         const fs = require('fs')
+//         fs.unlinkSync(path)
+//         // return image details
+//         console.log("IMAGE URL!!!", mediaResult.url)
+//         res.json(mediaResult)
+//       }
+//     );
+//   });
+// });
 
 
 
