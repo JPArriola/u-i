@@ -8,6 +8,7 @@ class AlbumShow extends React.Component {
 
   componentDidMount(){
     this.props.getAlbum(this.props.albumId);
+    this.props.getAllMedia(this.props.albumId);
   }
 
   render() {
