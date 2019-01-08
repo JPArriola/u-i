@@ -1,0 +1,23 @@
+.albumshow-master{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #d289ff47;
+  height: 100vh;
+}
+
+.albumshow-title{
+  font-size: 38px;
+  font-weight: bold;
+  color: #309130;
+}
+
+.albumshow-description{
+  margin: 20px 0px 80px 0px;
+}
+
+.albumshow-media-section{
+  width: 80%;
+  height: 50%;
+  border: 1px solid black;
+}
