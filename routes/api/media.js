@@ -42,6 +42,8 @@ router.route("/:id").get((req, res, next) => {
 // In upload.single("file") - the name inside the single-quote is the name of the field that is going to be uploaded.
 router.post("/:album_id/upload", upload.single("file"), function (req, res) {
   const file = req.file;  
+  console.log("this is the file", file);
+
   const s3FileURL = process.env.AWS_UPLOADED_FILE_URL_LINK;
   
   let s3bucket = new AWS.S3({
@@ -50,7 +52,9 @@ router.post("/:album_id/upload", upload.single("file"), function (req, res) {
     region: process.env.AWS_REGION
   });
 
-  console.log("access_key_id:", process.env.AWS_ACCESS_KEY_ID);
+  debugger;
+
+  // console.log("access_key_id:", process.env.AWS_ACCESS_KEY_ID);
   console.log("secr_acc_key:", process.env.AWS_SECRET_ACCESS_KEY);
 
   //Where you want to store your file
@@ -66,8 +70,9 @@ router.post("/:album_id/upload", upload.single("file"), function (req, res) {
   console.log("-----------------------------------------------");
 
   s3bucket.upload(params, function (err, data) {
-    console.log("error:", err);
-    console.log("data:", data);
+    // console.log("error:", err);
+    // console.log("data:", data);
+    debugger;
 
     if (err) {
       res.status(500).json({ error: true, Message: err });
