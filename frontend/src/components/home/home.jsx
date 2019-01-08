@@ -30,13 +30,20 @@ class Home extends React.Component {
               <div className="profiles-user">
                 <div className="left-profile-picture" />
                 <div className="profile-content">
-                  <div>
-                    Name:{user.name[0].toUpperCase() + user.name.slice(1)}
+                  <div className="profile-content-cats">
+                    <div>Name:</div>
+                    <div>Nickname:</div>
+                    <div>Email:</div>
+                    <div>Birthday:</div>
+                    <div>Zipcode:</div>
                   </div>
-                  <div>Nickname: {user.nickname}</div>
-                  <div>Email: {user.email}</div>
-                  <div>Birthday: {user.birthday}</div>
-                  <div>Zipcode: {user.zipCode}</div>
+                  <div className="profile-content-data">
+                    <div>{user.name[0].toUpperCase() + user.name.slice(1)}</div>
+                    <div>{user.nickname}</div>
+                    <div>{user.email}</div>
+                    <div>{user.birthday}</div>
+                    <div>{user.zipCode}</div>
+                  </div>
                 </div>
                 <div onClick={() => this.props.openModal("editUser")} className="profile-edit">
                   Edit Profile
@@ -61,14 +68,20 @@ class Home extends React.Component {
               <div className="profiles-user">
                 <div className="right-profile-picture" />
                 <div className="profile-content">
-                  <div>
-                    Name:{" "}
-                    {partner.name[0].toUpperCase() + partner.name.slice(1)}
+                  <div className="profile-content-cats">
+                    <div>Name:</div>
+                    <div>Nickname:</div>
+                    <div>Email:</div>
+                    <div>Birthday:</div>
+                    <div>Zipcode:</div>
                   </div>
-                  <div>Nickname: {partner.nickname}</div>
-                  <div>Email: {partner.email}</div>
-                  <div>Birthday: {partner.birthday}</div>
-                  <div>Zipcode: {partner.zipCode}</div>
+                  <div className="profile-content-data">
+                    <div>{partner.name[0].toUpperCase() + partner.name.slice(1)}</div>
+                    <div>{partner.nickname}</div>
+                    <div>{partner.email}</div>
+                    <div>{partner.birthday}</div>
+                    <div>{partner.zipCode}</div>
+                  </div>
                 </div>
               </div>
             </div>
