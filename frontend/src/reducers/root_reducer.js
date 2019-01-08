@@ -5,6 +5,7 @@ import partner from './users_reducer';
 import dates from './dates_reducer';
 import ui from './ui_reducer';
 import stickys from './stickys_reducer';
+import albums from './albums_reducer';
 
 const RootReducer = combineReducers({
   session,
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
   partner,
   dates,
   ui,
-  stickys
+  stickys,
+  albums
 });
 
 export default RootReducer;
