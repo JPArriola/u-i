@@ -4,16 +4,32 @@ import Navbar from '../navbar/navbar_container';
 import '../stylesheets/home/home.scss';
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      nickname: this.props.user.nickname
-    };
-  }
-
   componentDidMount() {
     this.props.fetchPartner(this.props.partnerId);
+  }
+
+  nickname(user){
+    if (!user.nickname) {
+      return "-";
+    } else {
+      return user.nickname;
+    }
+  }
+
+  birthday(user){
+    if(!user.birthday) {
+      return "-";
+    } else {
+      return user.birthday;
+    }
+  }
+
+  zipcode(user){
+    if(!user.zipCode) {
+      return "-";
+    } else {
+      return user.zipCode;
+    }
   }
 
   render() {
@@ -39,10 +55,10 @@ class Home extends React.Component {
                   </div>
                   <div className="profile-content-data">
                     <div>{user.name[0].toUpperCase() + user.name.slice(1)}</div>
-                    <div>{user.nickname}</div>
+                    <div>{this.nickname(user)}</div>
                     <div>{user.email}</div>
-                    <div>{user.birthday}</div>
-                    <div>{user.zipCode}</div>
+                    <div>{this.birthday(user)}</div>
+                    <div>{this.zipcode(user)}</div>
                   </div>
                 </div>
                 <div onClick={() => this.props.openModal("editUser")} className="profile-edit">
@@ -77,10 +93,10 @@ class Home extends React.Component {
                   </div>
                   <div className="profile-content-data">
                     <div>{partner.name[0].toUpperCase() + partner.name.slice(1)}</div>
-                    <div>{partner.nickname}</div>
+                    <div>{this.nickname(partner)}</div>
                     <div>{partner.email}</div>
-                    <div>{partner.birthday}</div>
-                    <div>{partner.zipCode}</div>
+                    <div>{this.birthday(partner)}</div>
+                    <div>{this.zipcode(partner)}</div>
                   </div>
                 </div>
               </div>

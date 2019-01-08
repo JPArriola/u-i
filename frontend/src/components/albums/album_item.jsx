@@ -11,7 +11,7 @@ class AlbumItem extends React.Component {
           <img src=""></img>
           <div className="album-details">
             <h2>{album.name}</h2>  
-            <h3>{album.date}</h3>  
+            {/* <h3>{album.date}</h3>   */}
           </div>
         </div>
       </div>
