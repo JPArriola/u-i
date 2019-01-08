@@ -6,9 +6,9 @@ import {
   deleteDate
 } from '../../actions/date_actions';
 import Dates from './dates';
+import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
-  console.warn(state)
   let dates = Object.values(state.dates);
   let user = state.session.user;
 
@@ -23,7 +23,8 @@ const mDTP = (dispatch) => {
     getAllDates: (userId) => dispatch(getAllDates(userId)),
     getDate: (dateId) => dispatch(getDate(dateId)),
     editDate: (dateId, date) => dispatch(editDate(dateId, date)),
-    deleteDate: (dateId) => dispatch(deleteDate(dateId))
+    deleteDate: (dateId) => dispatch(deleteDate(dateId)),
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 

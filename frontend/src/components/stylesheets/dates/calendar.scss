@@ -1,9 +1,9 @@
 .react-calendar {
   width: 50%;
   height: 410px;
-  border: 1px  solid lightcoral;
+  border: 1px solid #5a94bf;
   text-align: center;
-  background-color: lightcoral;
+  background-color: #5a94bf;
   font-size: 15px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   // display: flex;
@@ -16,15 +16,17 @@
   button {
     border: none;
     height: 50px;
-    background-color: lightcoral;
+    background-color: #5a94bf;
     color: white;
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 1px 1px black;
   }
 }
 
 .react-calendar__navigation {
   height: 30px;
+  margin-top: 10px;
 
   button {
     height: 30px;
@@ -37,11 +39,22 @@
   }
 }
 
+.react-calendar__month-view {
+  margin-top: 30px;
+  text-shadow: none;
+}
+
 .react-calendar__month-view__weekdays {
   font-weight: bold;
-  color: black;
-  height: 50px;
+  color: #ffd1d1;
+  height: 30px;
   font-size: 20px;
-  // text-shadow: 1px 1px black;
+  text-shadow: 1px 1px black;
   // background-color: 
+}
+
+.react-calendar__month-view__days {
+  button {
+    text-shadow: none;
+  }
 }
