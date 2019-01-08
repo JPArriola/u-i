@@ -5,7 +5,10 @@ import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
   let user = state.session.user;
+  console.log("this is my state!!", state);
+
   let albums = Object.values(state.albums);
+
   return {
     albums,
     user,

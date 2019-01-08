@@ -4,14 +4,6 @@ import Navbar from '../navbar/navbar_container';
 import '../stylesheets/home/home.scss';
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      nickname: this.props.user.nickname
-    };
-  }
-
   componentDidMount() {
     this.props.fetchPartner(this.props.partnerId);
   }
