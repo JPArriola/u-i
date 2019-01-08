@@ -10,6 +10,17 @@
 //   font-family: Helvetica, sans-serif;
 // }
 
+.dates-page  {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(240, 128, 128, 0.486);
+}
+
+.create-date-button {
+  height: 200px;
+  width: 200px;
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
@@ -49,6 +60,7 @@
   top: 15px;
   border-radius: 50%;
   z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Place the container to the left */
@@ -102,5 +114,6 @@
   border-radius: 6px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
