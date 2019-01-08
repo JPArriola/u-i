@@ -47,6 +47,7 @@ textarea:focus {
 .content-master {
   min-width: 960px;
   background-color: #e6fff2;
+  height: 100vh;
 }
 
 .home-relationship-profiles {
@@ -56,7 +57,6 @@ textarea:focus {
   align-items: center;
   align-content: space-between;
   justify-content: space-evenly;
-  height: inherit;
 }
 
 .profiles-container {
@@ -84,6 +84,10 @@ textarea:focus {
   flex-direction: column;
   align-items: center;
   // justify-content: space-around;
+  border: 1px dashed lightcoral;
+  border-radius: 20px;
+  padding: 0px 30px;
+  margin: 0 5px;
 }
 
 .left-profile-picture {
@@ -105,11 +109,25 @@ textarea:focus {
 .profile-content {
   // background-color: white;
   text-align: left;
-  color: #28536b;
+  color: black;
   height: 300px;
   width: 275px;
   display: flex;
+  flex-direction: row;
+}
+
+.profile-content-cats{
+  text-align: left;
+  color: darkred;
+  font-weight: bold;
+  display: flex;
   flex-direction: column;
+}
+
+.profile-content-data{
+  text-align: right;
+  color: black;
+  width: 100%;
 }
 
 .profile-edit {
@@ -122,18 +140,20 @@ textarea:focus {
   cursor: pointer;
 }
 
-.profile-edit:active {
-  border: 1px solid lightcoral;
-  background-color: lightcoral;
-  padding: 10px 8px;
-  border-radius: 5px;
-  cursor: pointer;
+.profile-edit:hover{
   color: white;
-  font-weight: bold;
+  background-color: lightcoral;
+}
+
+.profile-edit:active{
+  color: white;
+  background-color: #af5a5a;
 }
 
 .profiles-center{
   width: 40%;
+  // border: 1px dashed green;
+  // border-radius: 20px;
 }
 
 .profiles-daycount {
@@ -148,11 +168,15 @@ textarea:focus {
 
 .daycount {
   // background-color: grey;
+  border: 1px dashed green;
+  border-radius: 20px;
   height: 75px;
   width: 250px;
   text-align: center;
   display: flex;
   flex-direction: column;
+  padding-top: 30px;
+  font-weight: bold;
 }
 
 .profiles-heart {
