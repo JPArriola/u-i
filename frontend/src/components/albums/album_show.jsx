@@ -25,6 +25,9 @@ class AlbumShow extends React.Component {
           <div className="albumshow-description">
             {album.description}
           </div>
+          <div className="albumshow-year">
+            {album.date}
+          </div>
           <div className="albumshow-media-section">
           </div>
         </div>
