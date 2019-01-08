@@ -4,7 +4,8 @@ import {
   getAllStickys,
   getSticky,
   editSticky,
-  deleteSticky
+  deleteSticky,
+  getStickyId
 } from '../../actions/sticky_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchPartner } from '../../actions/profile_actions';
@@ -29,7 +30,8 @@ const mDTP = (dispatch) => {
     getSticky: (stickyId) => dispatch(getSticky(stickyId)),
     editSticky: (stickyId) => dispatch(editSticky(stickyId)),
     deleteSticky: (stickyId) => dispatch(deleteSticky(stickyId)),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
+    getStickyId: (stickyId) => dispatch(getStickyId(stickyId))
   };
 };
 

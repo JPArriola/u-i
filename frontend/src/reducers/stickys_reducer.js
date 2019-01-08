@@ -7,6 +7,7 @@ export default function (state = {}, action) {
     case RECEIVE_ALL_STICKYS:
       return action.stickys;
     case RECEIVE_STICKY:
+      console.error(action);
       newState = Object.assign({}, state, {[action.sticky.data._id]: action.sticky.data});
       return newState;
     case REMOVE_STICKY_ITEM:
