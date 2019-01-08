@@ -3,17 +3,48 @@ import  '../stylesheets/sticky/sticky-item.scss';
 
 class StickyItem extends React.Component {
 
+  receiveName(field) {
+    let { user, sticky, partner } = this.props;
+    if (!user.nickname) user.nickname = user.name;
+    if (!partner.nickname) partner.nickname = partner.name;
+
+    if (sticky[field] === user.id) {
+      return user.nickname;
+    } else {
+      return partner.nickname;
+    }
+  }
+
+  handleDeleteSticky() {
+    return(e) => {
+      this.props.deleteSticky(this.props.sticky._id);
+    };
+  }
+
+  // stickyNoteBg() {
+  //   if (sticky.authorId === user.id) {
+      
+  //   } else {
+  //     return 
+  //   }
+  // }
+
   render() {
-    let { receiver, sticky, author } = this.props;
+
+    let { sticky } = this.props;
+
     return(
       <div className="sticky-item">
         <div className="to-love">
+        <div className="to-from-div">
           <div className="to-from">
             To: 
           </div>
           <div>
-            { receiver.name[0].toUpperCase() + receiver.name.slice(1) }
+            { this.receiveName("receiverId") }
           </div>
+        </div>
+        <i className="fas fa-trash-alt" onClick={ this.handleDeleteSticky() }></i>
         </div>
         <div className="sticky-body">
           { sticky.body }
@@ -24,7 +55,7 @@ class StickyItem extends React.Component {
               From:
             </div>
             <div>
-              { author.name[0].toUpperCase() + author.name.slice(1) }
+              { this.receiveName("authorId") }
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import * as APIUtil from '../util/sticky_api_util';
 
 export const RECEIVE_STICKY = 'RECEIVE_STICKY';
 export const RECEIVE_ALL_STICKYS = 'RECEIVE_ALL_STICKYS';
+export const REMOVE_STICKY_ITEM = 'REMOVE_STICKY_ITEM';
 
 export const receiveSticky = sticky => ({
   type: RECEIVE_STICKY,
@@ -12,6 +13,13 @@ export const receiveAllStickys = stickys => ({
   type: RECEIVE_ALL_STICKYS,
   stickys
 });
+
+export const removeStickyItem = (stickyItem) => (
+  ({
+    type: REMOVE_STICKY_ITEM,
+    stickyItem
+  })
+);
 
 export const createSticky = (sticky) => dispatch => (
   APIUtil.createSticky(sticky)
@@ -35,5 +43,5 @@ export const editSticky = (stickyId) => dispatch => (
 
 export const deleteSticky = (stickyId) => dispatch => (
   APIUtil.deleteSticky(stickyId)
-  .then(sticky => (dispatch(receiveSticky(sticky))))
+  .then(stickyId => (dispatch(removeStickyItem(stickyId))))
 );

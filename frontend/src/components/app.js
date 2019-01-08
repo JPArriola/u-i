@@ -13,7 +13,7 @@ import AlbumsContainer from './albums/albums_container';
 import Modal from './modal/modal';
 
 const App = () => (
-	<div>
+	<div className="page">
 		<Modal />
 		<Switch>
 			<Route exact path="/" component={ MainPage } />
