@@ -1,4 +1,4 @@
-import * as albumAPIUtil from '../util/albums_api_util';
+import * as AlbumAPIUtil from '../util/albums_api_util';
 
 export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
 export const RECEIVE_ALL_ALBUMS = 'RECEIVE_ALL_ALBUMS';
@@ -20,26 +20,26 @@ export const removeAlbum = (albumId) => ({
 });
 
 export const getAlbum = (albumId) => dispatch => (
-  albumAPIUtil.getAlbum(albumId)
+  AlbumAPIUtil.getAlbum(albumId)
     .then(album => dispatch(receiveAlbum(album)))
 );
 
 export const createAlbum = (album) => dispatch => (
-  albumAPIUtil.createAlbum(album)
+  AlbumAPIUtil.createAlbum(album)
     .then(album => dispatch(receiveAlbum(album)))
 );
 
 export const getAllAlbums = (userId) => dispatch => (
-  albumAPIUtil.getAllAlbums(userId)
+  AlbumAPIUtil.getAllAlbums(userId)
     .then(albums => dispatch(receiveAllAlbums(albums)))
 );
 
 export const editAlbum = (albumId) => dispatch => (
-  albumAPIUtil.editAlbum(albumId)
+  AlbumAPIUtil.editAlbum(albumId)
     .then(album => dispatch(receiveAlbum(album)))
 );
 
 export const deleteAlbum = (albumId) => dispatch => (
-  albumAPIUtil.deleteAlbum(albumId)
+  AlbumAPIUtil.deleteAlbum(albumId)
     .then(album => dispatch(removeAlbum(albumId)))
 )

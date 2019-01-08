@@ -4,7 +4,6 @@ import { getAlbum, getAllAlbums, editAlbum, deleteAlbum } from '../../actions/al
 import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
-  debugger;
   let user = state.session.user;
   let albums = Object.values(state.albums);
   return {

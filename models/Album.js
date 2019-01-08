@@ -11,8 +11,7 @@ const AlbumSchema = new Schema({
     required: true
   },
   date: {
-    type: String,
-    required: true
+    type: String
   },
   connectionCode: {
     type: String,
