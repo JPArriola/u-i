@@ -67,6 +67,7 @@ textarea:focus {
   margin: 50px 0px 20px 0px;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .profiles-event-container {
@@ -77,17 +78,19 @@ textarea:focus {
 }
 
 .profiles-user {
-  // background-color: pink;
+  background-color: rgba(240, 128, 128, 0.493);
   height: inherit;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   // justify-content: space-around;
-  border: 1px dashed lightcoral;
+  // border: 1px dashed lightcoral;
   border-radius: 20px;
   padding: 0px 30px;
   margin: 0 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .left-profile-picture {
@@ -108,6 +111,7 @@ textarea:focus {
 
 .profile-content {
   // background-color: white;
+
   text-align: left;
   color: black;
   height: 300px;
@@ -168,7 +172,7 @@ textarea:focus {
 
 .daycount {
   // background-color: grey;
-  border: 1px dashed green;
+  // border: 1px dashed green;
   border-radius: 20px;
   height: 75px;
   width: 250px;
@@ -177,6 +181,8 @@ textarea:focus {
   flex-direction: column;
   padding-top: 30px;
   font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .profiles-heart {
