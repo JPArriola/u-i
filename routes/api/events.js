@@ -12,7 +12,11 @@ router.get('/user/:user_id', (req, res) => {
       const currConnectionCode = user.connectionCode;
       Event.find({ connectionCode: currConnectionCode })
         .sort({ date: -1 })
-        .then(events => res.json(events))
+        .then(events => {
+          let eventObject = {};
+          events.forEach((event) => eventObject[event.id] = event);
+          res.json(eventObject);
+        })
         .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
     });
 });
