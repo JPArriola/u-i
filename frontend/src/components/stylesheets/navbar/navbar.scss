@@ -34,7 +34,7 @@ input:focus {
 
 .navbar-master {
   height: 75px;
-  min-width: 960px;
+  // min-width: 960px;
 }
 
 .navbar-workingspace {
@@ -81,6 +81,12 @@ input:focus {
   text-shadow: 1px 1px gray;
 }
 
+.navbar-dates:active {
+  border-bottom: 3px solid #af5a5a;
+  text-shadow: 1px 1px transparent;
+  color: #af5a5a;
+}
+
 .navbar-stickys {
   cursor: pointer;
   margin-top: 6px;
@@ -102,8 +108,14 @@ input:focus {
 .navbar-stickys:hover {
   border-bottom: 3px solid white;
   text-shadow: 1px 1px gray;
-  
 }
+
+.navbar-stickys:active {
+  border-bottom: 3px solid #af5a5a;
+  text-shadow: 1px 1px transparent;
+  color: #af5a5a;
+}
+
 
 .navbar-albums {
   cursor: pointer;
@@ -128,6 +140,12 @@ input:focus {
   text-shadow: 1px 1px gray;
 }
 
+.navbar-albums:active {
+  border-bottom: 3px solid #af5a5a;
+  text-shadow: 1px 1px transparent;
+  color: #af5a5a;
+}
+
 .navbar-logout {
   border: 1px solid white;
   font-size: 15px;
@@ -139,6 +157,12 @@ input:focus {
 .navbar-logout:hover {
   background-color: white;
   color: lightcoral;
+}
+
+.navbar-logout:active {
+  background-color: white;
+  color: #af5a5a;
+  border: 1px solid #af5a5a;
 }
 
 .content {

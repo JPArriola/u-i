@@ -7,7 +7,7 @@ class UpdateUser extends React.Component {
 
     this.state = {
       nickname: this.props.user.nickname,
-      email: this.props.user.email,
+      birthday: this.props.user.birthday,
       zipCode: this.props.user.zipCode,
     };
   }
@@ -27,23 +27,33 @@ class UpdateUser extends React.Component {
     };
   }
 
+  // updateBirthday(){
+  //   return(e) => {
+  //     this.setState({birthday:})
+  //   }
+  // }
+
   render(){
-    return(
-      <form onSubmit={this.handleSubmit()} className="profile-update-form" onClick={ e => e.stopPropagation() }>
-        <div className="profile-update-title">
-          Edit Profile
-        </div>
+    return <form onSubmit={this.handleSubmit()} className="profile-update-form" onClick={e => e.stopPropagation()}>
+        <div className="profile-update-title">Edit Profile</div>
         <div className="profile-update-content">
-          <div>Nickname: <input type="text" value={this.state.nickname} onChange={this.update("nickname")} placeholder={this.props.user.nickname}></input></div>
-          <div>Email: <input type="text" value={this.state.email} onChange={this.update("email")} placeholder={this.props.user.email}></input></div>
-          <div>ZipCode: <input type="text" value={this.state.zipCode} onChange={this.update("zipCode")} placeholder={this.props.user.zipCode}></input></div>
+          <div>
+            <div>Nickname: </div>
+            <input className="profile-update-nickname" type="text" value={this.state.nickname} onChange={this.update("nickname")} placeholder="nickname" />
+          </div>
+          <div>
+            <div>Birthday: </div>
+            <input className="profile-update-birthday" type="text" value={this.state.birthday} onChange={this.update("birthday")} placeholder="MM/DD/YYYY" />
+          </div>
+          <div>
+            <div>ZipCode: </div>
+            <input className="profile-update-zipcode" type="text" value={this.state.zipCode} maxLength="5" onChange={this.update("zipCode")} placeholder="#####" />
+          </div>
         </div>
         <div className="profile-update-submit">
-          <input type="submit" value="Update Dis Profile" className="profile-update-button" >
-          </input>
+          <input type="submit" value="Update Profile" className="profile-update-button" />
         </div>
-      </form>
-    )
+      </form>;
   }
 }
 

@@ -25,10 +25,56 @@
   // background-color: gold;
   // font-family: "Arimo",
   // sans-serif;
+  width: 300px;
+  
   letter-spacing: 0.5px;
   background-color: #f08080;
   color: white;
+  padding: 8px;
+  border-radius: 5px;
 }
+
+.profile-update-title{
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.profile-update-content{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+.profile-update-nickname{
+  width: 200px;
+}
+
+.profile-update-birthday{
+  width: 200px;
+}
+
+.profile-update-zipcode{
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.profile-update-submit{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.profile-update-button{
+  width: 100px;
+}
+
+
 
 .sticky-form {
   font-family: "Arimo", sans-serif;

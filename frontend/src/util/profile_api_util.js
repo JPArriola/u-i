@@ -7,6 +7,6 @@ export const fetchPartner = (id) => {
 };
 
 export const updateProfile = (id, userInfo) => {
-  let {email, nickname, zipCode} = userInfo;
-  return axios.patch(`/api/users/${id}`, {email, nickname, zipCode});
+  let {birthday, nickname, zipCode} = userInfo;
+  return axios.patch(`/api/users/${id}`, {birthday, nickname, zipCode});
 }
