@@ -23,7 +23,7 @@ class Stickys extends React.Component {
     });
 
     return (
-      <div>
+      <div className="sticky-page">
         <Navbar />
         <div className="empty-line"></div>
         <div className="sticky-index-with-button">

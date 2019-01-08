@@ -28,13 +28,15 @@ class StickyItem extends React.Component {
     return(
       <div className="sticky-item">
         <div className="to-love">
+        <div className="to-from-div">
           <div className="to-from">
             To: 
           </div>
           <div>
             { this.receiveName("receiverId") }
           </div>
-          <i className="fas fa-trash-alt" onClick={ this.handleDeleteSticky() }></i>
+        </div>
+        <i className="fas fa-trash-alt" onClick={ this.handleDeleteSticky() }></i>
         </div>
         <div className="sticky-body">
           { sticky.body }

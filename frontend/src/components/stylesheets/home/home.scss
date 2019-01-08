@@ -38,9 +38,8 @@ input:focus {
   outline: none;
 }
 
-.navbar-master {
-  height: 75px;
-  min-width: 960px;
+.page {
+  height: 100%;
 }
 
 .navbar-workingspace {
@@ -284,6 +283,6 @@ input:focus {
 .empty-line {
   width: 100%;
   height: 3px;
-  background-color: #e6fff2;
+  background-color: white;
   border-bottom: 2px solid lightcoral;
 }
