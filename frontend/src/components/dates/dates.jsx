@@ -8,14 +8,28 @@ import '../stylesheets/dates/calendar.scss';
 import '../stylesheets/dates/timeline.scss';
 
 class Dates extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: new Date()
+    };
+  }
+
+  dateOnClick() {
+    return (date) => {
+      this.setState({ date });
+    };
+  }
    
   componentDidMount() {
     this.props.getAllDates(this.props.user.id);
   }
 
   render() {
+    console.warn(this.state)
     let dates = this.props.dates.map(date => {
-      return <DateItem date={date.date} title={date.title} key={date.title}/>
+      return <DateItem date={ date.date } title={ date.title } key={ date.title }/>
     });
     
     if (!this.props.dates) return null;
@@ -24,16 +38,19 @@ class Dates extends React.Component {
       <div className="dates-page">
         <Navbar />
         <div className="empty-line"></div>
-        <button className="create-date-button" onClick={ () => this.props.openModal("createDate") }>Create Date</button>
         <div className="main-cal-and-timeline">
-        <Calendar
-          // onChange={this.onChange}
-          // value={this.state.date}
-        />
+        <div className="calendar-with-button">
+          <Calendar
+            onChange={ this.dateOnClick() }
+            value={ this.state.date }
+            // hover={new Date(2017, 0, 1)}
+          />
+          <button className="create-date-button" onClick={ () => this.props.openModal("createDate") }>Create Date</button>
+        </div>
         <div className="timeline-wrapper">
           <div className="timeline">
             <div className="upcoming-events">Upcoming Events</div>
-            {dates}
+            { dates }
       
           </div>
         </div>

@@ -1,6 +1,8 @@
 .react-calendar {
-  width: 50%;
-  height: 410px;
+  max-width: 814px;
+  min-width: 756px;
+  width: 90%;
+  height: 500px;
   border: 1px solid #5a94bf;
   text-align: center;
   background-color: #5a94bf;
@@ -15,7 +17,7 @@
   
   button {
     border: none;
-    height: 50px;
+    height: 65px;
     background-color: #5a94bf;
     color: white;
     font-size: 15px;
@@ -54,7 +56,32 @@
 }
 
 .react-calendar__month-view__days {
+  margin-top: 10px;
+
   button {
     text-shadow: none;
+
+    time {
+      // border: 1px solid red;
+    }
+    
+    // time:hover {
+    //   border: 1px solid white;
+    //   border-radius: 50% 50%;
+    // }
+
+    // time:focus {
+    //   border: 1px solid white;
+    //   border-radius: 50% 50%;
+    // }
+  }
+
+  button:focus {
+    // border: 1px solid white;
+    // border-radius: 50% 50%;
+    background-image: url("../images/download.png");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
+

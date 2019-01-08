@@ -1,5 +1,7 @@
 .main-cal-and-timeline {
   display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 // * {
 //   box-sizing: border-box;
@@ -9,6 +11,11 @@
 //   background-color: rgba(240, 128, 128, 0.486);
 //   font-family: Helvetica, sans-serif;
 // }
+
+.calendar-with-button {
+  display: flex;
+  flex-direction: column;
+}
 
 .dates-page  {
   height: 100%;
@@ -27,6 +34,7 @@
   font-size: 17px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
   0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 30px auto;
 }
 
 .create-date-button:hover {
@@ -58,7 +66,7 @@
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -3px;
+  margin-left: -149px;
 }
 
 /* Container around content */
@@ -90,9 +98,9 @@
 }
 
 /* Place the container to the right */
-.right {
-  left: 50%;
-}
+// .right {
+//   left: 50%;
+// }
 
 /* Add arrows to the left container (pointing right) */
 .left::before {
@@ -148,6 +156,5 @@
   color: lightcoral;
   font-weight: bold;
   font-size: 18px;
-  margin-left: 190px;
-  
+  // margin-left: 190px;
 }

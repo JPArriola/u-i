@@ -9,7 +9,7 @@ import Dates from './dates';
 import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
-  let dates = Object.values(state.dates);
+  let dates = Object.values(state.dates).reverse();
   let user = state.session.user;
 
   return {
