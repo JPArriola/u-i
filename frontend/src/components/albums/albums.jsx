@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/navbar_container";
 import AlbumItem from './album_item.jsx';
+import "../stylesheets/albums/album.scss";
 
 class Albums extends React.Component {
 	componentDidMount() {

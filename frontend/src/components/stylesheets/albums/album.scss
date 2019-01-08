@@ -1,0 +1,29 @@
+.album-index-with-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  background-color: #fff6f6;
+}
+
+.create-album-button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: #6c6c6c;
+  border-radius: 100px;
+  color: white;
+  font-size: 17px;
+}
+
+.create-album-button:hover {
+  cursor: pointer;
+  background-color: #bdbdbd;
+}
+
+.album-index {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 100px;
+  justify-content: center;
+}
