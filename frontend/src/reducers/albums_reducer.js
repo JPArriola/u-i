@@ -8,7 +8,7 @@ export default function (state = {}, action) {
     case RECEIVE_ALL_ALBUMS:
     return action.albums;
     case RECEIVE_ALBUM:
-      newState = Object.assign({}, state, action.album.data);
+      newState = Object.assign({}, state, {[action.album.data._id]: action.album.data});
       return newState;
     case REMOVE_ALBUM:
       newState = Object.assign({}, state, action.album.data);

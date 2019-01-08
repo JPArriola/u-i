@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/navbar_container";
-import AlbumItem from './album_item.jsx'
+import AlbumItem from './album_item.jsx';
+
 class Albums extends React.Component {
 	componentDidMount() {
 		this.props.getAllAlbums(this.props.user.id);	
@@ -8,14 +9,9 @@ class Albums extends React.Component {
 
 	render() {
 		if (!this.props.albums) return null;
-		let album = this.props.albums.map((album, i) => {
-
-			console.log("albums props", this.props.albums)
-
+		let albums = this.props.albums.map((album, i) => {
 			return (
-				<AlbumItem album={album}
-					key={i}
-				/>
+				<AlbumItem album={album} key={i} />
 			);
 		});
 
@@ -26,7 +22,7 @@ class Albums extends React.Component {
 				<div className="album-index-with-button">
 					<button className="create-album-button" onClick={() => this.props.openModal("createAlbum")}>Create Album</button>
 					<div className="album-index">
-						{album}
+						{albums}
 					</div>
 				</div>
 			</div>
