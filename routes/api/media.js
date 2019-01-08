@@ -80,6 +80,15 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ nomediafound: 'No media found with that ID' }));
 });
 
+router.delete('/:id', (req, res) => {
+  Media.findById(req.params.id)
+    .then(media => {
+      media.remove().then(media => res.json(media));
+    })
+    .catch(err =>
+      res.status(404).json({ nomediafound: 'No media found with that ID' })
+    );
+});
 
 module.exports = router;
 
