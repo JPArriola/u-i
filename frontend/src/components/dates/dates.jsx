@@ -47,11 +47,13 @@ class Dates extends React.Component {
           />
           <button className="create-date-button" onClick={ () => this.props.openModal("createDate") }>Create Date</button>
         </div>
-        <div className="timeline-wrapper">
-          <div className="timeline">
-            <div className="upcoming-events">Upcoming Events</div>
-            { dates }
-      
+        <div className="right-side">
+          <div className="upcoming-events">Upcoming Events</div>
+          <div className="timeline-wrapper">
+            <div className="timeline">
+              { dates }
+        
+            </div>
           </div>
         </div>
       </div>
