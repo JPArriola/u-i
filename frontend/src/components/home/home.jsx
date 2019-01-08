@@ -16,12 +16,6 @@ class Home extends React.Component {
     this.props.fetchPartner(this.props.partnerId);
   }
 
-  // componentDidUpdate(prevProps, prevState){
-  //   if (prevState !== this.state){
-  //     return this.props.fetchUpdatedCurrentUser(this.props.user.id);
-  //   }
-  // }
-
   render() {
     let { user, partner } = this.props;
 
