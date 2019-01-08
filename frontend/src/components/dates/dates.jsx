@@ -59,7 +59,6 @@ class Dates extends React.Component {
           <div className="timeline-wrapper">
             <div className="timeline">
               { dates }
-        
             </div>
           </div>
         </div>
