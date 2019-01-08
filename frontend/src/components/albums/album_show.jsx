@@ -23,8 +23,7 @@ class AlbumShow extends React.Component {
             {album.name}
           </div>
           <div className="albumshow-description">
-            "OUR TRIP TO CABOOOOOOOOOOOOOOO"
-            {/* {album.description} */}
+            {album.description}
           </div>
           <div className="albumshow-media-section">
           </div>
