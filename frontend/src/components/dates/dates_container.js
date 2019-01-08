@@ -9,8 +9,13 @@ import {
 import Dates from './dates';
 
 const mSTP = (state) => {
-  // console.warn(state.dates);
+  let dates = Object.values(state.dates);
+  let user = state.session.user;
+
+
   return {
+    dates,
+    user
   };
 };
 
