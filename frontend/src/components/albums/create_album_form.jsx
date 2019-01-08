@@ -7,6 +7,7 @@ class CreateAlbumForm extends React.Component {
     this.state = {
       name: '',
       date: '',
+      description: '',
       authorId: props.authorId,
     };
   }
@@ -30,8 +31,9 @@ class CreateAlbumForm extends React.Component {
   render() {
     return (
       <form className="album-form" onClick={e => e.stopPropagation()} onSubmit={this.handleSubmit()}>
-        <input type="text" value={this.state.name} onChange={this.update("name")} placeholder="Album Name"></input>
-        <input type="text" value={this.state.date} onChange={this.update("date")} placeholder="01/24/2018"></input>
+        <input type="text" value={this.state.name} maxLength="30" onChange={this.update("name")} placeholder="Album Name"></input>
+        <input type="text" value={this.state.date} maxLength="10" onChange={this.update("date")} placeholder="MM/DD/YYYY"></input>
+        <input type="text" value={this.state.description} maxLength="100" onChange={this.update("description")} placeholder="ex: Our lovely trip to San Francisco"></input>
         <button>Create Album</button>
       </form>
     )

@@ -4,8 +4,13 @@ import { getAlbum } from '../../actions/album_actions'
 // import { getAllMedia } from '../../actions/media_actions';
 import { closeModal } from '../../actions/modal_actions';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
+  let albumId = ownProps.match.params.id;
+  let album = state.albums[albumId];
+  console.log("album", album);
   return {
+    album,
+    albumId,
     authorId: state.session.user.id,
   };
 };

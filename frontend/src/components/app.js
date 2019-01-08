@@ -10,6 +10,7 @@ import CodePageContainer from './main/code_page_container';
 import DatesContainer from './dates/dates_container';
 import StickysContainer from './stickys/stickys_container';
 import AlbumsContainer from './albums/albums_container';
+import AlbumShowContainer from './albums/album_show_container';
 import Modal from './modal/modal';
 
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
 			<ProtectedRoute exact path="/dates" component={ DatesContainer } />
 			<ProtectedRoute exact path="/stickys" component={ StickysContainer } />
 			<ProtectedRoute exact path="/albums" component={ AlbumsContainer } />
+			<ProtectedRoute exact path="/albums/:id" component={AlbumShowContainer} />
 		
 		</Switch>
 	</div>
