@@ -13,7 +13,7 @@
 // }
 .event {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
 .calendar-with-button {
@@ -145,6 +145,7 @@
 /* The actual content */
 .event-bubble {
   display: flex;
+  flex-direction: column;
   padding: 10px 30px 10px 30px;
   background-color: white;
   position: relative;
@@ -166,4 +167,13 @@
   font-size: 30px;
   margin-bottom:20px;
   // margin-left: 190px;
+}
+
+.event-bubble-title {
+  padding-top: 10px;
+}
+
+.fa-trash-alt {
+  padding-top: 8px;
+  font-size: 13px;
 }
