@@ -20,6 +20,8 @@ class AlbumShow extends React.Component {
         <Navbar />
         <div className="empty-line"></div>
         <div className="albumshow-master">
+          <button className="create-album-button" onClick={() => this.props.openModal("addMedia")}>Add Media</button>
+
           <div className="albumshow-title">
             {album.name}
           </div>
@@ -30,7 +32,7 @@ class AlbumShow extends React.Component {
             {album.date}
           </div>
           <div className="albumshow-media-section">
-            <MediaContainer />
+            <MediaContainer album={album} />
           </div>
         </div>
       </div>

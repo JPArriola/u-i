@@ -57,14 +57,15 @@ router.patch('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  //find media tied to specific album and delete 
   Album.findById(req.params.id)
     .then(album => {
-      album.remove().then(album => res.json(album));
-      const mediaFiles = Media.find({ albumId: album.id });
-      mediaFiles.forEach( media => {
-        media.remove()
+      album.remove().then(album => {
+        const mediaFiles = Media.find({ albumId: album.id })
+        mediaFiles.forEach( media => {
+          media.remove();
+        });
       });
+
     })
     .catch(err =>
       res.status(404).json({ noalbumfound: 'No album found with that ID' })
