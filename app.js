@@ -1,6 +1,7 @@
 require('dotenv').config();
 const media = require("./routes/api/media");
 const express = require("express");
+const path = require('path');
 const app = express();
 const db = require('./config/keys_main').mongoURI;
 const mongoose = require('mongoose');
@@ -15,6 +16,15 @@ mongoose
 .connect(db, { useNewUrlParser: true })
 .then(() => console.log("Connected to MongoDB successfully"))
 .catch(err => console.log(err));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
+
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
