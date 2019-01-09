@@ -1,7 +1,11 @@
 .sticky-page {
   height: 100%;
   width: 100%;
-  background-color: #fff6f6;
+  // background-color: #fff6f6;
+  // background-size: contain;
+  background-image: url("../images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .sticky-index-with-button {
@@ -9,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  background-color: #fff6f6;
+  // background-color: #fff6f6;
   // margin: 0 300px;
 }
 
@@ -41,6 +45,7 @@
   justify-content: space-between;
   height: 215px;
   width: 395px;
+  background-color: #fff6f6;
   // background-image: url('../images/note7.png');
   // background-size: contain;
   // background-repeat: no-repeat;
@@ -96,11 +101,14 @@
   height: 225px;
   width: 395px;
   background-image: url('../images/note.png');
+  background-color: #fff6f6;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   color: black;
   margin: 15px;
   font-size: 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   .from-love-reverse {
     margin: 0 65px 40px 0;

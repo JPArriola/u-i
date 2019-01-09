@@ -1,9 +1,12 @@
 .react-calendar {
-  width: 50%;
-  height: 410px;
-  border: 1px  solid lightcoral;
+  max-width: 650px;
+  // min-width: 756px;
+  width: 90%;
+  height: 500px;
+  // border: 1px solid #5a94bf;
   text-align: center;
-  background-color: lightcoral;
+  // background-color: #5a94bf;
+  background-color: white;
   font-size: 15px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   // display: flex;
@@ -15,16 +18,19 @@
   
   button {
     border: none;
-    height: 50px;
-    background-color: lightcoral;
-    color: white;
-    font-size: 15px;
+    height: 65px;
+    // background-color: #5a94bf;
+    background-color: white;
+    color: rgb(59, 59, 59);
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    // text-shadow: 1px 1px black;
   }
 }
 
 .react-calendar__navigation {
   height: 30px;
+  margin-top: 10px;
 
   button {
     height: 30px;
@@ -37,11 +43,48 @@
   }
 }
 
+.react-calendar__month-view {
+  margin-top: 30px;
+  text-shadow: none;
+}
+
 .react-calendar__month-view__weekdays {
   font-weight: bold;
-  color: black;
-  height: 50px;
+  color: lightcoral;
+  height: 30px;
   font-size: 20px;
   // text-shadow: 1px 1px black;
   // background-color: 
 }
+
+.react-calendar__month-view__days {
+  margin-top: 10px;
+
+  button {
+    text-shadow: none;  
+
+    time {
+      // border: 1px solid red;
+    }
+    
+    // time:hover {
+    //   border: 1px solid white;
+    //   border-radius: 50% 50%;
+    // }
+
+    // time:focus {
+    //   border: 1px solid white;
+    //   border-radius: 50% 50%;
+    // }
+  }
+
+  button:focus {
+    // border: 1px solid white;
+    // border-radius: 50% 50%;
+    background-image: url("../images/download.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+

@@ -46,7 +46,10 @@ textarea:focus {
 
 .content-master {
   min-width: 960px;
-  background-color: #e6fff2;
+  // background-color: #e6fff2;
+  background-image: url("../images//bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
 
@@ -57,87 +60,141 @@ textarea:focus {
   align-items: center;
   align-content: space-between;
   justify-content: space-evenly;
+  font-family: 'Poppins', sans-serif;
 }
 
 .profiles-container {
-  height: 500px;
-  min-width: 960px;
-  max-width: 1020px;
+  height: 635px;
+  min-width: 1200px;
+  // max-width: 1020px;
   // background-color: green;
-  margin: 50px 0px 20px 0px;
+  margin: 50px 0px 50px 0px;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .profiles-event-container {
-  height: 60%;
-  width: 100%;
-  // background-color: orange;
-  // margin: 20px 0px;
+  height: 250px;
+  margin: 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .profiles-user {
-  // background-color: pink;
+  background-color: rgb(255, 191, 191);
   height: inherit;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   // justify-content: space-around;
-  border: 1px dashed lightcoral;
+  // border: 1px dashed lightcoral;
   border-radius: 20px;
   padding: 0px 30px;
   margin: 0 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .left-profile-picture {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   border-radius: 100px;
   background-size: contain;
   background-image: url("../images/left-profile.gif");
+  background-position: center;
+  background-repeat: none;
+  margin: 40px 0;
+  border: 1px solid lightcoral;
+  border-radius: 50% 50%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .right-profile-picture {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   border-radius: 100px;
   background-size: contain;
   background-image: url("../images/right-profile.gif");
+  background-position: center;
+  background-repeat: none;
+  margin: 40px 0;
+  border: 1px solid lightcoral;
+  border-radius: 50% 50%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.profile-content {
+.left-profile-content {
   // background-color: white;
+  // flex: 1;
   text-align: left;
   color: black;
-  height: 300px;
+  height: 220px;
   width: 275px;
   display: flex;
   flex-direction: row;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.right-profile-content {
+  // background-color: white;
+  // flex: 1;
+  text-align: left;
+  color: black;
+  height: 220px;
+  width: 275px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: white;
 }
 
 .profile-content-cats{
   text-align: left;
-  color: darkred;
+  color: #292929;
   font-weight: bold;
   display: flex;
   flex-direction: column;
+
+  div {
+    margin: 8px 0;
+  }
 }
 
 .profile-content-data{
   text-align: right;
   color: black;
   width: 100%;
+  margin-top: -5px;
+
+  div {
+    margin: 15px 0;
+  }
 }
 
 .profile-edit {
-  border: 1px solid lightcoral;
   background-color: white;
   padding: 10px 8px;
   border-radius: 5px;
   color:lightcoral;
   font-weight: bold;
   cursor: pointer;
+  margin: 30px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .profile-edit:hover{
@@ -158,7 +215,7 @@ textarea:focus {
 
 .profiles-daycount {
   // background-color: purple;
-  height: 40%;
+  height: 150px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -167,37 +224,48 @@ textarea:focus {
 }
 
 .daycount {
-  // background-color: grey;
-  border: 1px dashed green;
-  border-radius: 20px;
+  // border: 1px dashed green;
   height: 75px;
-  width: 250px;
+  width: 344px;
   text-align: center;
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  font-weight: bold;
+  
+  .first-day-label {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .first-day-date {
+    font-size: 20px;
+  }
 }
 
 .profiles-heart {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-image: url("../images/heart-gif.gif");
   background-size: contain;
   background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 .event-header {
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .event-information-container {
-  height: 80%;
+  // height: 10%;
   width: inherit;
   // background-color: pink;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  text-align: center;
 }
 
 .empty-line {
@@ -205,4 +273,14 @@ textarea:focus {
   height: 3px;
   background-color: white;
   border-bottom: 2px solid lightcoral;
+}
+
+.event-date-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.event-label {
+  text-decoration: underline;
 }

@@ -6,6 +6,7 @@ import '../stylesheets/home/home.scss';
 class Home extends React.Component {
   componentDidMount() {
     this.props.fetchPartner(this.props.partnerId);
+    this.props.getAllDates(this.props.user.id);
   }
 
   nickname(user){
@@ -31,13 +32,28 @@ class Home extends React.Component {
       return user.zipCode;
     }
   }
+  
+  getDate(date) {
+    var arr = date.split("-");
+    var months = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+    var event_month = months[parseInt(arr[1], 10) - 1];
+    var event_yr = arr[0];
+    var event_day = arr[2].substring(0, 2);
+    return (event_month + " " + event_day + " " + event_yr);
+  }
 
   render() {
     let { user, partner } = this.props;
-
+    
     if (!this.props.partnerId) return null;
     if (!partner.name) return null;
-    return <div>
+    if (!this.props.date) return null;
+
+    let { date, title } = this.props.date;
+
+    return (
+      <div>
         <Navbar />
         <div className="empty-line" />
         <div className="content-master">
@@ -45,7 +61,7 @@ class Home extends React.Component {
             <div className="profiles-container">
               <div className="profiles-user">
                 <div className="left-profile-picture" />
-                <div className="profile-content">
+                <div className="left-profile-content">
                   <div className="profile-content-cats">
                     <div>Name:</div>
                     <div>Nickname:</div>
@@ -54,11 +70,11 @@ class Home extends React.Component {
                     <div>Zipcode:</div>
                   </div>
                   <div className="profile-content-data">
-                    <div>{user.name[0].toUpperCase() + user.name.slice(1)}</div>
-                    <div>{this.nickname(user)}</div>
-                    <div>{user.email}</div>
-                    <div>{this.birthday(user)}</div>
-                    <div>{this.zipcode(user)}</div>
+                    <div>{ user.name[0].toUpperCase() + user.name.slice(1) }</div>
+                    <div>{ this.nickname(user) }</div>
+                    <div>{ user.email }</div>
+                    <div>{ this.birthday(user) }</div>
+                    <div>{ this.zipcode(user) }</div>
                   </div>
                 </div>
                 <div onClick={() => this.props.openModal("editUser")} className="profile-edit">
@@ -68,22 +84,26 @@ class Home extends React.Component {
               <div className="profiles-center">
                 <div className="profiles-daycount">
                   <div className="daycount">
-                    <div>Our First Day</div>
-                    <div>1/1/2019</div>
+                    <div className="first-day-label">Our First Day</div>
+                    <div className="first-day-date">2/14/2018</div>
                   </div>
-                  <div className="profiles-heart" />
                 </div>
+                <div className="profiles-heart" />
                 <div className="profiles-event-container">
-                  <div className="event-header">Coming Soon</div>
+                  <div className="event-header">Upcoming Event</div>
                   <div className="event-information-container">
-                    <div className="event-information">Event</div>
-                    <div className="event-date">Date</div>
+                    <div className="event-label">EVENT</div>
+                    <div>{ title }</div>
+                  </div>
+                  <div className="event-date-container">
+                    <div className="event-label">DATE</div>
+                    <div>{ this.getDate(date) }</div>
                   </div>
                 </div>
               </div>
               <div className="profiles-user">
                 <div className="right-profile-picture" />
-                <div className="profile-content">
+              <div className="right-profile-content">
                   <div className="profile-content-cats">
                     <div>Name:</div>
                     <div>Nickname:</div>
@@ -103,7 +123,8 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    )
   }
 }
 
