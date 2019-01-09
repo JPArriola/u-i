@@ -17,7 +17,7 @@ class Albums extends React.Component {
 		});
 
 		return (
-			<div>
+			<div className="albums-page">
 				<Navbar />
 				<div className="empty-line"></div>
 				<div className="album-index-with-button">

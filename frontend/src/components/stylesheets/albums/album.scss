@@ -1,9 +1,16 @@
+.albums-page {
+  height: 100%;
+  width: 100%;
+  background-image: url(/static/media/bg.23b5ac5f.png);
+  background-size: cover;
+}
+
 .album-index-with-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  background-color: #fff6f6;
+  // background-color: #fff6f6;
 }
 
 .create-album-button {
@@ -17,6 +24,21 @@
 }
 
 .create-album-button:hover {
+  cursor: pointer;
+  background-color: #bdbdbd;
+}
+
+.delete-album-button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: #6c6c6c;
+  border-radius: 100px;
+  color: white;
+  font-size: 17px;
+}
+
+.delete-album-button:hover {
   cursor: pointer;
   background-color: #bdbdbd;
 }
