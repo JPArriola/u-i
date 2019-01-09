@@ -11,6 +11,11 @@
 //   background-color: rgba(240, 128, 128, 0.486);
 //   font-family: Helvetica, sans-serif;
 // }
+
+.right-side {
+  width: 450px;
+}
+
 .event {
   display: flex;
   justify-content: space-between;
@@ -24,8 +29,10 @@
 .dates-page  {
   height: 100%;
   width: 100%;
-  background-color: rgba(175, 207, 234, 0.486);
+  // background-color: rgba(175, 207, 234, 0.486);
   // box-sizing: border-box;
+  background-image: url("../images/bg.png");
+  background-size: cover;
 }
 
 .create-date-button {
@@ -53,7 +60,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 450px;
+  height: 205px;
   overflow: scroll;
 }
 .timeline {
@@ -169,6 +176,7 @@
   font-weight: bold;
   font-size: 30px;
   margin-bottom:20px;
+  text-align: center;
   // margin-left: 190px;
 }
 
@@ -179,4 +187,8 @@
 .fa-trash-alt {
   padding-top: 8px;
   font-size: 13px;
+}
+
+#next-month-event {
+  margin-top: 25px;
 }

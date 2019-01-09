@@ -1,11 +1,12 @@
 .react-calendar {
-  max-width: 814px;
-  min-width: 756px;
+  max-width: 650px;
+  // min-width: 756px;
   width: 90%;
   height: 500px;
-  border: 1px solid #5a94bf;
+  // border: 1px solid #5a94bf;
   text-align: center;
-  background-color: #5a94bf;
+  // background-color: #5a94bf;
+  background-color: white;
   font-size: 15px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   // display: flex;
@@ -18,11 +19,12 @@
   button {
     border: none;
     height: 65px;
-    background-color: #5a94bf;
-    color: white;
-    font-size: 15px;
+    // background-color: #5a94bf;
+    background-color: white;
+    color: rgb(59, 59, 59);
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-shadow: 1px 1px black;
+    // text-shadow: 1px 1px black;
   }
 }
 
@@ -48,10 +50,10 @@
 
 .react-calendar__month-view__weekdays {
   font-weight: bold;
-  color: #ffd1d1;
+  color: lightcoral;
   height: 30px;
   font-size: 20px;
-  text-shadow: 1px 1px black;
+  // text-shadow: 1px 1px black;
   // background-color: 
 }
 

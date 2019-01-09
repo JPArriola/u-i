@@ -16,7 +16,7 @@ class Dates extends React.Component {
     };
   }
 
-  dateOnClick() {
+  changeDate() {
     return (date) => {
       this.setState({ date });
     };
@@ -27,16 +27,33 @@ class Dates extends React.Component {
   }
 
   render() {
-    console.warn(this.state)
-    let dates = this.props.dates.map(date => {
-      return (
-        <DateItem
-          date={ date }
-          key={ date.title }
-          deleteDate = { this.props.deleteDate }
-          user = {this.props.user}
-        />
-      );
+
+    let thisMonth = this.props.dates.map(date => {
+      if (new Date(date.date).getMonth() === new Date(this.state.date).getMonth() &&
+      new Date(date.date).getYear() === new Date(this.state.date).getYear()) {
+        return (
+          <DateItem
+            date={ date }
+            key={ date.id }
+            deleteDate={ this.props.deleteDate }
+            user={ this.props.user }
+          />
+        );
+      }
+    });
+
+    let nextMonth = this.props.dates.map(date => {
+      if (new Date(date.date).getMonth() === new Date(this.state.date).getMonth() + 1 &&
+      new Date(date.date).getYear() === new Date(this.state.date).getYear()) {
+        return (
+          <DateItem
+            date={ date }
+            key={ date.id }
+            deleteDate={ this.props.deleteDate }
+            user={ this.props.user }
+          />
+        );
+      }
     });
     
     if (!this.props.dates) return null;
@@ -48,17 +65,22 @@ class Dates extends React.Component {
         <div className="main-cal-and-timeline">
         <div className="calendar-with-button">
           <Calendar
-            onChange={ this.dateOnClick() }
+            onChange={ this.changeDate() }
             value={ this.state.date }
-            // hover={new Date(2017, 0, 1)}
           />
           <button className="create-date-button" onClick={ () => this.props.openModal("createDate") }>Create Date</button>
         </div>
         <div className="right-side">
-          <div className="upcoming-events">Upcoming Events</div>
+          <div className="upcoming-events">This Month's Events</div>
           <div className="timeline-wrapper">
             <div className="timeline">
-              { dates }
+              { thisMonth }
+            </div>
+          </div>
+          <div className="upcoming-events" id="next-month-event">Next Month's Events</div>
+          <div className="timeline-wrapper">
+            <div className="timeline">
+              { nextMonth }
             </div>
           </div>
         </div>

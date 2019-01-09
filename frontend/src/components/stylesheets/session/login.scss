@@ -93,6 +93,8 @@ input:focus {
   padding-left: 20px;
   color: rgb(61, 61, 61);
   font-size: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .input-fields input::placeholder {
@@ -128,6 +130,8 @@ input:focus {
   font-size: 20px;
   border: 1px solid lightcoral;
   color: lightcoral;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .submit-button:hover {

@@ -97,6 +97,8 @@ button:focus {
   font-size: 15px;
   margin: 15px auto;
   margin-bottom: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .code-page-input-fields input::placeholder {
@@ -140,6 +142,8 @@ button:focus {
     font-size: 20px;
     border: 1px solid lightcoral;
     color: lightcoral;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   .connectbutton:hover {
