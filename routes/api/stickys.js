@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const Sticky = require('../../models/sticky');
+const Sticky = require('../../models/Sticky');
 const validateStickyInput = require('../../validation/stickys');
 const validText = require('../../validation/valid-text');
 
