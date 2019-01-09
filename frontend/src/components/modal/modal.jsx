@@ -7,6 +7,7 @@ import EditStickyFormContainer from '../stickys/edit_sticky_form_container';
 import CreateAlbumFormContainer from '../albums/create_album_form_container';
 import MediaItemContainer from '../media/media_item_container';
 import CreateMediaFormContainer from '../media/create_media_form_container';
+import CreateDateFormContainer from "../dates/create_date_form_container";
 import "../stylesheets/modal/modal.scss";
 
 function Modal({ modal, closeModal }) {
@@ -33,6 +34,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "viewMedia":
       component = <MediaItemContainer />;
+      break;
+    case "createDate":
+      component = <CreateDateFormContainer />;
       break;
     default:
       return null;

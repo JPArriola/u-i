@@ -1,0 +1,28 @@
+.media-index {
+  display: flex;
+}
+
+.media-item {
+  flex-direction: column;
+  flex: 1;
+  width:240px;
+  // display:inline-block;
+  // height: 300px;
+  // width: 240px;
+  // background-size: contain;
+
+  // .img{
+  //   flex-shrink: 0;
+  // }
+
+  // img:resize{
+  //  width: 200px;
+  //  height: 200px;
+   
+  // }
+
+  img {
+    width: 300px;
+    height: 300px;
+  }
+}

@@ -135,9 +135,9 @@
     border: none;
     width: 300px;
     resize: none;
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    // background-image: url("../images/heartsbg.png");
-    // background-size: contain;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // background-image: url("../images/sticky-border.jpg");
+    background-size: auto 100%;
     // background-color: lightcoral;
     padding: 20px 25px;
     font-size: 15px;
@@ -160,25 +160,22 @@
       margin: 10px 0;
       border: none;
       border-radius: 5px;
-      border: 1px solid white;
-      // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      color: white;
-      background-color: lightcoral;
-
+      color: lightcoral;
+      background-color: white;
+      
       .fa-telegram-plane {
         margin-left: 8px;
       }
     }
-  
+    
     button:hover {
       cursor: pointer;
       background-color: white;
       color: lightcoral;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
 }
-
-
 
 .album-form {
   font-family: "Arimo", sans-serif;
@@ -206,15 +203,77 @@
 }
 
 
+.date-form {
+  // font-family: "Arimo", sans-serif;
+  letter-spacing: 0.5px;
+  background-color: #5a94bf;
+  max-width: 350px;
+  flex: 1;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1000;
+  height: 260px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .create-date-header {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    text-shadow: 1px 1px #7a6868;
+    margin-bottom: 10px;
+  }
+
+  input {
+    height: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    padding: 20px 25px;
+    font-size: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  input::placeholder {
+    color: rgb(163, 162, 162);
+  }
+
+  .create-date {
+    display: flex;
+    flex-direction: row-reverse;
+
+    button {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 15px;
+      height: 35px;
+      width: 100px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: lightcoral;
+      
+      .fa-calendar-alt {
+        margin-left: 8px;
+      }
+    }
+    
+    button:hover {
+      cursor: pointer;
+      background-color: lightcoral;
+      color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+}
+    
 .media-form {
   font-family: "Arimo", sans-serif;
   letter-spacing: 0.5px;
   background-color: lightcoral;
   max-width: 470px;
-  flex: 1;
-  border-radius: 5px;
-  position: relative;
-  z-index: 1000;
   height: 500px;
   padding: 20px;
 
