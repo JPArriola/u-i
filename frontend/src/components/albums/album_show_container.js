@@ -7,7 +7,6 @@ import { closeModal } from '../../actions/modal_actions';
 const mSTP = (state, ownProps) => {
   let albumId = ownProps.match.params.id;
   let album = state.albums[albumId];
-  console.log("album", album);
   return {
     album,
     albumId,

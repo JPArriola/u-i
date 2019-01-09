@@ -12,6 +12,6 @@ export const getAllMedia = (albumId) => {
   return axios.get(`/api/media/album/${albumId}`);
 };
 
-// export const deleteMedia = (mediaId) => {
-//   return axios.delete(`/api/albums/${mediaId}`);
-// };
+export const deleteMedia = (mediaId) => {
+  return axios.delete(`/api/media/${mediaId}`);
+};

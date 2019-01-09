@@ -13,10 +13,10 @@ export default function (state = {}, action) {
     case RECEIVE_MEDIA_ITEM:
       newState = Object.assign({}, state, { [action.mediaItem.data._id]: action.mediaItem.data });
       return newState;
-    // case REMOVE_MEDIA:
-    //   newState = Object.assign({}, state);
-    //   delete newState[action.mediaItem.data._id];
-    //   return newState;
+    case REMOVE_MEDIA:
+      newState = Object.assign({}, state);
+      delete newState[action.mediaItem.data._id];
+      return newState;
     default:
       return state;
   }

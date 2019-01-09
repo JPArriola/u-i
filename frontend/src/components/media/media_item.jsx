@@ -21,8 +21,8 @@ class MediaItem extends React.Component {
 
     return (
       <div className="media-item">
-        <div className="media-img" onClick={this.handleOpenMediaItem}>
-          <img src={media.fileLink}></img>
+        <div className="media-img" onClick={this.handleOpenMediaItem()}>
+          <img src={media.fileLink} alt={media.fileLink}></img>
         </div>
       </div>
     )

@@ -14,10 +14,10 @@ export const receiveAllMedia = media => ({
   media
 });
 
-// export const removeMedia = (mediaItem) => ({
-//   type: REMOVE_MEDIA,
-//   mediaItem
-// });
+export const removeMedia = (mediaItem) => ({
+  type: REMOVE_MEDIA,
+  mediaItem
+});
 
 export const createMedia = (albumId, mediaItem) => dispatch => (
   MediaAPIUtil.createMedia(albumId, mediaItem)
@@ -34,7 +34,7 @@ export const getMediaItem = (mediaId) => dispatch => (
     .then(media => (dispatch(receiveMediaItem(media))))
 );
 
-// export const deleteMedia = (mediaId) => dispatch => (
-//   MediaAPIUtil.deleteMedia(mediaId)
-//     .then(mediaId => (dispatch(removeMedia(mediaId))))
-// );
+export const deleteMedia = (mediaId) => dispatch => (
+  MediaAPIUtil.deleteMedia(mediaId)
+    .then(mediaId => (dispatch(removeMedia(mediaId))))
+);
