@@ -34,6 +34,19 @@ class LoginForm extends React.Component {
     };
   }
 
+  handleDemo() {
+    let { email, password } = this.state;
+    let demoUser = {
+      email: "demo_user@ui.com",
+      password: "demopw"
+    };
+
+    return (e) => {
+      e.preventDefault();
+      this.props.login(demoUser);
+    };
+  }
+
   renderErrors() {
     let { errors } = this.state;
     return(
@@ -78,6 +91,9 @@ class LoginForm extends React.Component {
             </div>
             <div className="buttons">
               <button className="submit-button" onClick={ this.handleLogin() }>Log In</button>
+            </div>
+            <div className="buttons">
+              <button className="submit-button" onClick={ this.handleDemo() }>Demo User</button>
             </div>
           </div>
         </div>
