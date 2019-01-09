@@ -2,7 +2,7 @@ require('dotenv').config();
 const media = require("./routes/api/media");
 const express = require("express");
 const app = express();
-const db = require('./config/keys').mongoURI;
+const db = require('./config/keys_main').mongoURI;
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const events = require("./routes/api/events");
