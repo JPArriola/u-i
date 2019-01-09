@@ -1,22 +1,24 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import '../stylesheets/albums/album-item.scss';
 
-class AlbumItem extends React.Component {
+// class AlbumItem extends React.Component {
 
-  render() {
-    let { album } = this.props;
-    return (
-      <div className="album-item">
-        <div className="album-cover">
-          <img src="" alt=""></img>
-          <div className="album-details">
-            <h2>{album.name}</h2>  
-            {/* <h3>{album.date}</h3>   */}
+const AlbumItem = props => {
+  return (
+    <div className="album-item">
+      <Link to={`/albums/${props.album._id}`} >
+        <div className="album-item-content">
+          <div className="album-item-title">
+            {props.album.name}
+          </div>
+          <div className="album-item-coverart">
+            
           </div>
         </div>
-      </div>
-    )
-  }
+      </Link>
+    </div>
+  )
 }
 
 export default AlbumItem;

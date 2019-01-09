@@ -24,41 +24,10 @@ class Dates extends React.Component {
    
   componentDidMount() {
     this.props.getAllDates(this.props.user.id);
-    // let label = document.getElementsByClassName("react-calendar__month-view__days__day");
-    // let label = document.querySelectorAll(".react-calendar__month-view__days__day");
-    
-    // this.state.mark = label.innerHTML;
-    // console.log(label)
-    // label.addEventListener("click", () => {
-    //   this.props.openModal("createDate");
-    // });
-    // label.addEventListener("click", () => {
-    //   console.log(label)
-    //   this.props.openModal("createDate");
-    // });
-
-
-    // let rightArrow = document.getElementsByClassName("react-calendar__navigation__next-button");
-
-    // rightArrow[0].addEventListener("click", () => {
-    //   let label = document.getElementsByClassName("react-calendar__navigation__label");
-    //   console.log(label);
-    // });
-    // this.state.date = new Date();
-    // console.log(this.state)
-
-
-    // tiles.forEach((tile) => {
-    //   tile.addEventListener("click", () => {
-    //     tile.style.border = "1px solid black"; 
-
-    //   });
-    // });
   }
 
   render() {
-    let thisMonth;
-    thisMonth = (
+    let thisMonth = (
       this.props.dates.map((date, i) => {
         if (new Date(date.date).getMonth() === new Date(this.state.date).getMonth() &&
         new Date(date.date).getYear() === new Date(this.state.date).getYear()) {
@@ -76,7 +45,7 @@ class Dates extends React.Component {
 
     let nextMonth = (
       this.props.dates.map((date, i) => {
-        if (new Date(date.date).getMonth() === new Date(this.state.date).getMonth() &&
+        if (new Date(date.date).getMonth() === new Date(this.state.date).getMonth() + 1 &&
         new Date(date.date).getYear() === new Date(this.state.date).getYear()) {
           return (
             <DateItem

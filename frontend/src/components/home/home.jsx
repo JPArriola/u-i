@@ -40,7 +40,7 @@ class Home extends React.Component {
     var event_month = months[parseInt(arr[1], 10) - 1];
     var event_yr = arr[0];
     var event_day = arr[2].substring(0, 2);
-    return (event_month + " " + event_day + " " + event_yr)
+    return (event_month + " " + event_day + " " + event_yr);
   }
 
   render() {
@@ -85,7 +85,7 @@ class Home extends React.Component {
                 <div className="profiles-daycount">
                   <div className="daycount">
                     <div className="first-day-label">Our First Day</div>
-                    <div className="first-day-date">1/1/2019</div>
+                    <div className="first-day-date">2/14/2018</div>
                   </div>
                 </div>
                 <div className="profiles-heart" />

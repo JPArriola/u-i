@@ -31,7 +31,7 @@ export const createAlbum = (album) => dispatch => (
 
 export const getAllAlbums = (userId) => dispatch => (
   AlbumAPIUtil.getAllAlbums(userId)
-    .then(albums => dispatch(receiveAllAlbums(albums)))
+    .then(albums => dispatch(receiveAllAlbums(albums.data)))
 );
 
 export const editAlbum = (albumId) => dispatch => (

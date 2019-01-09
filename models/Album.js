@@ -16,7 +16,10 @@ const AlbumSchema = new Schema({
   connectionCode: {
     type: String,
     required: true
-  }
+  },
+  description: {
+    type: String
+  },
 });
 
 module.exports = Album = mongoose.model('albums', AlbumSchema);

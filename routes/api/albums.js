@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { name, authorId } = req.body;
+  const { name, authorId, description, date } = req.body;
   const { errors, isValid } = validateAlbumInput(req.body);
 
   if (!isValid) {
@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
   User.findById(authorId)
     .then(user => {
       const connectionCode = user.connectionCode;
-      const newAlbum = new Album({ name, authorId, connectionCode });
+      const newAlbum = new Album({ name, authorId, connectionCode, description, date });
       newAlbum.save().then(album => res.json(album));
     });
 });
@@ -50,15 +50,21 @@ router.patch('/:id', (req, res) => {
     .then(album => {
       album.name = validText(req.body.name) ? req.body.name : album.name;
       album.authorId = validText(req.body.authorId) ? req.body.authorId : album.authorId;
+      album.description = validText(req.body.description) ? req.body.description : album.description;
 
       album.save().then(album => res.json(album));
     });
 });
 
 router.delete('/:id', (req, res) => {
+  //find media tied to specific album and delete 
   Album.findById(req.params.id)
     .then(album => {
       album.remove().then(album => res.json(album));
+      const mediaFiles = Media.find({ albumId: album.id });
+      mediaFiles.forEach( media => {
+        media.remove()
+      });
     })
     .catch(err =>
       res.status(404).json({ noalbumfound: 'No album found with that ID' })

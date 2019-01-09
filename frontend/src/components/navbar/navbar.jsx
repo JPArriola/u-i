@@ -12,31 +12,26 @@ class Navbar extends React.Component {
   }
 
   render() {
-    return (
-      <div className="navbar-master">
+    return <div className="navbar-master">
         <div className="navbar-workingspace">
-          <Link to='/home' className="navbar-logo"></Link>
+          <Link to="/home" className="navbar-logo" />
           <div className="navbar-dates">
-            <Link to='/dates'>
-              dates
-            </Link>
+            <i className="fas fa-calendar-alt" />
+            <Link to="/dates">dates</Link>
           </div>
           <div className="navbar-stickys">
-            <Link to='/stickys'>
-              stickys
-            </Link>
+            <i className="fas fa-sticky-note" />
+            <Link to="/stickys">stickys</Link>
           </div>
           <div className="navbar-albums">
-            <Link to='/albums'>
-              albums
-            </Link>
+            <i className="fas fa-image" />
+            <Link to="/albums">albums</Link>
           </div>
-          <div className="navbar-logout" onClick={ this.handleLogout() }>
+          <div className="navbar-logout" onClick={this.handleLogout()}>
             Log Out
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

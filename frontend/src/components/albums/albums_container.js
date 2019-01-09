@@ -6,6 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 const mSTP = (state) => {
   let user = state.session.user;
   let albums = Object.values(state.albums);
+
   return {
     albums,
     user,
