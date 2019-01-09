@@ -4,8 +4,8 @@ import Media from './media';
 import {
   createMedia,
   getAllMedia,
-  getMediaItem
-  // deleteMedia
+  getMediaItem,
+  deleteMedia
 } from '../../actions/media_actions';
 
 import { openModal } from '../../actions/modal_actions';
@@ -22,9 +22,10 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
+    createMedia: (albumId, media) => dispatch(createMedia(albumId, media)),
     getAllMedia: (albumId) => dispatch(getAllMedia(albumId)),
     getMediaItem: (mediaId) => dispatch(getMediaItem(mediaId)),
-    // deleteMedia: (mediaId) => dispatch(deleteMedia(mediaId)),
+    deleteMedia: (mediaId) => dispatch(deleteMedia(mediaId)),
     openModal: (modal) => dispatch(openModal(modal))
   };
 };

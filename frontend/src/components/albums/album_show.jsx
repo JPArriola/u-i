@@ -14,6 +14,7 @@ class AlbumShow extends React.Component {
   render() {
     let album = this.props.album;
     if(!album) return null;
+
     return (
       <div>
         <Navbar />
