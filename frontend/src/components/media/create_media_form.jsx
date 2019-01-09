@@ -6,7 +6,7 @@ class CreateMediaForm extends React.Component {
     super(props);
     this.state = {
       albumId: this.props.albumId,
-      fileLink: null
+      file: null
     };
 
     this.handleUploadFile = this.handleUploadFile.bind(this);
@@ -21,6 +21,8 @@ class CreateMediaForm extends React.Component {
   handleSubmit() {
     return (e) => {
       e.preventDefault();
+      
+      this.props.createMedia(this.props.albumId, this.state.file);
       this.props.closeModal();
       this.props.getAllMedia(this.props.albumId);
     };
@@ -28,9 +30,11 @@ class CreateMediaForm extends React.Component {
 
   handleUploadFile = (e) => {
     let file = e.target.files[0];
-    let data = new FormData();
-    data.append('file', file);
-    this.props.createMedia(this.props.albumId, data);
+    const data = new FormData()
+    data.append('file', file)
+
+    this.setState({ file: data });
+    
   }
 
 
