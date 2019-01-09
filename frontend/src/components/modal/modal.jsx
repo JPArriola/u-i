@@ -5,7 +5,8 @@ import UpdateUserContainer from '../user/update_user_container';
 import CreateStickyFormContainer from '../stickys/create_sticky_form_container';
 import EditStickyFormContainer from '../stickys/edit_sticky_form_container';
 import CreateAlbumFormContainer from '../albums/create_album_form_container';
-// import MediaItemContainer from '../media/media_index_container';
+import MediaItemContainer from '../media/media_item_container';
+import CreateMediaFormContainer from '../media/create_media_form_container';
 import "../stylesheets/modal/modal.scss";
 
 function Modal({ modal, closeModal }) {
@@ -27,9 +28,12 @@ function Modal({ modal, closeModal }) {
     case "createAlbum":
       component = <CreateAlbumFormContainer />;
       break;
-    // case "viewMedia":
-    //   component = <MediaItemContainer />;
-    //   break;
+    case "addMedia":
+      component = <CreateMediaFormContainer />;
+      break;
+    case "viewMedia":
+      component = <MediaItemContainer />;
+      break;
     default:
       return null;
   }
