@@ -192,3 +192,13 @@
 #next-month-event {
   margin-top: 25px;
 }
+
+.empty-event {
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 25px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

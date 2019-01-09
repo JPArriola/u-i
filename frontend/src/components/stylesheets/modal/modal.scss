@@ -135,8 +135,8 @@
     border: none;
     width: 300px;
     resize: none;
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-image: url("../images/sticky-border.jpg");
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // background-image: url("../images/sticky-border.jpg");
     background-size: auto 100%;
     // background-color: lightcoral;
     padding: 20px 25px;
@@ -160,20 +160,19 @@
       margin: 10px 0;
       border: none;
       border-radius: 5px;
-      border: 1px solid white;
-      // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      color: white;
-      background-color: lightcoral;
-
+      color: lightcoral;
+      background-color: white;
+      
       .fa-telegram-plane {
         margin-left: 8px;
       }
     }
-  
+    
     button:hover {
       cursor: pointer;
       background-color: white;
       color: lightcoral;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
 }
@@ -232,6 +231,7 @@
     width: 300px;
     padding: 20px 25px;
     font-size: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   input::placeholder {
@@ -251,20 +251,19 @@
       margin: 10px 0;
       border: none;
       border-radius: 5px;
-      border: 1px solid white;
-      // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       color: white;
       background-color: lightcoral;
-
+      
       .fa-calendar-alt {
         margin-left: 8px;
       }
     }
-
+    
     button:hover {
       cursor: pointer;
-      background-color: white;
-      color: lightcoral;
+      background-color: lightcoral;
+      color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
 }

@@ -25,7 +25,6 @@ class DateItem extends React.Component {
     var event_month = months[parseInt(arr[1], 10) - 1];
     var event_yr = arr[0];
     var event_day = arr[2].substring(0,2);
-    var dateInput = date;
     return (
       <div>
         { event_month + " " + event_day + " " + event_yr }
