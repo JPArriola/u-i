@@ -41,5 +41,5 @@ export const editAlbum = (albumId) => dispatch => (
 
 export const deleteAlbum = (albumId) => dispatch => (
   AlbumAPIUtil.deleteAlbum(albumId)
-    .then(album => dispatch(removeAlbum(albumId)))
+    .then(album => dispatch(removeAlbum(album)))
 )

@@ -11,6 +11,12 @@ class AlbumShow extends React.Component {
     this.props.getAllMedia(this.props.albumId);
   }
 
+  handleDeleteAlbum() {
+    return (e) => {
+      this.props.deleteAlbum(this.props.albumId);
+    };
+  }
+
   render() {
     let album = this.props.album;
     if(!album) return null;
@@ -20,6 +26,7 @@ class AlbumShow extends React.Component {
         <Navbar />
         <div className="empty-line"></div>
         <div className="albumshow-master">
+
           <div className="albumshow-title">
             {album.name}
           </div>
@@ -29,8 +36,11 @@ class AlbumShow extends React.Component {
           <div className="albumshow-year">
             {album.date}
           </div>
+          <button className="create-album-button" onClick={() => this.props.openModal("addMedia")}>Add Media</button>
+          {/* <button className="delete-album-button" onClick={this.handleDeleteAlbum}>Delete Album</button> */}
+          {/* <i className="fas fa-trash-alt" onClick={this.handleDeleteAlbum}></i> */}
           <div className="albumshow-media-section">
-            <MediaContainer />
+            <MediaContainer album={album} />
           </div>
         </div>
       </div>

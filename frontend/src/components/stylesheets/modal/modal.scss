@@ -202,6 +202,7 @@
   }
 }
 
+
 .date-form {
   // font-family: "Arimo", sans-serif;
   letter-spacing: 0.5px;
@@ -264,6 +265,57 @@
       background-color: lightcoral;
       color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+}
+    
+.media-form {
+  font-family: "Arimo", sans-serif;
+  letter-spacing: 0.5px;
+  background-color: lightcoral;
+  max-width: 470px;
+  height: 150px;
+  padding: 20px;
+
+  input {
+    height: 50px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+
+  button {
+    height: 50px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+
+  .upload-media-button {
+    display: flex;
+    flex-direction: row-reverse;
+
+    button {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 15px;
+      height: 35px;
+      width: 100px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      border: 1px solid white;
+      // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      color: white;
+      background-color: lightcoral;
+
+      .fa {
+        margin-left: 8px;
+      }
+    }
+  
+    button:hover {
+      cursor: pointer;
+      background-color: white;
+      color: lightcoral;
     }
   }
 }

@@ -11,9 +11,6 @@ const mediaSchema = new Schema(
       type: String ,
       required: true
     }
-    // s3_key: { 
-    //   type: String
-    // }
   },
   {
     timestamps: true

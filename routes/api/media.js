@@ -36,6 +36,8 @@ router.post('/:album_id/upload', (req, res) => {
     cloudinary.uploader.upload(path,
       { public_id: `u-i-media/${uniqueFilename}` },
       function (err, mediaResult) {
+        console.log("MEDIA RESULT:::", mediaResult)
+        
         if (err) return res.send(err);
         
         // remove file from server
