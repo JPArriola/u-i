@@ -15,7 +15,6 @@ class UpdateUser extends React.Component {
   handleSubmit(){
     return(e) => {
       e.preventDefault();
-      console.warn(this.props)
       this.props.updateProfile(this.props.user.id, this.state)
       .then(this.props.closeModal());
     };
